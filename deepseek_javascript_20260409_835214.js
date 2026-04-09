@@ -14,8 +14,8 @@ const questionBank = [
     "correctAnswer": 0,
     "correctOption": "A",
     "explanation": "A 90° clockwise rotation turns L into a shape pointing downward-right (┘)."
-  },
-  // ... (paste the rest of the 885 items here exactly as provided in the user prompt)
+  }
+  // ... (paste the rest of your 885 items here exactly as provided)
 ];
 
 // ---------- DOM ELEMENTS ----------
@@ -25,13 +25,12 @@ const totalQuestionsStat = document.getElementById('total-questions-stat');
 const scoreStat = document.getElementById('score-stat');
 
 // ---------- STATE ----------
-let currentCategory = null;          // currently selected subCategory
+let currentCategory = null;          
 let filteredQuestions = [];
 let currentQuestionIndex = 0;
-let userAnswers = {};               // questionId -> selectedOptionIndex
+let userAnswers = {};               
 let score = 0;
 let timerInterval = null;
-let secondsElapsed = 0;
 const TIME_PER_QUESTION = 60;        // seconds
 
 // ---------- INITIALIZATION ----------
@@ -102,16 +101,15 @@ function loadCategoryQuestions(cat) {
 function renderQuestion(index) {
     stopTimer();
     if (!filteredQuestions.length || index >= filteredQuestions.length) {
-        // Quiz finished
         showCompletionScreen();
         return;
     }
 
     const q = filteredQuestions[index];
-    const progressPercent = ((index) / filteredQuestions.length) * 100;
+    // FIX: Progress percent now properly reflects current step (e.g. 1/10 is 10%, not 0%)
+    const progressPercent = ((index + 1) / filteredQuestions.length) * 100;
     const existingAnswer = userAnswers[q.id] !== undefined ? userAnswers[q.id] : null;
 
-    // Build options HTML
     let optionsHtml = '';
     q.options.forEach((opt, optIndex) => {
         const letter = String.fromCharCode(65 + optIndex);
@@ -153,7 +151,6 @@ function renderQuestion(index) {
 
     quizAreaEl.innerHTML = html;
 
-    // Attach option listeners
     document.querySelectorAll('.option-item').forEach(optEl => {
         optEl.addEventListener('click', (e) => {
             const selectedIdx = parseInt(optEl.dataset.optionIndex);
@@ -173,13 +170,10 @@ function renderQuestion(index) {
             currentQuestionIndex++;
             renderQuestion(currentQuestionIndex);
         } else {
-            // Finish quiz
             showCompletionScreen();
         }
     });
 
-    // Start fresh timer for this question
-    secondsElapsed = 0;
     startTimer(TIME_PER_QUESTION, q.id);
 }
 
@@ -187,24 +181,33 @@ function handleOptionSelect(questionId, selectedIdx) {
     const q = filteredQuestions.find(q => q.id === questionId);
     if (!q) return;
 
-    // If already answered, do nothing (prevent changing? We'll allow change for practice)
     const previousAnswer = userAnswers[questionId];
     if (previousAnswer !== undefined) {
-        // Remove previous score if correct
         if (previousAnswer === q.correctAnswer) {
             score--;
         }
     }
 
-    // Record new answer
     userAnswers[questionId] = selectedIdx;
     if (selectedIdx === q.correctAnswer) {
         score++;
     }
     updateScoreDisplay();
 
-    // Re-render to update selected style and show explanation
-    renderQuestion(currentQuestionIndex);
+    // FIX: Dynamically update the DOM classes instead of re-rendering the whole component.
+    // This stops the timer from resetting back to 60 seconds when a user selects an answer.
+    document.querySelectorAll('.option-item').forEach(optEl => {
+        if (parseInt(optEl.dataset.optionIndex) === selectedIdx) {
+            optEl.classList.add('selected');
+        } else {
+            optEl.classList.remove('selected');
+        }
+    });
+
+    const explanationBox = document.getElementById('explanation-box');
+    if (explanationBox) {
+        explanationBox.classList.add('show');
+    }
 }
 
 function updateScoreDisplay() {
@@ -234,14 +237,8 @@ function startTimer(seconds, questionId) {
         updateTimerDisplay();
 
         if (remaining <= 0) {
-            // Time's up: auto move to next if no answer?
             clearInterval(timerInterval);
             timerInterval = null;
-            // If no answer selected, just move to next (or mark as wrong)
-            const q = filteredQuestions[currentQuestionIndex];
-            if (userAnswers[q.id] === undefined) {
-                // Auto-mark incorrect? Not required; simply move on.
-            }
             if (currentQuestionIndex < filteredQuestions.length - 1) {
                 currentQuestionIndex++;
                 renderQuestion(currentQuestionIndex);
@@ -285,7 +282,6 @@ function showCompletionScreen() {
         if (currentCategory) loadCategoryQuestions(currentCategory);
     });
     document.getElementById('back-categories-btn').addEventListener('click', () => {
-        // Reset to welcome
         quizAreaEl.innerHTML = `<div class="welcome-message"><i class="fas fa-brain"></i><h2>Ready for liftoff</h2><p>Select a category from the left to begin your aptitude sequence.</p></div>`;
         currentCategory = null;
         document.querySelectorAll('.category-item').forEach(el => el.classList.remove('active'));
@@ -293,10 +289,4 @@ function showCompletionScreen() {
     });
 }
 
-// ---------- HELPER: If you want to directly embed the rest of JSON, paste here ----------
-// For brevity in this answer, I'm including only the first item.
-// YOU MUST PASTE THE ENTIRE 885-ITEM ARRAY ABOVE (replace the placeholder comment).
-// ----------------------------------------------------------------------
-
-// Start the app
 init();
