@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>SUPERSONIC · Aptitude Matrix</title>
+    <!-- Google Fonts: Clean, technical sans-serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0a0c10;
+            color: #ffffff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* --- VIDEO BACKGROUND --- */
+        .video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -2;
+            object-fit: cover;
+            opacity: 0.45;
+            filter: brightness(0.6) contrast(1.1);
+        }
+
+        /* Fallback gradient if video fails */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, #1a2a4f, #05080f);
+            z-index: -3;
+        }
+
+        /* --- GLASS COMPONENTS --- */
+        .glass-panel {
+            background: rgba(10, 20, 30, 0.35);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 200, 255, 0.15);
+            border-radius: 28px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(0, 230, 250, 0.1) inset;
+        }
+
+        .glass-card {
+            background: rgba(15, 25, 35, 0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 180, 230, 0.2);
+            border-radius: 20px;
+            transition: all 0.25s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(20, 40, 60, 0.6);
+            border-color: rgba(0, 230, 250, 0.4);
+            box-shadow: 0 0 25px rgba(0, 200, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* --- LAYOUT --- */
+        .app-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 1.8rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff, #a0e0ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo span {
+            font-weight: 300;
+            color: #00e5ff;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: right;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8a9cb0;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #00e5ff;
+            line-height: 1.2;
+            font-family: 'Space Grotesk', monospace;
+        }
+
+        /* Main layout: sidebar + content */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 25px;
+        }
+
+        /* Sidebar Categories */
+        .categories-sidebar {
+            padding: 24px 16px;
+            height: fit-content;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+        }
+
+        .sidebar-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #00e5ff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .category-list {
+            list-style: none;
+        }
+
+        .category-item {
+            padding: 12px 16px;
+            margin-bottom: 6px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #c0d0e0;
+            transition: all 0.15s;
+            border: 1px solid transparent;
+        }
+
+        .category-item i {
+            width: 20px;
+            color: #00b4d8;
+            font-size: 1rem;
+        }
+
+        .category-item.active {
+            background: rgba(0, 200, 255, 0.15);
+            border-color: #00e5ff;
+            color: white;
+            box-shadow: 0 0 15px rgba(0, 230, 250, 0.2);
+        }
+
+        .category-item:hover:not(.active) {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .category-count {
+            margin-left: auto;
+            font-size: 0.8rem;
+            background: rgba(0,0,0,0.3);
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        /* Main Question Panel */
+        .question-panel {
+            padding: 30px;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .progress-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .question-tag {
+            background: #00e5ff22;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            border: 1px solid #00e5ff44;
+        }
+
+        .timer-box {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #ffffff;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 20px;
+            border-radius: 60px;
+            border: 1px solid #00e5ff66;
+            backdrop-filter: blur(5px);
+        }
+
+        .timer-box.warning {
+            color: #ffaa00;
+            border-color: #ffaa00;
+            box-shadow: 0 0 15px #ffaa0050;
+        }
+
+        .timer-box.danger {
+            color: #ff3a3a;
+            border-color: #ff3a3a;
+            box-shadow: 0 0 15px #ff3a3a50;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin: 15px 0 25px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.3s;
+            box-shadow: 0 0 10px #00c6ff;
+        }
+
+        /* Question Content */
+        .question-text {
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 35px;
+            color: #ffffff;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .option-item {
+            padding: 20px 24px;
+            border-radius: 18px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1.5px solid rgba(255,255,255,0.1);
+            transition: all 0.15s;
+        }
+
+        .option-prefix {
+            width: 32px;
+            height: 32px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #00e5ff;
+            border: 1px solid #00e5ff55;
+        }
+
+        .option-item.selected {
+            background: rgba(0, 200, 255, 0.2);
+            border-color: #00e5ff;
+            box-shadow: 0 0 20px rgba(0,230,250,0.3);
+            transform: scale(1.01);
+        }
+
+        .option-item.selected .option-prefix {
+            background: #00e5ff;
+            color: #0a0c10;
+        }
+
+        /* Explanation Box */
+        .explanation-box {
+            margin-top: 25px;
+            padding: 20px 24px;
+            background: rgba(0,0,0,0.25);
+            border-left: 6px solid #00e5ff;
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            display: none;
+        }
+
+        .explanation-box.show {
+            display: block;
+        }
+
+        .explanation-title {
+            font-weight: 600;
+            color: #00e5ff;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        /* Action Buttons */
+        .action-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: transparent;
+            color: white;
+            border: 1.5px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-primary {
+            background: #00e5ff;
+            color: #0a0c10;
+            border: none;
+            box-shadow: 0 0 20px #00e5ff80;
+        }
+
+        .btn-primary:hover {
+            background: #33eaff;
+            box-shadow: 0 0 30px #00e5ff;
+            transform: scale(1.02);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: #00e5ff;
+        }
+
+        .btn:disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        /* Empty / Welcome State */
+        .welcome-message {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .welcome-message i {
+            font-size: 4rem;
+            color: #00e5ff;
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .categories-sidebar { max-height: 300px; }
+            .options-container { grid-template-columns: 1fr; }
+            .question-text { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background video (free stock from Mixkit) -->
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-background-4k-2330-large.mp4" type="video/mp4">
+    </video>
+    <div class="bg-gradient"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header glass-panel">
+            <div class="logo">
+                <h1>SUPERSONIC<span> // APTITUDE MATRIX</span></h1>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-label">QUESTIONS</div>
+                    <div class="stat-value" id="total-questions-stat">885</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">SCORE</div>
+                    <div class="stat-value" id="score-stat">0</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Sidebar Categories -->
+            <aside class="categories-sidebar glass-panel">
+                <div class="sidebar-title"><i class="fas fa-cube" style="margin-right: 8px;"></i> MODULES</div>
+                <ul class="category-list" id="category-list">
+                    <!-- Dynamically populated -->
+                </ul>
+            </aside>
+
+            <!-- Question Panel -->
+            <main class="question-panel glass-panel" id="question-panel">
+                <div id="quiz-area">
+                    <!-- Default welcome -->
+                    <div class="welcome-message">
+                        <i class="fas fa-brain"></i>
+                        <h2 style="margin-bottom: 16px;">Ready for liftoff</h2>
+                        <p style="color: #b0c7de;">Select a category from the left to begin your aptitude sequence.</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
