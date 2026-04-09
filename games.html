@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Cognitive Training System</title>
+    <style>
+        /* Global & Typography */
+        * {
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 100% Fit to Screen & Animated Sky Background */
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden; /* Prevents scrolling */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(-45deg, #e0f2fe, #ffffff, #f0f9ff, #bae6fd);
+            background-size: 400% 400%;
+            animation: skyDrift 15s ease infinite;
+            color: #111111;
+        }
+
+        @keyframes skyDrift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Main App Container */
+        .app-container {
+            width: 95vw;
+            max-width: 900px;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header & Progress */
+        header {
+            text-align: center;
+            padding: 10px;
+            flex-shrink: 0;
+        }
+        h1 { font-size: 26px; font-weight: bold; margin-bottom: 5px; }
+        h2 { font-size: 16px; color: #444; font-weight: normal; }
+        
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background-color: #e2e8f0;
+            margin: 10px auto;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #0284c7;
+            transition: width 0.5s ease, background-color 0.5s ease;
+        }
+
+        /* Main Card Layout - Fills Remaining Space */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        /* Screen Management */
+        .screen { display: none; opacity: 0; transition: opacity 0.3s ease; width: 100%; }
+        .screen.active { display: block; opacity: 1; }
+
+        /* General UI Elements */
+        h3 { font-size: 22px; margin-bottom: 10px; color: #0f172a; }
+        p.instructions { margin-bottom: 15px; font-size: 16px; color: #334155; line-height: 1.4; }
+        .timer { font-size: 20px; font-weight: bold; color: #b91c1c; margin-bottom: 15px; }
+        
+        button {
+            background-color: #ffffff;
+            border: 1px solid #334155;
+            color: #334155;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin: 10px 5px;
+            border-radius: 6px;
+        }
+        button:hover { background-color: #f1f5f9; }
+        button.primary { background-color: #0284c7; color: white; border: none; }
+        button.primary:hover { background-color: #0369a1; }
+        
+        input[type="text"], input[type="number"] {
+            padding: 10px; font-size: 18px; border: 1px solid #94a3b8;
+            border-radius: 6px; text-align: center; margin: 10px 0; width: 200px;
+        }
+
+        /* --- Game Specific Styles --- */
+        
+        /* Game 1: Logic */
+        .logic-grid {
+            display: grid; grid-template-columns: repeat(4, 60px);
+            gap: 2px; justify-content: center; margin: 10px auto; background: #333; padding: 2px;
+        }
+        .logic-cell {
+            width: 60px; height: 60px; background: white;
+            display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: bold;
+        }
+        .logic-cell input { width: 100%; height: 100%; border: none; font-size: 22px; color: #0284c7; outline:none; margin:0;}
+
+        /* Game 2: Anagram */
+        .anagram-word { font-size: 32px; letter-spacing: 5px; font-weight: bold; margin: 20px 0; color: #0f172a; }
+
+        /* Game 3: Memory (Upgraded to 4x4) */
+        .memory-grid {
+            display: grid; grid-template-columns: repeat(4, 60px);
+            gap: 5px; justify-content: center; margin: 15px auto;
+        }
+        .memory-cell {
+            width: 60px; height: 60px; background-color: #e2e8f0;
+            border: 2px solid #cbd5e1; cursor: pointer; transition: background-color 0.2s; border-radius: 4px;
+        }
+        .memory-cell.highlight { background-color: #0284c7; border-color: #0369a1; }
+
+        /* Game 4: Spatial Orientation (NEW) */
+        .compass-box {
+            border: 2px solid #334155; border-radius: 50%; width: 120px; height: 120px;
+            display: flex; align-items: center; justify-content: center; margin: 10px auto;
+            font-size: 24px; font-weight: bold; background: #f8fafc;
+        }
+
+        /* Game 5: Pattern */
+        .pattern-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 20px 0; }
+        .pattern-item {
+            font-size: 36px; cursor: pointer; padding: 15px; background: #f1f5f9; border: 2px solid transparent; border-radius: 8px;
+        }
+        .pattern-item:hover { border-color: #94a3b8; }
+
+        /* Game 6: Go/No-Go Reaction */
+        .reaction-box {
+            width: 200px; height: 150px; background-color: #94a3b8; margin: 15px auto;
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 20px; font-weight: bold; cursor: pointer; transition: background-color 0.1s;
+        }
+
+        /* Game 7: Target Tracking (NEW) */
+        .radar-zone {
+            width: 100%; max-width: 400px; height: 250px; background: #0f172a; border-radius: 8px;
+            margin: 10px auto; position: relative; overflow: hidden; border: 2px solid #334155;
+        }
+        .radar-target {
+            width: 30px; height: 30px; background: #10b981; border-radius: 50%;
+            position: absolute; cursor: crosshair; transition: all 0.3s linear;
+            box-shadow: 0 0 10px #10b981;
+        }
+
+        /* Game 8: Multi-task */
+        .multi-container { display: flex; justify-content: center; gap: 30px; align-items: center; margin: 15px 0; }
+        .multi-box {
+            width: 90px; height: 90px; border: 3px solid #334155; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: bold;
+        }
+
+        /* Results */
+        .results-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 15px; }
+        .results-table th, .results-table td { border: 1px solid #cbd5e1; padding: 8px; text-align: center; }
+        .results-table th { background-color: #f1f5f9; }
+        .results-container { width: 100%; max-height: 50vh; overflow-y: auto; }
+
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>Cognitive Training System</h1>
+            <h2>Advanced Pilot Aptitude Module</h2>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </header>
+
+        <main class="card">
+            
+            <div id="screen-intro" class="screen active">
+                <h3>Pre-Flight Assessment</h3>
+                <p class="instructions">This advanced simulator evaluates sequential logic, spatial orientation, target tracking, and multi-tasking under time pressure.</p>
+                <p class="instructions">You will complete <strong>8 continuous modules</strong>. The interface is locked. Maximize focus.</p>
+                <button class="primary" onclick="startTraining()">Initialize Sequence</button>
+            </div>
+
+            <div id="screen-transition" class="screen">
+                <h3 id="transition-text" style="font-size: 28px; color: #0284c7;">Loading Next Module...</h3>
+            </div>
+
+            <div id="screen-game1" class="screen">
+                <h3>Module 1: Deductive Logic</h3>
+                <p class="instructions">Fill the missing number (1-4) in each row to complete the sequence.</p>
+                <div class="timer" id="timer-game1">Time: 30s</div>
+                <div class="logic-grid" id="logicGrid"></div>
+                <button class="primary" onclick="submitGame1()">Submit Solution</button>
+            </div>
+
+            <div id="screen-game2" class="screen">
+                <h3>Module 2: Verbal Processing</h3>
+                <p class="instructions">Unscramble the advanced aviation terminology.</p>
+                <div class="timer" id="timer-game2">Time: 25s</div>
+                <div class="anagram-word" id="anagramDisplay"></div>
+                <input type="text" id="anagramInput" placeholder="Enter word..." autocomplete="off">
+                <br>
+                <button class="primary" onclick="submitGame2()">Submit Word</button>
+            </div>
+
+            <div id="screen-game3" class="screen">
+                <h3>Module 3: Advanced Visual Memory</h3>
+                <p class="instructions" id="memoryInstructions">Memorize the 5 highlighted sectors.</p>
+                <div class="timer" id="timer-game3">Time: 15s</div>
+                <div class="memory-grid" id="memoryGrid"></div>
+                <button class="primary" id="memorySubmitBtn" style="display:none;" onclick="submitGame3()">Verify Pattern</button>
+            </div>
+
+            <div id="screen-game4" class="screen">
+                <h3>Module 4: Spatial Orientation</h3>
+                <p class="instructions">Your aircraft is flying a heading of <strong id="spatialHeading">090° (East)</strong>.<br>ATC calls traffic at your <strong id="spatialClock">9 o'clock</strong>.<br>What is the heading of the traffic?</p>
+                <div class="timer" id="timer-game4">Time: 20s</div>
+                <div class="compass-box" id="compassIcon">✈️</div>
+                <div id="spatialOptions"></div>
+            </div>
+
+            <div id="screen-game5" class="screen">
+                <h3>Module 5: Anomaly Detection</h3>
+                <p class="instructions">Identify the symbol that breaks the structural pattern.</p>
+                <div class="timer" id="timer-game5">Time: 15s</div>
+                <div class="pattern-container" id="patternContainer"></div>
+            </div>
+
+            <div id="screen-game6" class="screen">
+                <h3>Module 6: Go / No-Go Reaction</h3>
+                <p class="instructions">Click the box ONLY when it turns <strong>GREEN</strong>. Ignore Blue and Red.</p>
+                <div class="timer" id="timer-game6">Time: 20s</div>
+                <div class="reaction-box" id="reactionBox" onmousedown="handleReactionClick()">STANDBY</div>
+                <p id="reactionResult" style="font-weight:bold; margin-top:10px;"></p>
+            </div>
+
+            <div id="screen-game7" class="screen">
+                <h3>Module 7: Target Tracking</h3>
+                <p class="instructions">Click the moving target as many times as possible before time runs out.</p>
+                <div class="timer" id="timer-game7">Time: 15s</div>
+                <div class="radar-zone" id="radarZone">
+                    <div class="radar-target" id="radarTarget" onmousedown="handleTargetClick()"></div>
+                </div>
+                <p>Hits: <span id="targetHits" style="font-weight:bold; color:#0284c7;">0</span></p>
+            </div>
+
+            <div id="screen-game8" class="screen">
+                <h3>Module 8: Overload Management</h3>
+                <p class="instructions" style="font-size:14px;">
+                    1. Solve the math problem.<br>
+                    2. Click "Engage" <b>ONLY</b> when the left square is BLUE.<br>
+                </p>
+                <div class="timer" id="timer-game8">Time: 20s</div>
+                
+                <div class="multi-container">
+                    <div class="multi-box" id="multiColorBox" style="background:#ddd;"></div>
+                    <div class="multi-box" id="multiNumberBox">7</div>
+                    <button id="multiCaptureBtn" onclick="handleMultiCapture()">ENGAGE</button>
+                </div>
+
+                <div style="margin-top: 10px;">
+                    <label id="multiMathLabel" style="font-weight:bold; font-size:20px;">14 * 2 = </label>
+                    <input type="number" id="multiMathInput" style="width: 100px;">
+                </div>
+                <button class="primary" onclick="submitGame8()">Submit & Conclude</button>
+            </div>
+
+            <div id="screen-results" class="screen">
+                <h3>Post-Flight Debriefing</h3>
+                <div class="results-container">
+                    <table class="results-table" id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th>Module</th>
+                                <th>Score (0-100)</th>
+                                <th>Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody"></tbody>
+                    </table>
+                </div>
+                <h2 style="margin-top:15px; font-size:22px; color:#0f172a;">Total Score: <span id="finalTotalScore">0</span> / 800</h2>
+                <button class="primary" onclick="location.reload()">Restart Training Sequence</button>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        /* --- Core State & Navigation --- */
+        const state = { currentScreen: 'intro', scores: {}, activeIntervals: [] };
+        const screens = ['intro', 'game1', 'game2', 'game3', 'game4', 'game5', 'game6', 'game7', 'game8', 'results'];
+        
+        function switchScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(`screen-${screenId}`).classList.add('active');
+            state.currentScreen = screenId;
+
+            let index = screens.indexOf(screenId);
+            if(index > 0) {
+                let pct = ((index - 1) / (screens.length - 2)) * 100;
+                let bar = document.getElementById('progressBar');
+                bar.style.width = pct + '%';
+                if(pct === 100) bar.style.backgroundColor = '#10b981'; // Green at end
+            }
+        }
+
+        function transitionTo(nextScreenId, moduleName) {
+            clearAllIntervals();
+            switchScreen('transition');
+            document.getElementById('transition-text').innerText = moduleName ? `Initializing ${moduleName}...` : 'Processing Telemetry...';
+            
+            setTimeout(() => {
+                switchScreen(nextScreenId);
+                initializeGame(nextScreenId);
+            }, 1800);
+        }
+
+        function startTraining() { transitionTo('game1', 'Module 1'); }
+
+        function startTimer(duration, displayElementId, onTimeout) {
+            let timeRemaining = duration;
+            document.getElementById(displayElementId).innerText = `Time: ${timeRemaining}s`;
+            let timer = setInterval(() => {
+                timeRemaining--;
+                document.getElementById(displayElementId).innerText = `Time: ${timeRemaining}s`;
+                if (timeRemaining <= 0) { clearInterval(timer); onTimeout(); }
+            }, 1000);
+            state.activeIntervals.push(timer);
+            return timer;
+        }
+
+        function clearAllIntervals() {
+            state.activeIntervals.forEach(clearInterval);
+            state.activeIntervals = [];
+        }
+
+        function recordScore(game, score, feedback) {
+            state.scores[game] = { score: Math.round(score), feedback };
+        }
+
+        function initializeGame(gameId) {
+            if (gameId === 'game1') initGame1();
+            if (gameId === 'game2') initGame2();
+            if (gameId === 'game3') initGame3();
+            if (gameId === 'game4') initGame4();
+            if (gameId === 'game5') initGame5();
+            if (gameId === 'game6') initGame6();
+            if (gameId === 'game7') initGame7();
+            if (gameId === 'game8') initGame8();
+            if (gameId === 'results') generateResults();
+        }
+
+        /* --- Game 1: Deductive Logic (4x4) --- */
+        const logicPuzzle = [ [1,2,3,''], [4,'',2,1], ['',4,1,2], [2,1,'',3] ];
+        const logicSolution = [4, 3, 3, 4];
+        
+        function initGame1() {
+            const grid = document.getElementById('logicGrid');
+            grid.innerHTML = '';
+            for (let r = 0; r < 4; r++) {
+                for (let c = 0; c < 4; c++) {
+                    let cell = document.createElement('div');
+                    cell.className = 'logic-cell';
+                    if (logicPuzzle[r][c] === '') {
+                        cell.innerHTML = `<input type="number" min="1" max="4" id="logic-ans-${r}">`;
+                    } else {
+                        cell.innerText = logicPuzzle[r][c];
+                    }
+                    grid.appendChild(cell);
+                }
+            }
+            startTimer(30, 'timer-game1', submitGame1);
+        }
+
+        function submitGame1() {
+            let correct = 0;
+            for(let i=0; i<4; i++) {
+                let val = document.getElementById(`logic-ans-${i}`)?.value;
+                if (parseInt(val) === logicSolution[i]) correct++;
+            }
+            let score = (correct / 4) * 100;
+            recordScore('Logic', score, `${correct}/4 sequences correct`);
+            transitionTo('game2', 'Module 2');
+        }
+
+        /* --- Game 2: Anagram --- */
+        const words = ['TURBULENCE', 'ALTIMETER', 'FUSELAGE', 'ELEVATOR', 'AILERON'];
+        let targetWord = "";
+        
+        function initGame2() {
+            targetWord = words[Math.floor(Math.random() * words.length)];
+            let scrambled = targetWord.split('').sort(() => 0.5 - Math.random()).join('');
+            document.getElementById('anagramDisplay').innerText = scrambled;
+            document.getElementById('anagramInput').value = '';
+            document.getElementById('anagramInput').focus();
+            startTimer(25, 'timer-game2', submitGame2);
+        }
+
+        function submitGame2() {
+            let userWord = document.getElementById('anagramInput').value.toUpperCase().trim();
+            let score = userWord === targetWord ? 100 : 0;
+            recordScore('Verbal', score, score === 100 ? "Decoded" : `Failed (was ${targetWord})`);
+            transitionTo('game3', 'Module 3');
+        }
+
+        /* --- Game 3: Visual Memory (4x4) --- */
+        let memTargets = []; let memUser = [];
+        
+        function initGame3() {
+            const grid = document.getElementById('memoryGrid');
+            grid.innerHTML = '';
+            document.getElementById('memoryInstructions').innerText = "Memorize the 5 highlighted sectors.";
+            document.getElementById('memorySubmitBtn').style.display = 'none';
+            memTargets = []; memUser = [];
+
+            for(let i=0; i<16; i++) {
+                let cell = document.createElement('div');
+                cell.className = 'memory-cell';
+                cell.id = `mem-${i}`;
+                cell.onclick = () => toggleMemCell(i);
+                grid.appendChild(cell);
+            }
+
+            while(memTargets.length < 5) {
+                let r = Math.floor(Math.random() * 16);
+                if(!memTargets.includes(r)) memTargets.push(r);
+            }
+            memTargets.forEach(idx => document.getElementById(`mem-${idx}`).classList.add('highlight'));
+
+            setTimeout(() => {
+                document.querySelectorAll('.memory-cell').forEach(c => c.classList.remove('highlight'));
+                document.getElementById('memoryInstructions').innerText = "Recreate the pattern.";
+                document.getElementById('memorySubmitBtn').style.display = 'inline-block';
+                startTimer(15, 'timer-game3', submitGame3);
+            }, 3500);
+        }
+
+        function toggleMemCell(idx) {
+            if(document.getElementById('memoryInstructions').innerText.includes("Memorize")) return;
+            let cell = document.getElementById(`mem-${idx}`);
+            cell.classList.toggle('highlight');
+            if(memUser.includes(idx)) memUser = memUser.filter(i => i !== idx);
+            else memUser.push(idx);
+        }
+
+        function submitGame3() {
+            let matches = 0;
+            memTargets.forEach(idx => { if(memUser.includes(idx)) matches++; });
+            let mistakes = Math.abs(memUser.length - 5);
+            let score = Math.max(0, (matches * 20) - (mistakes * 10));
+            recordScore('Memory', score, `${matches}/5 matched`);
+            transitionTo('game4', 'Module 4');
+        }
+
+        /* --- Game 4: Spatial Orientation (NEW) --- */
+        let spatialAns = "";
+        function initGame4() {
+            const headings = [ {h: '090° (East)', v: 90}, {h: '180° (South)', v: 180}, {h: '270° (West)', v: 270}, {h: '360° (North)', v: 360} ];
+            const clocks = [ {c: '3 o\'clock', v: 90}, {c: '9 o\'clock', v: -90}, {c: '6 o\'clock', v: 180} ];
+            
+            let base = headings[Math.floor(Math.random() * headings.length)];
+            let clock = clocks[Math.floor(Math.random() * clocks.length)];
+            
+            document.getElementById('spatialHeading').innerText = base.h;
+            document.getElementById('spatialClock').innerText = clock.c;
+            
+            let calc = (base.v + clock.v) % 360;
+            if (calc <= 0) calc += 360;
+            let ansStr = calc.toString().padStart(3, '0') + '°';
+            if(ansStr === "360°") ansStr = "360° / 000°";
+            spatialAns = ansStr;
+
+            let opts = [ansStr, "090°", "180°", "270°", "360° / 000°"].filter((v,i,a)=>a.indexOf(v)===i);
+            while(opts.length < 4) opts.push(["045°", "135°", "225°", "315°"][Math.floor(Math.random()*4)]);
+            opts = opts.sort(()=>0.5-Math.random()).slice(0,4);
+            if(!opts.includes(ansStr)) opts[0] = ansStr;
+            opts = opts.sort(()=>0.5-Math.random());
+
+            const container = document.getElementById('spatialOptions');
+            container.innerHTML = '';
+            opts.forEach(o => {
+                let btn = document.createElement('button');
+                btn.innerText = o;
+                btn.onclick = () => submitGame4(o === spatialAns);
+                container.appendChild(btn);
+            });
+
+            startTimer(20, 'timer-game4', () => submitGame4(false));
+        }
+
+        function submitGame4(isCorrect) {
+            recordScore('Spatial', isCorrect ? 100 : 0, isCorrect ? "Orientation Confirmed" : "Disorientation Detected");
+            transitionTo('game5', 'Module 5');
+        }
+
+        /* --- Game 5: Pattern Recognition --- */
+        function initGame5() {
+            const container = document.getElementById('patternContainer');
+            container.innerHTML = '';
+            const symbols = ['✈️', '🚁', '🚀', '🛸'];
+            let baseSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+            let oddSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+            while(oddSymbol === baseSymbol) oddSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+
+            let arr = [baseSymbol, baseSymbol, baseSymbol, baseSymbol, oddSymbol];
+            arr = arr.sort(() => 0.5 - Math.random());
+
+            arr.forEach(sym => {
+                let el = document.createElement('div');
+                el.className = 'pattern-item';
+                el.innerText = sym;
+                el.onclick = () => submitGame5(sym === oddSymbol);
+                container.appendChild(el);
+            });
+            startTimer(15, 'timer-game5', () => submitGame5(false));
+        }
+
+        function submitGame5(isCorrect) {
+            recordScore('Anomaly', isCorrect ? 100 : 0, isCorrect ? "Anomaly Isolated" : "Target Missed");
+            transitionTo('game6', 'Module 6');
+        }
+
+        /* --- Game 6: Go/No-Go Reaction --- */
+        let goScore = 0; let goErrors = 0;
+        function initGame6() {
+            goScore = 0; goErrors = 0;
+            document.getElementById('reactionResult').innerText = '';
+            let box = document.getElementById('reactionBox');
+            let colors = ['#10b981', '#3b82f6', '#ef4444']; // Green(Go), Blue(No), Red(No)
+            
+            let loop = setInterval(() => {
+                let c = colors[Math.floor(Math.random() * colors.length)];
+                box.style.backgroundColor = c;
+            }, 800);
+            
+            state.activeIntervals.push(loop);
+            startTimer(20, 'timer-game6', submitGame6);
+        }
+
+        function handleReactionClick() {
+            let bg = document.getElementById('reactionBox').style.backgroundColor;
+            if(bg === 'rgb(16, 185, 129)') { goScore++; document.getElementById('reactionResult').innerText = "GOOD!"; document.getElementById('reactionResult').style.color = "#10b981"; }
+            else { goErrors++; document.getElementById('reactionResult').innerText = "ERROR!"; document.getElementById('reactionResult').style.color = "#ef4444"; }
+        }
+
+        function submitGame6() {
+            let s = Math.max(0, (goScore * 15) - (goErrors * 20));
+            if(s>100) s=100;
+            recordScore('Go/No-Go', s, `Hits: ${goScore}, Errors: ${goErrors}`);
+            transitionTo('game7', 'Module 7');
+        }
+
+        /* --- Game 7: Target Tracking (NEW) --- */
+        let trackingHits = 0;
+        function initGame7() {
+            trackingHits = 0;
+            document.getElementById('targetHits').innerText = '0';
+            let target = document.getElementById('radarTarget');
+            
+            let loop = setInterval(() => {
+                // Radar area is 400x250, target is 30x30. Safe bounds: X:0-370, Y:0-220
+                let x = Math.floor(Math.random() * 90);
+                let y = Math.floor(Math.random() * 85);
+                target.style.left = x + '%';
+                target.style.top = y + '%';
+            }, 700);
+            
+            state.activeIntervals.push(loop);
+            startTimer(15, 'timer-game7', submitGame7);
+        }
+
+        function handleTargetClick() {
+            trackingHits++;
+            document.getElementById('targetHits').innerText = trackingHits;
+            document.getElementById('radarTarget').style.backgroundColor = '#f59e0b';
+            setTimeout(() => document.getElementById('radarTarget').style.backgroundColor = '#10b981', 100);
+        }
+
+        function submitGame7() {
+            let score = Math.min(100, trackingHits * 12);
+            recordScore('Tracking', score, `${trackingHits} targets acquired`);
+            transitionTo('game8', 'Module 8');
+        }
+
+        /* --- Game 8: Multi-Task Overload --- */
+        let mCorrect = 0; let mTotalBlues = 0; let mMistakes = 0; let mAns = 0;
+
+        function initGame8() {
+            document.getElementById('multiMathInput').value = '';
+            mCorrect = 0; mTotalBlues = 0; mMistakes = 0;
+            
+            let n1 = Math.floor(Math.random() * 10) + 5;
+            let n2 = Math.floor(Math.random() * 10) + 2;
+            mAns = n1 * n2;
+            document.getElementById('multiMathLabel').innerText = `${n1} × ${n2} = `;
+
+            let box = document.getElementById('multiColorBox');
+            let num = document.getElementById('multiNumberBox');
+            let colors = ['#3b82f6', '#ef4444', '#f59e0b']; // Blue(Go), Red, Orange
+
+            let loop = setInterval(() => {
+                let c = colors[Math.floor(Math.random() * colors.length)];
+                box.style.backgroundColor = c;
+                if(c === '#3b82f6') mTotalBlues++;
+                num.innerText = Math.floor(Math.random() * 99);
+            }, 1000);
+
+            state.activeIntervals.push(loop);
+            startTimer(20, 'timer-game8', submitGame8);
+        }
+
+        function handleMultiCapture() {
+            let bg = document.getElementById('multiColorBox').style.backgroundColor;
+            if(bg === 'rgb(59, 130, 246)') mCorrect++; else mMistakes++;
+        }
+
+        function submitGame8() {
+            let mathIn = parseInt(document.getElementById('multiMathInput').value);
+            let mathPass = (mathIn === mAns);
+            
+            let mathScore = mathPass ? 50 : 0;
+            let capAcc = mTotalBlues > 0 ? (mCorrect / mTotalBlues) : 1;
+            let capScore = Math.max(0, (capAcc * 50) - (mMistakes * 10));
+
+            let total = Math.min(100, mathScore + capScore);
+            recordScore('Overload', total, `Math: ${mathPass?'Pass':'Fail'}, Focus: ${mCorrect}/${mTotalBlues}`);
+            transitionTo('results');
+        }
+
+        /* --- Results Generation --- */
+        function generateResults() {
+            const tbody = document.getElementById('resultsBody');
+            tbody.innerHTML = '';
+            let total = 0;
+
+            for(const [game, data] of Object.entries(state.scores)) {
+                let tr = document.createElement('tr');
+                tr.innerHTML = `<td><b>${game}</b></td><td>${data.score}</td><td>${data.feedback}</td>`;
+                tbody.appendChild(tr);
+                total += data.score;
+            }
+
+            document.getElementById('finalTotalScore').innerText = total;
+            document.getElementById('progressBar').style.width = '100%';
+        }
+    </script>
+
+</body>
+</html>
