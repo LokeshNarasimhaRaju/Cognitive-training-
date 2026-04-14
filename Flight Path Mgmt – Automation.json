@@ -1,0 +1,3201 @@
+Flight Path Mgmt – Automation 
+
+ 
+
+{ 
+
+  "category": "Logical Reasoning", 
+
+  "sub_category": "Rule Identification – Movement Logic", 
+
+  "type": "Multiple Choice", 
+
+  "questions": [ 
+
+    { 
+
+      "id": 1, 
+
+      "question": "Sequence: L, R, L, R, L, ? What is the next movement?", 
+
+      "options": ["R", "L", "F", "B"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "The sequence alternates between Left and Right." 
+
+    }, 
+
+    { 
+
+      "id": 2, 
+
+      "question": "Sequence: F, L, F, R, F, L, F, R, ? What is the next movement?", 
+
+      "options": ["F", "L", "R", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern repeats: F, L, F, R. Next starts with F again." 
+
+    }, 
+
+    { 
+
+      "id": 3, 
+
+      "question": "Sequence: L, L, R, R, L, L, R, ? What is the next movement?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "Pattern repeats in pairs: LL, RR. Next completes RR." 
+
+    }, 
+
+    { 
+
+      "id": 4, 
+
+      "question": "Sequence: F, L, L, F, R, R, F, L, L, ? What is the next movement?", 
+
+      "options": ["F", "R", "L", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern: F, LL, F, RR repeats. After LL comes F." 
+
+    }, 
+
+    { 
+
+      "id": 5, 
+
+      "question": "Sequence: L, F, R, L, F, R, L, F, ? What is the next movement?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "Repeating cycle: L, F, R." 
+
+    }, 
+
+    { 
+
+      "id": 6, 
+
+      "question": "Sequence: F, F, L, F, F, R, F, F, L, ? What is the next movement?", 
+
+      "options": ["F", "L", "R", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern: FF, L → FF, R → FF, L. Next starts with FF." 
+
+    }, 
+
+    { 
+
+      "id": 7, 
+
+      "question": "Sequence: L, R, F, L, R, F, L, R, ? What is the next movement?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Repeating cycle: L, R, F." 
+
+    }, 
+
+    { 
+
+      "id": 8, 
+
+      "question": "Sequence: F, L, F, L, F, R, F, R, ? What is the next movement?", 
+
+      "options": ["F", "L", "R", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern: F alternates with pairs of L, then pairs of R." 
+
+    }, 
+
+    { 
+
+      "id": 9, 
+
+      "question": "Sequence: L, F, F, R, F, F, L, F, F, ? What is the next movement?", 
+
+      "options": ["R", "L", "F", "B"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern: L, FF → R, FF → L, FF. Next is R." 
+
+    }, 
+
+    { 
+
+      "id": 10, 
+
+      "question": "Sequence: F, L, R, F, L, R, F, L, R, F, ? What is the next movement?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Repeating pattern: F, L, R." 
+
+    }, 
+
+    { 
+
+      "id": 11, 
+
+      "question": "Sequence: L, R, L, F, L, R, L, F, ? What is the next movement?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern: L, R, L, F repeats." 
+
+    }, 
+
+    { 
+
+      "id": 12, 
+
+      "question": "Sequence: F, F, L, R, F, F, L, R, F, ? What is the next movement?", 
+
+      "options": ["F", "L", "R", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Repeating pattern: FF, L, R." 
+
+    }, 
+
+    { 
+
+      "id": 13, 
+
+      "question": "Sequence: L, F, R, F, L, F, R, F, L, ? What is the next movement?", 
+
+      "options": ["F", "R", "L", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern: L, F, R, F repeats." 
+
+    }, 
+
+    { 
+
+      "id": 14, 
+
+      "question": "Sequence: F, L, L, R, R, F, L, L, R, R, ? What is the next movement?", 
+
+      "options": ["F", "L", "R", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern: F, LL, RR repeats." 
+
+    }, 
+
+    { 
+
+      "id": 15, 
+
+      "question": "Sequence: L, R, R, L, L, R, R, L, L, ? What is the next movement?", 
+
+      "options": ["R", "L", "F", "B"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern alternates: single L, double R, double L, double R..." 
+
+    } 
+
+  ] 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+{ 
+
+  "category": "Logical Reasoning", 
+
+  "sub_category": "Sequence Prediction – Movement Logic", 
+
+  "type": "Multiple Choice", 
+
+  "questions": [ 
+
+    { 
+
+      "id": 1, 
+
+      "question": "Sequence: L, R, L, R, L, ? What is the next movement?", 
+
+      "options": ["R", "L", "F", "B"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "The sequence alternates between Left and Right." 
+
+    }, 
+
+    { 
+
+      "id": 2, 
+
+      "question": "Sequence: F, L, F, R, F, L, F, ? What is the next movement?", 
+
+      "options": ["R", "F", "L", "B"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern repeats: F, L, F, R." 
+
+    }, 
+
+    { 
+
+      "id": 3, 
+
+      "question": "Sequence: L, L, R, R, L, L, R, ? What is the next movement?", 
+
+      "options": ["R", "L", "F", "B"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern repeats in pairs: LL, RR." 
+
+    }, 
+
+    { 
+
+      "id": 4, 
+
+      "question": "Sequence: F, L, L, F, R, R, F, L, L, ? What is the next movement?", 
+
+      "options": ["F", "R", "L", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern: F, LL, F, RR repeats." 
+
+    }, 
+
+    { 
+
+      "id": 5, 
+
+      "question": "Sequence: L, F, R, L, F, R, L, F, ? What is the next movement?", 
+
+      "options": ["R", "L", "F", "B"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Repeating cycle: L, F, R." 
+
+    }, 
+
+    { 
+
+      "id": 6, 
+
+      "question": "Sequence: F1, L1, F2, L2, F3, L3, ? What is the next movement?", 
+
+      "options": ["F4", "L4", "R4", "F3"], 
+
+      "correct_answer": "F4", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Forward steps increase by 1 after each Left turn." 
+
+    }, 
+
+    { 
+
+      "id": 7, 
+
+      "question": "Sequence: R, F, F, L, F, F, R, F, F, ? What is the next movement?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern alternates R and L with two F steps in between." 
+
+    }, 
+
+    { 
+
+      "id": 8, 
+
+      "question": "Sequence: (0,0) → (1,0) → (1,1) → (2,1) → (2,2) → ? What is the next position?", 
+
+      "options": ["(3,2)", "(2,3)", "(3,3)", "(1,2)"], 
+
+      "correct_answer": "(3,2)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern: move right, then up alternately." 
+
+    }, 
+
+    { 
+
+      "id": 9, 
+
+      "question": "Sequence: F2, R, F3, L, F4, R, F5, L, ? What is the next movement?", 
+
+      "options": ["F6", "R", "L", "F5"], 
+
+      "correct_answer": "F6", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Forward steps increase, and turns alternate R, L." 
+
+    }, 
+
+    { 
+
+      "id": 10, 
+
+      "question": "Sequence: L, R, F, L, R, F, L, R, F, ? What is the next movement?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Repeating pattern: L, R, F." 
+
+    }, 
+
+    { 
+
+      "id": 11, 
+
+      "question": "Sequence: F1, F2, L, F3, F4, L, F5, F6, ? What is the next movement?", 
+
+      "options": ["L", "F7", "R", "F6"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Two forward steps followed by a Left turn." 
+
+    }, 
+
+    { 
+
+      "id": 12, 
+
+      "question": "Sequence: B, L, F, R, B, L, F, R, ? What is the next movement?", 
+
+      "options": ["B", "L", "F", "R"], 
+
+      "correct_answer": "B", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Repeating cycle: B, L, F, R." 
+
+    }, 
+
+    { 
+
+      "id": 13, 
+
+      "question": "Sequence: F, L, F, L, F, R, F, R, F, ? What is the next movement?", 
+
+      "options": ["R", "L", "F", "B"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern: F alternates with LL then RR." 
+
+    }, 
+
+    { 
+
+      "id": 14, 
+
+      "question": "Sequence: (2,2) → (3,2) → (3,3) → (4,3) → (4,4) → (5,4) → ? What is the next position?", 
+
+      "options": ["(5,5)", "(6,4)", "(4,5)", "(6,5)"], 
+
+      "correct_answer": "(5,5)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern alternates right and up moves." 
+
+    }, 
+
+    { 
+
+      "id": 15, 
+
+      "question": "Sequence: L1, R2, L3, R4, L5, R6, ? What is the next movement?", 
+
+      "options": ["L7", "R7", "F7", "L6"], 
+
+      "correct_answer": "L7", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Alternating L and R with increasing step numbers." 
+
+    } 
+
+  ] 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+{ 
+
+  "category": "Logical Reasoning", 
+
+  "sub_category": "Pattern Recognition – Repeating Movement Patterns", 
+
+  "type": "Multiple Choice", 
+
+  "questions": [ 
+
+    { 
+
+      "id": 1, 
+
+      "question": "Sequence: L, R, F, L, R, F, L, R, F. What is the repeating pattern?", 
+
+      "options": ["L, R, F", "L, L, R", "R, F, L", "F, L, R, R"], 
+
+      "correct_answer": "L, R, F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "The sequence repeats every three steps: L, R, F." 
+
+    }, 
+
+    { 
+
+      "id": 2, 
+
+      "question": "Sequence: F, F, L, R, F, F, L, R, F, F. What comes next?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern repeats: F, F, L, R." 
+
+    }, 
+
+    { 
+
+      "id": 3, 
+
+      "question": "Sequence: L, L, R, F, L, L, R, F. What is the repeating block?", 
+
+      "options": ["L, L, R, F", "L, R, F", "L, L, R", "R, F, L"], 
+
+      "correct_answer": "L, L, R, F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "The sequence repeats every four elements." 
+
+    }, 
+
+    { 
+
+      "id": 4, 
+
+      "question": "Sequence: F1, L, F2, L, F1, L, F2, L. What comes next?", 
+
+      "options": ["F1", "F2", "L", "R"], 
+
+      "correct_answer": "F1", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern alternates between F1, L and F2, L." 
+
+    }, 
+
+    { 
+
+      "id": 5, 
+
+      "question": "Sequence: R, F, F, L, R, F, F, L, R. What is the repeating pattern?", 
+
+      "options": ["R, F, F, L", "F, F, L, R", "R, F, L", "F, L, R"], 
+
+      "correct_answer": "R, F, F, L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "The sequence repeats in blocks of four." 
+
+    }, 
+
+    { 
+
+      "id": 6, 
+
+      "question": "Sequence: L, F, R, F, L, F, R, F, L, F. What comes next?", 
+
+      "options": ["R", "F", "L", "B"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern: L, F, R, F repeats." 
+
+    }, 
+
+    { 
+
+      "id": 7, 
+
+      "question": "Sequence: F, L, L, R, R, F, L, L, R, R. What is the repeating block?", 
+
+      "options": ["F, L, L, R, R", "L, L, R, R", "F, L, R", "R, R, F"], 
+
+      "correct_answer": "F, L, L, R, R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "A 5-step repeating pattern is present." 
+
+    }, 
+
+    { 
+
+      "id": 8, 
+
+      "question": "Sequence: F1, F2, L, F1, F2, R, F1, F2, L. What comes next?", 
+
+      "options": ["F1", "F2", "R", "L"], 
+
+      "correct_answer": "F1", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern cycles: F1, F2, L → F1, F2, R." 
+
+    }, 
+
+    { 
+
+      "id": 9, 
+
+      "question": "Sequence: L, R, R, L, L, R, R, L, L. What comes next?", 
+
+      "options": ["R", "L", "F", "B"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern alternates between single L and double R blocks." 
+
+    }, 
+
+    { 
+
+      "id": 10, 
+
+      "question": "Sequence: F, B, L, R, F, B, L, R. What is the repeating pattern?", 
+
+      "options": ["F, B, L, R", "F, L, B, R", "B, L, R, F", "L, R, F, B"], 
+
+      "correct_answer": "F, B, L, R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Simple 4-step repeating cycle." 
+
+    }, 
+
+    { 
+
+      "id": 11, 
+
+      "question": "Sequence: F1, L, F2, R, F3, L, F1, L, F2, R, F3. What comes next?", 
+
+      "options": ["L", "R", "F1", "F2"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern repeats: F1, L, F2, R, F3, L." 
+
+    }, 
+
+    { 
+
+      "id": 12, 
+
+      "question": "Sequence: L, F, F, R, L, F, F, R, L, F. What comes next?", 
+
+      "options": ["F", "R", "L", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern: L, F, F, R repeats." 
+
+    }, 
+
+    { 
+
+      "id": 13, 
+
+      "question": "Sequence: R1, L2, R1, L2, R1, L2. What is the repeating pattern?", 
+
+      "options": ["R1, L2", "R1, R1, L2", "L2, R1", "R1, L1"], 
+
+      "correct_answer": "R1, L2", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Simple 2-step repetition." 
+
+    }, 
+
+    { 
+
+      "id": 14, 
+
+      "question": "Sequence: F, L, R, F, R, L, F, L, R. What comes next?", 
+
+      "options": ["F", "R", "L", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern alternates between F, L, R and F, R, L blocks." 
+
+    }, 
+
+    { 
+
+      "id": 15, 
+
+      "question": "Sequence: L, L, F, R, L, L, F, R, L. What comes next?", 
+
+      "options": ["L", "F", "R", "B"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern: L, L, F, R repeats." 
+
+    } 
+
+  ] 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+{ 
+
+  "category": "Logical Reasoning", 
+
+  "sub_category": "Direction Logic – Clockwise / Anticlockwise Movement", 
+
+  "type": "Multiple Choice", 
+
+  "questions": [ 
+
+    { 
+
+      "id": 1, 
+
+      "question": "A person starts facing North and turns 90° clockwise. Which direction is he facing now?", 
+
+      "options": ["East", "West", "South", "North"], 
+
+      "correct_answer": "East", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "A 90° clockwise turn from North leads to East." 
+
+    }, 
+
+    { 
+
+      "id": 2, 
+
+      "question": "A person starts facing East and turns 180° clockwise. Which direction is he facing now?", 
+
+      "options": ["West", "North", "South", "East"], 
+
+      "correct_answer": "West", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "A 180° turn reverses direction from East to West." 
+
+    }, 
+
+    { 
+
+      "id": 3, 
+
+      "question": "A person starts facing South and turns 90° anticlockwise. Which direction is he facing now?", 
+
+      "options": ["East", "West", "North", "South"], 
+
+      "correct_answer": "East", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "90° anticlockwise from South leads to East." 
+
+    }, 
+
+    { 
+
+      "id": 4, 
+
+      "question": "A person starts facing North and performs: 90° clockwise, then 90° clockwise, then 90° anticlockwise. What is the final direction?", 
+
+      "options": ["South", "East", "West", "North"], 
+
+      "correct_answer": "East", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "North → East → South → East." 
+
+    }, 
+
+    { 
+
+      "id": 5, 
+
+      "question": "A person starts facing West and performs: 180° anticlockwise, then 90° clockwise. What is the final direction?", 
+
+      "options": ["North", "South", "East", "West"], 
+
+      "correct_answer": "North", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "West → East (180°) → North (90° clockwise)." 
+
+    }, 
+
+    { 
+
+      "id": 6, 
+
+      "question": "A person starts facing North and turns 270° clockwise. Which direction is he facing?", 
+
+      "options": ["West", "South", "East", "North"], 
+
+      "correct_answer": "West", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "270° clockwise is equivalent to 90° anticlockwise: North → West." 
+
+    }, 
+
+    { 
+
+      "id": 7, 
+
+      "question": "A person starts facing East and performs: 90° anticlockwise, 180° clockwise, 90° anticlockwise. What is the final direction?", 
+
+      "options": ["East", "West", "North", "South"], 
+
+      "correct_answer": "West", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "East → North → South → West." 
+
+    }, 
+
+    { 
+
+      "id": 8, 
+
+      "question": "A person starts facing South and performs: 90° clockwise, 180° anticlockwise, 90° clockwise. What is the final direction?", 
+
+      "options": ["North", "South", "East", "West"], 
+
+      "correct_answer": "West", 
+
+      "correct_option_index": 3, 
+
+      "explanation": "South → West → East → West." 
+
+    }, 
+
+    { 
+
+      "id": 9, 
+
+      "question": "A person starts facing North. After moving forward, he turns 90° clockwise, moves forward, then turns 180°. What direction is he now facing?", 
+
+      "options": ["West", "East", "South", "North"], 
+
+      "correct_answer": "West", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "North → East → West after 180° turn." 
+
+    }, 
+
+    { 
+
+      "id": 10, 
+
+      "question": "A person starts facing West and performs: 90° clockwise, 90° anticlockwise, 180° clockwise. What is the final direction?", 
+
+      "options": ["North", "South", "East", "West"], 
+
+      "correct_answer": "East", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "West → North → West → East." 
+
+    }, 
+
+    { 
+
+      "id": 11, 
+
+      "question": "A person starts facing North and turns: 90° clockwise, 180° clockwise, 90° anticlockwise, 90° clockwise. What is the final direction?", 
+
+      "options": ["South", "East", "West", "North"], 
+
+      "correct_answer": "West", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "North → East → West → South → West." 
+
+    }, 
+
+    { 
+
+      "id": 12, 
+
+      "question": "A person starts facing East. After moving forward, he turns 270° anticlockwise. What direction is he now facing?", 
+
+      "options": ["South", "North", "West", "East"], 
+
+      "correct_answer": "South", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "270° anticlockwise equals 90° clockwise: East → South." 
+
+    }, 
+
+    { 
+
+      "id": 13, 
+
+      "question": "A person starts facing South and performs: 180° clockwise, 90° anticlockwise, 90° anticlockwise. What is the final direction?", 
+
+      "options": ["North", "South", "East", "West"], 
+
+      "correct_answer": "North", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "South → North → West → North." 
+
+    }, 
+
+    { 
+
+      "id": 14, 
+
+      "question": "A person starts facing North and repeats the sequence: 90° clockwise, 90° anticlockwise, 180° clockwise. After one full cycle, what direction is he facing?", 
+
+      "options": ["South", "East", "West", "North"], 
+
+      "correct_answer": "South", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Net effect: 180° clockwise from North leads to South." 
+
+    }, 
+
+    { 
+
+      "id": 15, 
+
+      "question": "A person starts facing West and performs: 90° anticlockwise, 90° anticlockwise, 90° clockwise, 180° anticlockwise. What is the final direction?", 
+
+      "options": ["North", "South", "East", "West"], 
+
+      "correct_answer": "South", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "West → South → East → South → South." 
+
+    } 
+
+  ] 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+{ 
+
+  "category": "Logical Reasoning", 
+
+  "sub_category": "Conditional Logic – If–Else Movement Decisions", 
+
+  "type": "Multiple Choice", 
+
+  "questions": [ 
+
+    { 
+
+      "id": 1, 
+
+      "question": "Rule: If step number is odd → move Left, else → move Right. Sequence: Step 1 to 5. What is the 5th move?", 
+
+      "options": ["Left", "Right", "Forward", "Backward"], 
+
+      "correct_answer": "Left", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Odd steps are Left. Step 5 is odd." 
+
+    }, 
+
+    { 
+
+      "id": 2, 
+
+      "question": "Rule: If previous move is Forward → turn Left, else → move Forward. Sequence starts with Forward. What is the 3rd move?", 
+
+      "options": ["Left", "Forward", "Right", "Backward"], 
+
+      "correct_answer": "Forward", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "Step1: F → Step2: L → Step3: F." 
+
+    }, 
+
+    { 
+
+      "id": 3, 
+
+      "question": "Rule: If step number divisible by 3 → move Right, else → move Left. What is the 6th move?", 
+
+      "options": ["Left", "Right", "Forward", "Backward"], 
+
+      "correct_answer": "Right", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "Step 6 is divisible by 3." 
+
+    }, 
+
+    { 
+
+      "id": 4, 
+
+      "question": "Rule: If last move was Left → move Forward, else → move Left. Sequence starts with Right. What is the 4th move?", 
+
+      "options": ["Left", "Forward", "Right", "Backward"], 
+
+      "correct_answer": "Forward", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "R → L → F → L → F. 4th move is F." 
+
+    }, 
+
+    { 
+
+      "id": 5, 
+
+      "question": "Rule: If step is even → move Forward, else if step divisible by 3 → move Right, else → move Left. What is the 6th move?", 
+
+      "options": ["Forward", "Right", "Left", "Backward"], 
+
+      "correct_answer": "Forward", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Even condition is checked first. Step 6 is even." 
+
+    }, 
+
+    { 
+
+      "id": 6, 
+
+      "question": "Rule: If previous move was Right → move Right again, else → alternate between Left and Forward. Sequence starts with Left. What is the 4th move?", 
+
+      "options": ["Left", "Forward", "Right", "Backward"], 
+
+      "correct_answer": "Forward", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "L → F → L → F pattern continues." 
+
+    }, 
+
+    { 
+
+      "id": 7, 
+
+      "question": "Rule: If step number is prime → move Forward, else → move Left. What is the 5th move?", 
+
+      "options": ["Forward", "Left", "Right", "Backward"], 
+
+      "correct_answer": "Forward", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "5 is a prime number." 
+
+    }, 
+
+    { 
+
+      "id": 8, 
+
+      "question": "Rule: If previous move was Forward → move Right, else if previous move was Right → move Left, else → move Forward. Sequence starts with Forward. What is the 4th move?", 
+
+      "options": ["Left", "Forward", "Right", "Backward"], 
+
+      "correct_answer": "Left", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "F → R → L → F → R → L. 4th is L." 
+
+    }, 
+
+    { 
+
+      "id": 9, 
+
+      "question": "Rule: If step number is multiple of 4 → move Backward, else → move Forward. What is the 8th move?", 
+
+      "options": ["Backward", "Forward", "Left", "Right"], 
+
+      "correct_answer": "Backward", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "8 is a multiple of 4." 
+
+    }, 
+
+    { 
+
+      "id": 10, 
+
+      "question": "Rule: If last two moves are same → move Right, else → move Left. Sequence starts: L, L. What is the 3rd move?", 
+
+      "options": ["Right", "Left", "Forward", "Backward"], 
+
+      "correct_answer": "Right", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Last two moves are same, so move Right." 
+
+    }, 
+
+    { 
+
+      "id": 11, 
+
+      "question": "Rule: If step is odd → move Forward, else if previous move was Forward → move Right, else → move Left. What is the 4th move?", 
+
+      "options": ["Forward", "Right", "Left", "Backward"], 
+
+      "correct_answer": "Right", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "Step1:F, Step2:R, Step3:F, Step4:R." 
+
+    }, 
+
+    { 
+
+      "id": 12, 
+
+      "question": "Rule: If previous move was Left → move Right, if previous move was Right → move Forward, else → move Left. Sequence starts with Left. What is the 3rd move?", 
+
+      "options": ["Forward", "Left", "Right", "Backward"], 
+
+      "correct_answer": "Forward", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "L → R → F." 
+
+    }, 
+
+    { 
+
+      "id": 13, 
+
+      "question": "Rule: If step divisible by 2 → repeat previous move, else → move Left. Sequence starts with Forward. What is the 4th move?", 
+
+      "options": ["Left", "Forward", "Right", "Backward"], 
+
+      "correct_answer": "Left", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Step1:F, Step2:F, Step3:L, Step4:L." 
+
+    }, 
+
+    { 
+
+      "id": 14, 
+
+      "question": "Rule: If previous move was Backward → move Left, else if previous move was Left → move Right, else → move Backward. Sequence starts with Forward. What is the 3rd move?", 
+
+      "options": ["Backward", "Left", "Right", "Forward"], 
+
+      "correct_answer": "Left", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "F → B → L." 
+
+    }, 
+
+    { 
+
+      "id": 15, 
+
+      "question": "Rule: If step number mod 3 = 1 → move Left, mod 3 = 2 → move Right, mod 3 = 0 → move Forward. What is the 6th move?", 
+
+      "options": ["Forward", "Left", "Right", "Backward"], 
+
+      "correct_answer": "Forward", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "6 mod 3 = 0, so Forward." 
+
+    } 
+
+  ] 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+{ 
+
+  "category": "Logical Reasoning", 
+
+  "sub_category": "Step Counting & Tracking – Position Tracking Logic", 
+
+  "type": "Multiple Choice", 
+
+  "questions": [ 
+
+    { 
+
+      "id": 1, 
+
+      "question": "A person starts at (0,0). Moves right 3 steps, up 2 steps. What is the final position?", 
+
+      "options": ["(3,2)", "(2,3)", "(3,-2)", "(-3,2)"], 
+
+      "correct_answer": "(3,2)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Right increases x, up increases y → (3,2)." 
+
+    }, 
+
+    { 
+
+      "id": 2, 
+
+      "question": "A person starts facing North. Moves forward 4 steps, then South 2 steps. Where is the final position relative to start?", 
+
+      "options": ["2 steps North", "2 steps South", "4 steps North", "0 steps"], 
+
+      "correct_answer": "2 steps North", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "4 North - 2 South = net 2 North." 
+
+    }, 
+
+    { 
+
+      "id": 3, 
+
+      "question": "Start at (0,0). Move East 5, West 3, East 2. What is the final position?", 
+
+      "options": ["(4,0)", "(2,0)", "(0,0)", "(3,0)"], 
+
+      "correct_answer": "(4,0)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "5 - 3 + 2 = 4 in x direction." 
+
+    }, 
+
+    { 
+
+      "id": 4, 
+
+      "question": "Start at (0,0). Move up 3, right 4, down 3. What is the final position?", 
+
+      "options": ["(4,0)", "(0,4)", "(4,3)", "(3,4)"], 
+
+      "correct_answer": "(4,0)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Up 3 and down 3 cancel out." 
+
+    }, 
+
+    { 
+
+      "id": 5, 
+
+      "question": "A person moves: North 3, East 4, South 1, West 2. What is the final position?", 
+
+      "options": ["(2,2)", "(2,3)", "(1,2)", "(3,2)"], 
+
+      "correct_answer": "(2,2)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Net: (4-2, 3-1) = (2,2)." 
+
+    }, 
+
+    { 
+
+      "id": 6, 
+
+      "question": "Start at (0,0). Move right 2, up 3, left 1, down 1, right 2. What is the final position?", 
+
+      "options": ["(3,2)", "(2,2)", "(3,3)", "(4,2)"], 
+
+      "correct_answer": "(3,2)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Net x: 2-1+2=3, Net y: 3-1=2." 
+
+    }, 
+
+    { 
+
+      "id": 7, 
+
+      "question": "A person moves forward 5, backward 3, forward 2. What is net movement?", 
+
+      "options": ["4 forward", "2 forward", "3 forward", "0"], 
+
+      "correct_answer": "4 forward", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "5 - 3 + 2 = 4 forward." 
+
+    }, 
+
+    { 
+
+      "id": 8, 
+
+      "question": "Start at (0,0). Move East 4, North 5, West 4, South 2. What is final position?", 
+
+      "options": ["(0,3)", "(4,3)", "(0,2)", "(4,2)"], 
+
+      "correct_answer": "(0,3)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "East-West cancel, North 5 - South 2 = 3." 
+
+    }, 
+
+    { 
+
+      "id": 9, 
+
+      "question": "Start at (1,1). Move right 3, up 2, left 4. What is final position?", 
+
+      "options": ["(0,3)", "(1,3)", "(0,2)", "(2,3)"], 
+
+      "correct_answer": "(0,3)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "x:1+3-4=0, y:1+2=3." 
+
+    }, 
+
+    { 
+
+      "id": 10, 
+
+      "question": "A person moves: North 2, East 3, South 2, West 3. Where is he now?", 
+
+      "options": ["Starting point", "2 North", "3 East", "1 North"], 
+
+      "correct_answer": "Starting point", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "All movements cancel out." 
+
+    }, 
+
+    { 
+
+      "id": 11, 
+
+      "question": "Start at (0,0). Move up 5, right 3, down 2, left 1, down 1. What is final position?", 
+
+      "options": ["(2,2)", "(3,2)", "(2,3)", "(1,2)"], 
+
+      "correct_answer": "(2,2)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "x:3-1=2, y:5-2-1=2." 
+
+    }, 
+
+    { 
+
+      "id": 12, 
+
+      "question": "A person moves East 6, West 4, East 1, West 2. What is final displacement?", 
+
+      "options": ["1 East", "1 West", "3 East", "0"], 
+
+      "correct_answer": "1 East", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "6-4+1-2=1 East." 
+
+    }, 
+
+    { 
+
+      "id": 13, 
+
+      "question": "Start at (2,3). Move up 4, left 2, down 5, right 3. What is final position?", 
+
+      "options": ["(3,2)", "(3,3)", "(2,2)", "(4,2)"], 
+
+      "correct_answer": "(3,2)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "x:2-2+3=3, y:3+4-5=2." 
+
+    }, 
+
+    { 
+
+      "id": 14, 
+
+      "question": "Start at (0,0). Move right 5, up 5, left 3, down 4, right 2, down 1. What is final position?", 
+
+      "options": ["(4,0)", "(3,1)", "(4,1)", "(2,0)"], 
+
+      "correct_answer": "(4,0)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "x:5-3+2=4, y:5-4-1=0." 
+
+    }, 
+
+    { 
+
+      "id": 15, 
+
+      "question": "A person moves: North 4, South 6, East 3, West 1. What is net displacement?", 
+
+      "options": ["2 South, 2 East", "2 North, 2 East", "2 South, 1 East", "2 South, 3 East"], 
+
+      "correct_answer": "2 South, 2 East", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "North 4 - South 6 = 2 South, East 3 - West 1 = 2 East." 
+
+    } 
+
+  ] 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+{ 
+
+  "category": "Logical Reasoning", 
+
+  "sub_category": "Error Detection – Movement Sequence", 
+
+  "type": "Multiple Choice", 
+
+  "questions": [ 
+
+    { 
+
+      "id": 1, 
+
+      "question": "Sequence: L, R, L, R, L, L, R. Identify the incorrect step.", 
+
+      "options": ["Step 4", "Step 5", "Step 6", "Step 7"], 
+
+      "correct_answer": "Step 6", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Pattern alternates L, R. Step 6 breaks the pattern." 
+
+    }, 
+
+    { 
+
+      "id": 2, 
+
+      "question": "Sequence: F, F, L, R, F, F, L, L. Identify the incorrect step.", 
+
+      "options": ["Step 4", "Step 6", "Step 7", "Step 8"], 
+
+      "correct_answer": "Step 8", 
+
+      "correct_option_index": 3, 
+
+      "explanation": "Pattern: F, F, L, R repeats. Step 8 should be R." 
+
+    }, 
+
+    { 
+
+      "id": 3, 
+
+      "question": "Sequence: L, L, R, R, L, L, R, L. Identify the incorrect step.", 
+
+      "options": ["Step 5", "Step 6", "Step 7", "Step 8"], 
+
+      "correct_answer": "Step 8", 
+
+      "correct_option_index": 3, 
+
+      "explanation": "Pattern: LL, RR repeats. Step 8 should be R." 
+
+    }, 
+
+    { 
+
+      "id": 4, 
+
+      "question": "Sequence: F1, L, F2, L, F3, L, F5, L. Identify the incorrect step.", 
+
+      "options": ["Step 5", "Step 6", "Step 7", "Step 8"], 
+
+      "correct_answer": "Step 7", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Forward steps increase by 1. F5 should be F4." 
+
+    }, 
+
+    { 
+
+      "id": 5, 
+
+      "question": "Sequence: R, F, F, L, R, F, F, R. Identify the incorrect step.", 
+
+      "options": ["Step 4", "Step 5", "Step 7", "Step 8"], 
+
+      "correct_answer": "Step 8", 
+
+      "correct_option_index": 3, 
+
+      "explanation": "Pattern: R, F, F, L repeats. Step 8 should be L." 
+
+    }, 
+
+    { 
+
+      "id": 6, 
+
+      "question": "Sequence: (0,0), (1,0), (1,1), (2,1), (2,3). Identify the incorrect step.", 
+
+      "options": ["Step 3", "Step 4", "Step 5", "No error"], 
+
+      "correct_answer": "Step 5", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Pattern alternates right and up by 1. Step 5 jumps incorrectly." 
+
+    }, 
+
+    { 
+
+      "id": 7, 
+
+      "question": "Sequence: L, F, R, F, L, F, R, R. Identify the incorrect step.", 
+
+      "options": ["Step 5", "Step 6", "Step 7", "Step 8"], 
+
+      "correct_answer": "Step 8", 
+
+      "correct_option_index": 3, 
+
+      "explanation": "Pattern: L, F, R, F repeats. Step 8 should be F." 
+
+    }, 
+
+    { 
+
+      "id": 8, 
+
+      "question": "Sequence: F2, R, F3, L, F4, R, F6, L. Identify the incorrect step.", 
+
+      "options": ["Step 3", "Step 5", "Step 7", "Step 8"], 
+
+      "correct_answer": "Step 7", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Forward steps increase by 1. Step 7 should be F5." 
+
+    }, 
+
+    { 
+
+      "id": 9, 
+
+      "question": "Sequence: N, E, S, W, N, E, W, W. Identify the incorrect step.", 
+
+      "options": ["Step 5", "Step 6", "Step 7", "Step 8"], 
+
+      "correct_answer": "Step 7", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Pattern repeats N, E, S, W. Step 7 should be S." 
+
+    }, 
+
+    { 
+
+      "id": 10, 
+
+      "question": "Sequence: F, B, F, B, F, F, B. Identify the incorrect step.", 
+
+      "options": ["Step 4", "Step 5", "Step 6", "Step 7"], 
+
+      "correct_answer": "Step 6", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Pattern alternates F and B. Step 6 repeats F incorrectly." 
+
+    }, 
+
+    { 
+
+      "id": 11, 
+
+      "question": "Sequence: (1,1), (2,1), (2,2), (3,2), (3,3), (4,4). Identify the incorrect step.", 
+
+      "options": ["Step 3", "Step 4", "Step 5", "Step 6"], 
+
+      "correct_answer": "Step 6", 
+
+      "correct_option_index": 3, 
+
+      "explanation": "Pattern alternates right and up by 1. Step 6 should be (4,3)." 
+
+    }, 
+
+    { 
+
+      "id": 12, 
+
+      "question": "Sequence: L1, R2, L3, R4, L5, R7. Identify the incorrect step.", 
+
+      "options": ["Step 3", "Step 4", "Step 5", "Step 6"], 
+
+      "correct_answer": "Step 6", 
+
+      "correct_option_index": 3, 
+
+      "explanation": "Numbers increase by 1. Step 6 should be R6." 
+
+    }, 
+
+    { 
+
+      "id": 13, 
+
+      "question": "Sequence: F, L, L, R, R, F, L, R. Identify the incorrect step.", 
+
+      "options": ["Step 5", "Step 6", "Step 7", "Step 8"], 
+
+      "correct_answer": "Step 8", 
+
+      "correct_option_index": 3, 
+
+      "explanation": "Pattern: F, LL, RR repeats. Step 8 should be L." 
+
+    }, 
+
+    { 
+
+      "id": 14, 
+
+      "question": "Sequence: East 2, North 3, West 2, South 3, East 2, North 4. Identify the incorrect step.", 
+
+      "options": ["Step 3", "Step 4", "Step 5", "Step 6"], 
+
+      "correct_answer": "Step 6", 
+
+      "correct_option_index": 3, 
+
+      "explanation": "Pattern repeats equal opposite movements. North should be 3." 
+
+    }, 
+
+    { 
+
+      "id": 15, 
+
+      "question": "Sequence: L, R, F, L, R, F, L, F. Identify the incorrect step.", 
+
+      "options": ["Step 6", "Step 7", "Step 8", "Step 5"], 
+
+      "correct_answer": "Step 8", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Pattern repeats L, R, F. Step 8 should be R." 
+
+    } 
+
+  ] 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+{ 
+
+  "category": "Logical Reasoning", 
+
+  "sub_category": "Input–Output Mapping – Movement Rule Application", 
+
+  "type": "Multiple Choice", 
+
+  "questions": [ 
+
+    { 
+
+      "id": 1, 
+
+      "question": "Rule: L → R, R → L, F → B, B → F. Input: L, F, R. What is the output?", 
+
+      "options": ["R, B, L", "L, F, R", "R, F, L", "B, R, L"], 
+
+      "correct_answer": "R, B, L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Each movement is replaced with its opposite." 
+
+    }, 
+
+    { 
+
+      "id": 2, 
+
+      "question": "Rule: Reverse the sequence. Input: L, R, F, B. What is the output?", 
+
+      "options": ["B, F, R, L", "L, R, F, B", "F, B, L, R", "R, L, B, F"], 
+
+      "correct_answer": "B, F, R, L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "The sequence is reversed." 
+
+    }, 
+
+    { 
+
+      "id": 3, 
+
+      "question": "Rule: A → L, B → R, C → F. Input: A, C, B, A. What is the output?", 
+
+      "options": ["L, F, R, L", "R, F, L, R", "L, R, F, L", "F, L, R, F"], 
+
+      "correct_answer": "L, F, R, L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Each symbol is mapped to a direction." 
+
+    }, 
+
+    { 
+
+      "id": 4, 
+
+      "question": "Rule: Replace each step with two of the same. Input: L, R, F. What is the output?", 
+
+      "options": ["L, L, R, R, F, F", "L, R, F", "L, R, R, F, F", "L, L, R, F, F"], 
+
+      "correct_answer": "L, L, R, R, F, F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Each movement is duplicated." 
+
+    }, 
+
+    { 
+
+      "id": 5, 
+
+      "question": "Rule: If step is in odd position → L, even position → R. Input: 1, 2, 3, 4. What is output?", 
+
+      "options": ["L, R, L, R", "R, L, R, L", "L, L, R, R", "R, R, L, L"], 
+
+      "correct_answer": "L, R, L, R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Odd positions map to L, even to R." 
+
+    }, 
+
+    { 
+
+      "id": 6, 
+
+      "question": "Rule: L → F, F → R, R → B, B → L. Input: L, F, R, B. What is the output?", 
+
+      "options": ["F, R, B, L", "L, F, R, B", "R, B, L, F", "B, L, F, R"], 
+
+      "correct_answer": "F, R, B, L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Each step shifts forward in the cycle." 
+
+    }, 
+
+    { 
+
+      "id": 7, 
+
+      "question": "Rule: Reverse sequence and then swap L ↔ R. Input: L, R, F. What is output?", 
+
+      "options": ["L, R, F", "R, L, F", "F, L, R", "F, R, L"], 
+
+      "correct_answer": "F, L, R", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Reverse: F, R, L then swap L and R → F, L, R." 
+
+    }, 
+
+    { 
+
+      "id": 8, 
+
+      "question": "Rule: Double forward steps, keep others same. Input: F, L, F, R. What is output?", 
+
+      "options": ["F, F, L, F, F, R", "F, L, F, R", "F, F, L, R", "F, L, F, F, R"], 
+
+      "correct_answer": "F, F, L, F, F, R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Each F becomes two Fs." 
+
+    }, 
+
+    { 
+
+      "id": 9, 
+
+      "question": "Rule: A → L, B → F, C → R. Then reverse output. Input: A, B, C. What is output?", 
+
+      "options": ["R, F, L", "L, F, R", "F, L, R", "R, L, F"], 
+
+      "correct_answer": "R, F, L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Map → L, F, R then reverse." 
+
+    }, 
+
+    { 
+
+      "id": 10, 
+
+      "question": "Rule: Replace each step with next in cycle L → R → F → B → L. Input: R, F, B. What is output?", 
+
+      "options": ["F, B, L", "R, F, B", "B, L, R", "F, R, B"], 
+
+      "correct_answer": "F, B, L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Each movement shifts to next in cycle." 
+
+    }, 
+
+    { 
+
+      "id": 11, 
+
+      "question": "Rule: Odd positions → reverse direction (L↔R, F↔B), even positions unchanged. Input: L, R, F, B. What is output?", 
+
+      "options": ["R, R, B, B", "R, R, B, F", "L, R, F, B", "R, L, B, F"], 
+
+      "correct_answer": "R, R, B, B", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Positions 1 and 3 are reversed." 
+
+    }, 
+
+    { 
+
+      "id": 12, 
+
+      "question": "Rule: Remove every second step. Input: L, R, F, B, L, R. What is output?", 
+
+      "options": ["L, F, L", "R, B, R", "L, R, F", "L, B, R"], 
+
+      "correct_answer": "L, F, L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Keep positions 1, 3, 5." 
+
+    }, 
+
+    { 
+
+      "id": 13, 
+
+      "question": "Rule: Swap first and last, keep middle same. Input: L, R, F, B. What is output?", 
+
+      "options": ["B, R, F, L", "L, R, F, B", "B, F, R, L", "F, R, B, L"], 
+
+      "correct_answer": "B, R, F, L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "First and last are swapped." 
+
+    }, 
+
+    { 
+
+      "id": 14, 
+
+      "question": "Rule: A → L, B → R. If symbol repeats, double the output. Input: A, A, B. What is output?", 
+
+      "options": ["L, L, L, L, R", "L, L, R", "L, L, R, R", "L, R, R"], 
+
+      "correct_answer": "L, L, L, L, R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Repeated A gives double L each time." 
+
+    }, 
+
+    { 
+
+      "id": 15, 
+
+      "question": "Rule: Convert to opposite direction, then reverse sequence. Input: F, L, R. What is output?", 
+
+      "options": ["L, R, B", "B, R, L", "B, L, R", "R, L, B"], 
+
+      "correct_answer": "L, R, B", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Opposite: B, R, L then reverse → L, R, B." 
+
+    } 
+
+  ] 
+
+} 
+
+ 
+
+ 
+
+ 
+
+{ 
+
+  "category": "Logical Reasoning", 
+
+  "sub_category": "Loop / Repetition Logic – Movement Cycles", 
+
+  "type": "Multiple Choice", 
+
+  "questions": [ 
+
+    { 
+
+      "id": 1, 
+
+      "question": "Sequence follows loop: L, R, F. What is the 7th movement?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Cycle length is 3. 7 mod 3 = 1 → L." 
+
+    }, 
+
+    { 
+
+      "id": 2, 
+
+      "question": "Loop: F, F, L, R. What is the 10th movement?", 
+
+      "options": ["F", "L", "R", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Cycle length 4. 10 mod 4 = 2 → second element F." 
+
+    }, 
+
+    { 
+
+      "id": 3, 
+
+      "question": "Loop: L, L, R, F. What is the next movement after two full cycles?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "After 2 cycles, sequence restarts from beginning." 
+
+    }, 
+
+    { 
+
+      "id": 4, 
+
+      "question": "Loop: R, F, F, L. What is the 9th movement?", 
+
+      "options": ["R", "F", "L", "B"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "9 mod 4 = 1 → first element R." 
+
+    }, 
+
+    { 
+
+      "id": 5, 
+
+      "question": "Loop: F1, L, F2, R. What is the 6th movement?", 
+
+      "options": ["F2", "R", "F1", "L"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 3, 
+
+      "explanation": "Cycle repeats every 4. 6 mod 4 = 2 → L." 
+
+    }, 
+
+    { 
+
+      "id": 6, 
+
+      "question": "Loop: L, R, F, B. After 3 full cycles, what is the next movement?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Sequence restarts after each cycle." 
+
+    }, 
+
+    { 
+
+      "id": 7, 
+
+      "question": "Loop: F, L, R. What is the 11th movement?", 
+
+      "options": ["F", "L", "R", "B"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "11 mod 3 = 2 → second element L." 
+
+    }, 
+
+    { 
+
+      "id": 8, 
+
+      "question": "Loop: L, F, R, F. What is the 12th movement?", 
+
+      "options": ["L", "F", "R", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "12 mod 4 = 0 → fourth element F." 
+
+    }, 
+
+    { 
+
+      "id": 9, 
+
+      "question": "Loop: R, R, F. What is the 8th movement?", 
+
+      "options": ["R", "F", "L", "B"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "8 mod 3 = 2 → second element R." 
+
+    }, 
+
+    { 
+
+      "id": 10, 
+
+      "question": "Loop: F, L, L, R, R. What is the 13th movement?", 
+
+      "options": ["F", "L", "R", "B"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "13 mod 5 = 3 → third element L." 
+
+    }, 
+
+    { 
+
+      "id": 11, 
+
+      "question": "Loop: L1, R2, F3. What is the 7th movement?", 
+
+      "options": ["L1", "R2", "F3", "L2"], 
+
+      "correct_answer": "L1", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "7 mod 3 = 1 → first element L1." 
+
+    }, 
+
+    { 
+
+      "id": 12, 
+
+      "question": "Loop: F, B, L, R. After 2.5 cycles, what is the current movement?", 
+
+      "options": ["F", "B", "L", "R"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "2 full cycles + half cycle (2 steps) → third element L." 
+
+    }, 
+
+    { 
+
+      "id": 13, 
+
+      "question": "Loop: L, R, F. If repeated 5 times, what is the last movement?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Each cycle ends with F." 
+
+    }, 
+
+    { 
+
+      "id": 14, 
+
+      "question": "Loop: F2, L, F3, R, F4, L. What is the 11th movement?", 
+
+      "options": ["F4", "L", "F2", "R"], 
+
+      "correct_answer": "F4", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Cycle length 6. 11 mod 6 = 5 → fifth element F4." 
+
+    }, 
+
+    { 
+
+      "id": 15, 
+
+      "question": "Loop: L, F, R, B. What is the 16th movement?", 
+
+      "options": ["L", "F", "R", "B"], 
+
+      "correct_answer": "B", 
+
+      "correct_option_index": 3, 
+
+      "explanation": "16 mod 4 = 0 → fourth element B." 
+
+    } 
+
+  ] 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+{ 
+
+  "category": "Logical Reasoning", 
+
+  "sub_category": "Mixed Logic Scenarios – Combined Movement Rules", 
+
+  "type": "Multiple Choice", 
+
+  "questions": [ 
+
+    { 
+
+      "id": 1, 
+
+      "question": "Sequence follows: alternate L and R, but every 3rd step is F. Sequence: L, R, F, L, R, F, L, R, ? What is next?", 
+
+      "options": ["F", "L", "R", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Every 3rd step is F." 
+
+    }, 
+
+    { 
+
+      "id": 2, 
+
+      "question": "Rule: Steps increase (F1, F2, F3...), but after each forward step, alternate L and R. Sequence: F1, L, F2, R, F3, L, ? What is next?", 
+
+      "options": ["F4", "R", "L", "F3"], 
+
+      "correct_answer": "F4", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Forward steps increase; after L comes F4." 
+
+    }, 
+
+    { 
+
+      "id": 3, 
+
+      "question": "Start at (0,0). Move Right 2, Up 3, Left 2, Down 3, then repeat pattern. Where are you after 2 cycles?", 
+
+      "options": ["(0,0)", "(2,3)", "(0,3)", "(2,0)"], 
+
+      "correct_answer": "(0,0)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Each cycle returns to origin." 
+
+    }, 
+
+    { 
+
+      "id": 4, 
+
+      "question": "Sequence: L, F, R, F, but every second cycle reverses direction order. What is the 9th movement?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Cycle1 normal, cycle2 reversed, cycle3 normal → 9th = first of cycle3." 
+
+    }, 
+
+    { 
+
+      "id": 5, 
+
+      "question": "Rule: If step is even → double previous movement, else → normal sequence L, R, F. Sequence: L, L, R, R, F, F, ? What is next?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Odd positions follow L, R, F cycle." 
+
+    }, 
+
+    { 
+
+      "id": 6, 
+
+      "question": "Start at (0,0). Move: Right 3, Up 2, then reverse steps in opposite directions. Final position?", 
+
+      "options": ["(0,0)", "(3,2)", "(1,1)", "(2,3)"], 
+
+      "correct_answer": "(0,0)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Reverse cancels movements." 
+
+    }, 
+
+    { 
+
+      "id": 7, 
+
+      "question": "Sequence: F1, L, F2, R, F3, L, but every 4th step is replaced by B. What is the 4th step?", 
+
+      "options": ["R", "B", "L", "F2"], 
+
+      "correct_answer": "B", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "Rule overrides normal pattern." 
+
+    }, 
+
+    { 
+
+      "id": 8, 
+
+      "question": "Rule: Repeat L, R, F but increase forward steps each cycle (F1, F2...). What is 6th movement?", 
+
+      "options": ["F2", "L", "R", "F3"], 
+
+      "correct_answer": "F2", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Cycle1: L,R,F1; Cycle2: L,R,F2 → 6th = F2." 
+
+    }, 
+
+    { 
+
+      "id": 9, 
+
+      "question": "Start facing North. Move forward 2, turn right, move 3, turn left, repeat pattern. Direction after 2 cycles?", 
+
+      "options": ["North", "East", "South", "West"], 
+
+      "correct_answer": "East", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "Net rotation results in East." 
+
+    }, 
+
+    { 
+
+      "id": 10, 
+
+      "question": "Sequence alternates L and R, but every 5th step is F, and every 2nd F is replaced by B. What is 10th step?", 
+
+      "options": ["F", "B", "L", "R"], 
+
+      "correct_answer": "B", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "10th is second F → replaced by B." 
+
+    }, 
+
+    { 
+
+      "id": 11, 
+
+      "question": "Start at (1,1). Move: Right 2, Up 3, Left 1, Down 1, then repeat same pattern once more. Final position?", 
+
+      "options": ["(3,5)", "(3,4)", "(2,4)", "(4,5)"], 
+
+      "correct_answer": "(3,5)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Net per cycle: (+1,+2). After 2 cycles: (3,5)." 
+
+    }, 
+
+    { 
+
+      "id": 12, 
+
+      "question": "Rule: L, R, F repeats, but every 3rd cycle is reversed. What is the 9th movement?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "F", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Cycle3 reversed → 9th is last of reversed cycle." 
+
+    }, 
+
+    { 
+
+      "id": 13, 
+
+      "question": "Sequence: F, F, L, R but every second cycle swaps L and R. What is the 7th movement?", 
+
+      "options": ["L", "R", "F", "B"], 
+
+      "correct_answer": "L", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Cycle2 swaps L and R." 
+
+    }, 
+
+    { 
+
+      "id": 14, 
+
+      "question": "Start at (0,0). Move in loop: Right 2, Up 2, Left 2, Down 1. After 3 cycles, where are you?", 
+
+      "options": ["(0,3)", "(0,0)", "(2,3)", "(1,2)"], 
+
+      "correct_answer": "(0,3)", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Each cycle moves up by 1." 
+
+    }, 
+
+    { 
+
+      "id": 15, 
+
+      "question": "Rule: Sequence L, R, F repeats, but if previous move was F, next becomes B instead of L. What is 5th movement?", 
+
+      "options": ["B", "R", "F", "L"], 
+
+      "correct_answer": "R", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "Sequence adjusts after F, resulting in modified cycle." 
+
+    } 
+
+  ] 
+
+} 
+
+ 
+
+ 
+
+{ 
+
+  "category": "Logical Reasoning", 
+
+  "sub_category": "Mode Identification – System State Recognition", 
+
+  "type": "Multiple Choice", 
+
+  "questions": [ 
+
+    { 
+
+      "id": 1, 
+
+      "question": "A system follows: if input is increasing → Mode A; if decreasing → Mode B; if constant → Mode C; otherwise → Mode D. Input remains unchanged for 5 steps. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode C", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Constant input activates Mode C." 
+
+    }, 
+
+    { 
+
+      "id": 2, 
+
+      "question": "A system switches to Mode A when last action was Left, Mode B when Right, Mode C when Forward, Mode D otherwise. Last action was Forward. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode C", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Forward action triggers Mode C." 
+
+    }, 
+
+    { 
+
+      "id": 3, 
+
+      "question": "If step number is even → Mode A; odd → Mode B; divisible by 3 → Mode C (priority over others). Step number is 6. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode C", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Divisible by 3 overrides even condition." 
+
+    }, 
+
+    { 
+
+      "id": 4, 
+
+      "question": "A system runs in Mode A during upward movement, Mode B during downward movement, Mode C when stationary, Mode D otherwise. The position is unchanged for last 3 steps. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode C", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "No movement implies stationary mode." 
+
+    }, 
+
+    { 
+
+      "id": 5, 
+
+      "question": "If last two moves are identical → Mode A; if alternating → Mode B; if all different → Mode C; else → Mode D. Sequence: L, R, L, R. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode B", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "Sequence alternates between L and R." 
+
+    }, 
+
+    { 
+
+      "id": 6, 
+
+      "question": "A system operates in Mode A when total steps > 10, Mode B when between 5–10, Mode C when <5, Mode D otherwise. Total steps = 8. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode B", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "8 falls in 5–10 range." 
+
+    }, 
+
+    { 
+
+      "id": 7, 
+
+      "question": "If direction changes every step → Mode A; if repeats every 2 steps → Mode B; if constant → Mode C; else → Mode D. Sequence: L, L, R, R. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode B", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "Direction repeats in pairs." 
+
+    }, 
+
+    { 
+
+      "id": 8, 
+
+      "question": "A system enters Mode A if position returns to origin, Mode B if moving away, Mode C if oscillating, Mode D otherwise. Position alternates between (0,0) and (1,0). Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode C", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Movement oscillates between two positions." 
+
+    }, 
+
+    { 
+
+      "id": 9, 
+
+      "question": "If forward steps increase → Mode A; decrease → Mode B; constant → Mode C; irregular → Mode D. Sequence: F1, F2, F3, F4. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode A", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Steps are increasing." 
+
+    }, 
+
+    { 
+
+      "id": 10, 
+
+      "question": "A system is in Mode A if pattern repeats every 3 steps, Mode B if every 4, Mode C if no repetition, Mode D otherwise. Sequence: L, R, F, L, R, F. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode A", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern repeats every 3 steps." 
+
+    }, 
+
+    { 
+
+      "id": 11, 
+
+      "question": "If the last move cancels previous movement → Mode A; if extends movement → Mode B; if reverses → Mode C; else → Mode D. Moves: Right 3, Left 3. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode A", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Left 3 cancels Right 3." 
+
+    }, 
+
+    { 
+
+      "id": 12, 
+
+      "question": "If movement direction is cyclic → Mode A; alternating → Mode B; random → Mode C; fixed → Mode D. Sequence: N, E, S, W, N, E. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode A", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Sequence follows a cyclic pattern." 
+
+    }, 
+
+    { 
+
+      "id": 13, 
+
+      "question": "A system is in Mode A if position increases only in X, Mode B if only in Y, Mode C if both, Mode D if none. Movement: (0,0) → (2,3). Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode C", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Both X and Y increase." 
+
+    }, 
+
+    { 
+
+      "id": 14, 
+
+      "question": "If last three steps are identical → Mode A; if all different → Mode B; if two same → Mode C; else → Mode D. Sequence: L, L, R. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode C", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Two steps are same." 
+
+    }, 
+
+    { 
+
+      "id": 15, 
+
+      "question": "A system runs in Mode A if net displacement is zero, Mode B if positive, Mode C if negative, Mode D otherwise. Movement: +3, -2, -1. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode A", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Net displacement = 0." 
+
+    } 
+
+  ] 
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+{ 
+
+  "category": "Logical Reasoning", 
+
+  "sub_category": "Mode Identification – System State Recognition", 
+
+  "type": "Multiple Choice", 
+
+  "questions": [ 
+
+    { 
+
+      "id": 1, 
+
+      "question": "A system follows: if input is increasing → Mode A; if decreasing → Mode B; if constant → Mode C; otherwise → Mode D. Input remains unchanged for 5 steps. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode C", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Constant input activates Mode C." 
+
+    }, 
+
+    { 
+
+      "id": 2, 
+
+      "question": "A system switches to Mode A when last action was Left, Mode B when Right, Mode C when Forward, Mode D otherwise. Last action was Forward. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode C", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Forward action triggers Mode C." 
+
+    }, 
+
+    { 
+
+      "id": 3, 
+
+      "question": "If step number is even → Mode A; odd → Mode B; divisible by 3 → Mode C (priority over others). Step number is 6. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode C", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Divisible by 3 overrides even condition." 
+
+    }, 
+
+    { 
+
+      "id": 4, 
+
+      "question": "A system runs in Mode A during upward movement, Mode B during downward movement, Mode C when stationary, Mode D otherwise. The position is unchanged for last 3 steps. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode C", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "No movement implies stationary mode." 
+
+    }, 
+
+    { 
+
+      "id": 5, 
+
+      "question": "If last two moves are identical → Mode A; if alternating → Mode B; if all different → Mode C; else → Mode D. Sequence: L, R, L, R. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode B", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "Sequence alternates between L and R." 
+
+    }, 
+
+    { 
+
+      "id": 6, 
+
+      "question": "A system operates in Mode A when total steps > 10, Mode B when between 5–10, Mode C when <5, Mode D otherwise. Total steps = 8. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode B", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "8 falls in 5–10 range." 
+
+    }, 
+
+    { 
+
+      "id": 7, 
+
+      "question": "If direction changes every step → Mode A; if repeats every 2 steps → Mode B; if constant → Mode C; else → Mode D. Sequence: L, L, R, R. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode B", 
+
+      "correct_option_index": 1, 
+
+      "explanation": "Direction repeats in pairs." 
+
+    }, 
+
+    { 
+
+      "id": 8, 
+
+      "question": "A system enters Mode A if position returns to origin, Mode B if moving away, Mode C if oscillating, Mode D otherwise. Position alternates between (0,0) and (1,0). Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode C", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Movement oscillates between two positions." 
+
+    }, 
+
+    { 
+
+      "id": 9, 
+
+      "question": "If forward steps increase → Mode A; decrease → Mode B; constant → Mode C; irregular → Mode D. Sequence: F1, F2, F3, F4. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode A", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Steps are increasing." 
+
+    }, 
+
+    { 
+
+      "id": 10, 
+
+      "question": "A system is in Mode A if pattern repeats every 3 steps, Mode B if every 4, Mode C if no repetition, Mode D otherwise. Sequence: L, R, F, L, R, F. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode A", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Pattern repeats every 3 steps." 
+
+    }, 
+
+    { 
+
+      "id": 11, 
+
+      "question": "If the last move cancels previous movement → Mode A; if extends movement → Mode B; if reverses → Mode C; else → Mode D. Moves: Right 3, Left 3. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode A", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Left 3 cancels Right 3." 
+
+    }, 
+
+    { 
+
+      "id": 12, 
+
+      "question": "If movement direction is cyclic → Mode A; alternating → Mode B; random → Mode C; fixed → Mode D. Sequence: N, E, S, W, N, E. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode A", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Sequence follows a cyclic pattern." 
+
+    }, 
+
+    { 
+
+      "id": 13, 
+
+      "question": "A system is in Mode A if position increases only in X, Mode B if only in Y, Mode C if both, Mode D if none. Movement: (0,0) → (2,3). Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode C", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Both X and Y increase." 
+
+    }, 
+
+    { 
+
+      "id": 14, 
+
+      "question": "If last three steps are identical → Mode A; if all different → Mode B; if two same → Mode C; else → Mode D. Sequence: L, L, R. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode C", 
+
+      "correct_option_index": 2, 
+
+      "explanation": "Two steps are same." 
+
+    }, 
+
+    { 
+
+      "id": 15, 
+
+      "question": "A system runs in Mode A if net displacement is zero, Mode B if positive, Mode C if negative, Mode D otherwise. Movement: +3, -2, -1. Which mode is active?", 
+
+      "options": ["Mode A", "Mode B", "Mode C", "Mode D"], 
+
+      "correct_answer": "Mode A", 
+
+      "correct_option_index": 0, 
+
+      "explanation": "Net displacement = 0." 
+
+    } 
+
+  ] 
+
+} 
