@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { font-family: 'Inter', system-ui; background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%); display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        #game-container { background: #ffffff; padding: 30px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); text-align: center; width: 500px; height: 420px; position: relative; }
+        
+        #modal { position: absolute; top:0; left:0; width:100%; height:100%; background:white; z-index:20; border-radius:24px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+        
+        #arena { width: 450px; height: 280px; position: relative; overflow: hidden; margin: 10px auto; border-radius: 12px; background: #f8fafc; border: 1px solid #e2e8f0; }
+        .obj { position: absolute; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; pointer-events: auto; z-index: 5; transition: transform 0.1s; }
+        
+        /* Clear visual states */
+        .obj.target { background: #63b3ed; } 
+        .obj.distractor { background: #cbd5e0; }
+        
+        button { padding: 12px 30px; border-radius: 10px; border:none; cursor: pointer; background:#2d3748; color:white; font-weight: 600; }
+        .stats { display: flex; justify-content: space-between; font-weight: 700; color: #4a5568; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <div id="modal">
+        <h2>Target Identification</h2>
+        <p style="font-size: 14px; color: #4a5568;">Click all <b>Blue Circles</b> as quickly as possible.</p>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <div class="stats">
+        <div id="lvl-txt">Level 1/5</div>
+        <div id="timer">Time: 10s</div>
+    </div>
+    <div id="arena"></div>
+    <div id="feedback" style="font-weight:700; margin-top:10px; height: 20px;"></div>
+</div>
+
+<script>
+    const levels = [
+        { obj: 6, tgt: 2, speed: 1, time: 10 },
+        { obj: 8, tgt: 3, speed: 1.5, time: 9 },
+        { obj: 10, tgt: 4, speed: 2, time: 8 },
+        { obj: 12, tgt: 5, speed: 3, time: 7 },
+        { obj: 15, tgt: 6, speed: 4, time: 6 }
+    ];
+    let lvlIdx = 0, targetsFound = 0, timeLeft = 0, timerInterval;
+
+    function startGame() {
+        document.getElementById('modal').style.display = 'none';
+        runLevel();
+    }
+
+    function runLevel() {
+        if (lvlIdx >= levels.length) {
+            document.getElementById('arena').innerHTML = `<h3>Training Complete!</h3><button onclick="location.reload()">Restart</button>`;
+            return;
+        }
+        
+        const arena = document.getElementById('arena');
+        arena.innerHTML = ''; targetsFound = 0;
+        const cfg = levels[lvlIdx];
+        document.getElementById('lvl-txt').innerText = `Level ${lvlIdx + 1}/5`;
+        
+        for(let i=0; i<cfg.obj; i++) {
+            const isTgt = i < cfg.tgt;
+            const el = document.createElement('div');
+            el.className = `obj ${isTgt ? 'target' : 'distractor'}`;
+            el.style.left = (Math.random() * 400) + 'px';
+            el.style.top = (Math.random() * 230) + 'px';
+            
+            // Interaction Fix: Explicitly binding click
+            el.addEventListener('mousedown', (e) => {
+                e.stopPropagation();
+                if(isTgt) {
+                    el.style.display = 'none';
+                    targetsFound++;
+                    if(targetsFound === cfg.tgt) { lvlIdx++; runLevel(); }
+                } else {
+                    document.getElementById('feedback').innerText = "Incorrect!";
+                    setTimeout(() => { lvlIdx=0; runLevel(); }, 500);
+                }
+            });
+            
+            arena.appendChild(el);
+            move(el, cfg.speed);
+        }
+        
+        timeLeft = cfg.time;
+        clearInterval(timerInterval);
+        timerInterval = setInterval(() => {
+            timeLeft--;
+            document.getElementById('timer').innerText = `Time: ${timeLeft}s`;
+            if(timeLeft <= 0) { document.getElementById('feedback').innerText = "Time Up!"; lvlIdx=0; runLevel(); }
+        }, 1000);
+    }
+
+    function move(el, speed) {
+        let x = parseFloat(el.style.left), y = parseFloat(el.style.top);
+        let vx = (Math.random()-0.5) * speed * 4, vy = (Math.random()-0.5) * speed * 4;
+        
+        function animate() {
+            if (!el.parentElement) return; 
+            x += vx; y += vy;
+            if(x < 0 || x > 410) vx *= -1;
+            if(y < 0 || y > 240) vy *= -1;
+            el.style.left = x + 'px'; el.style.top = y + 'px';
+            requestAnimationFrame(animate);
+        }
+        animate();
+    }
+</script>
+</body>
+</html>

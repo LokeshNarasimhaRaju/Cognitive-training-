@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        :root { --bg: #eef2f6; --accent: #63b3ed; --circle: #e2e8f0; }
+        body { font-family: 'Inter', system-ui; background: var(--bg); transition: background 0.6s ease; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        #game-container { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); width: 500px; text-align: center; }
+        #canvas { width: 400px; height: 400px; border-radius: 50%; background: #ffffff; border: 4px solid var(--circle); position: relative; margin: 20px auto; overflow: hidden; transition: border 0.5s; }
+        #fixation { position: absolute; top: 50%; left: 50%; width: 15px; height: 15px; background: var(--accent); border-radius: 50%; transform: translate(-50%, -50%); z-index: 10; transition: background 0.5s; }
+        .target { position: absolute; width: 45px; height: 45px; background: var(--accent); border-radius: 12px; color: white; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: opacity 0.3s; z-index: 5; font-size: 20px; }
+        .deviator { background: #cbd5e0; } /* Subtle distractor styling */
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <div id="start-screen">
+        <h2>Peripheral Awareness</h2>
+        <p>Focus on the center. <b>Targets</b> are colored. <b>Deviators</b> are grey—do NOT click them.</p>
+        <button onclick="startSession()" style="padding:12px 30px; border-radius:10px; border:none; background:#2d3748; color:white; cursor:pointer;">START TRAINING</button>
+    </div>
+
+    <div id="game-screen" class="hidden">
+        <h4 id="progress-txt">Level 1 - Attempt 1/5</h4>
+        <div id="canvas"><div id="fixation"></div></div>
+        <div id="status" style="color:#718096; font-weight:500;">Focusing...</div>
+    </div>
+
+    <div id="results-screen" class="hidden">
+        <h2>Mission Summary</h2>
+        <p id="final-stats"></p>
+        <button onclick="location.reload()" style="padding:12px 30px; border-radius:10px; border:none; background:#2d3748; color:white; cursor:pointer;">RESTART</button>
+    </div>
+</div>
+
+<script>
+    let currentLvl = 0, currentAttempt = 0, score = 0;
+    const themes = ['#eef2f6', '#f3f0ff', '#f0fff4', '#fff5f5', '#fffaf0'];
+    const accents = ['#63b3ed', '#805ad5', '#48bb78', '#f56565', '#ed8936'];
+    const circles = ['#e2e8f0', '#d6bcfa', '#9ae6b4', '#feb2b2', '#fbd38d'];
+
+    function startSession() {
+        document.getElementById('start-screen').classList.add('hidden');
+        document.getElementById('game-screen').classList.remove('hidden');
+        runCycle();
+    }
+
+    function runCycle() {
+        if (currentLvl >= 5) { showResults(); return; }
+
+        // Theme Orchestration
+        document.body.style.backgroundColor = themes[currentLvl];
+        document.documentElement.style.setProperty('--accent', accents[currentLvl]);
+        document.documentElement.style.setProperty('--circle', circles[currentLvl]);
+        
+        document.getElementById('progress-txt').innerText = `Level ${currentLvl + 1} - Attempt ${currentAttempt + 1}/5`;
+        spawnTarget();
+    }
+
+    function spawnTarget() {
+        const isDeviator = (currentLvl >= 2 && Math.random() > 0.6); // Deviators appear from Level 3
+        const obj = document.createElement('div');
+        obj.className = isDeviator ? 'target deviator' : 'target';
+        obj.innerText = isDeviator ? '×' : '●';
+        
+        const angle = Math.random() * Math.PI * 2;
+        const dist = 100 + Math.random() * 80;
+        obj.style.left = (200 + Math.cos(angle) * dist - 22) + 'px';
+        obj.style.top = (200 + Math.sin(angle) * dist - 22) + 'px';
+        
+        document.getElementById('canvas').appendChild(obj);
+
+        obj.onclick = () => {
+            if (isDeviator) { score -= 200; document.getElementById('status').innerText = "Penalty: Clicked Deviator!"; }
+            else { score += 100; document.getElementById('status').innerText = "Detection Success!"; }
+            obj.remove();
+            advance();
+        };
+
+        setTimeout(() => { if(obj.parentNode) { obj.remove(); advance(); } }, 1300 - (currentLvl * 150));
+    }
+
+    function advance() {
+        currentAttempt++;
+        if (currentAttempt >= 5) { currentAttempt = 0; currentLvl++; }
+        setTimeout(runCycle, 500);
+    }
+
+    function showResults() {
+        document.getElementById('game-screen').classList.add('hidden');
+        document.getElementById('results-screen').classList.remove('hidden');
+        document.getElementById('final-stats').innerText = `Performance: ${score} points total.`;
+    }
+</script>
+</body>
+</html>

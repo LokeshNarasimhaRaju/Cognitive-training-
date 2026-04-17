@@ -1,0 +1,368 @@
+[
+  {
+    "question_no": 1,
+    "question": "During climb in VNAV, the aircraft shows a slight pitch increase with a gradual airspeed decay. ATC instructs 'expedite climb'. The trend is subtle but persistent. What is the most appropriate action?",
+    "options": {
+      "A": "Increase thrust slightly and continue complying with ATC climb instruction while monitoring trend",
+      "B": "Maintain current mode and wait to confirm whether the trend stabilizes before intervening",
+      "C": "Adjust pitch and thrust to protect airspeed, even if climb rate temporarily reduces",
+      "D": "Select a vertical mode that guarantees climb performance and reassess after stabilization"
+    },
+    "answer": "C",
+    "explanation": "FPM + SA + PSD + WLM. Airspeed decay indicates energy mismanagement. Protecting energy state is primary. Other options delay or partially address the issue."
+  },
+ {
+    "question_no": 2,
+    "question": "On approach in IMC, ATC issues a late runway change while a terrain alert briefly triggers and then disappears. Weather conditions are marginal. What is the best course of action?",
+    "options": {
+      "A": "Acknowledge the runway change, maintain current approach path, and reassess terrain margins before initiating any transition",
+      "B": "Delay acceptance momentarily, continue current approach stabilization, and evaluate terrain clearance relative to the new runway",
+      "C": "Accept the change conditionally, maintain present trajectory, and verify terrain safety before committing to the updated path",
+      "D": "Hold current configuration, reassess both terrain and approach feasibility, and transition only after confirming safe margins"
+    },
+    "answer": "D",
+    "explanation": "SA + PSD + WLM + FPM. The safest approach is to avoid premature acceptance while explicitly validating both terrain and approach feasibility before transition. Other options subtly lean toward early commitment or split prioritization."
+  },
+  {
+    "question_no": 3,
+    "question": "Shortly after takeoff, airspeed indications become unreliable while the pilot is engaged in ATC communication. The aircraft attitude appears normal. What is the most appropriate prioritization?",
+    "options": {
+      "A": "Complete the communication quickly to avoid further distraction before addressing the issue",
+      "B": "Stabilize the aircraft using pitch-power references while minimizing additional inputs",
+      "C": "Engage automation to reduce workload and then analyze the discrepancy",
+      "D": "Cross-check all instruments thoroughly before making any control adjustments"
+    },
+    "answer": "B",
+    "explanation": "Procedures + SA + WLM + PSD. Immediate stabilization using pitch-power is critical. Other options delay or increase workload."
+  },
+  {
+    "question_no": 4,
+    "question": "During descent, the pilot is programming the FMC when a slight altitude deviation begins. ATC calls at the same time. What is the most effective immediate response?",
+    "options": {
+      "A": "Acknowledge ATC to maintain communication flow, then correct deviation",
+      "B": "Pause FMC inputs and correct the deviation while delaying response briefly",
+      "C": "Continue FMC task to avoid rework and then address both issues together",
+      "D": "Delegate FMC task immediately and focus on communication first"
+    },
+    "answer": "B",
+    "explanation": "FPM + SA + WLM + Communication. Flight path deviation is primary. Short communication delay is acceptable."
+  },
+ {
+    "question_no": 5,
+    "question": "The first officer reports decreasing fuel while the captain is managing a weather deviation that appears necessary but not urgent. What is the most appropriate action?",
+    "options": {
+      "A": "Continue current deviation path, reassess fuel trend in parallel, and adjust trajectory if required",
+      "B": "Pause further deviation expansion, reassess fuel impact against weather severity, and refine the plan before proceeding",
+      "C": "Maintain deviation strategy, request updated fuel projections, and adapt decision once clearer data is available",
+      "D": "Stabilize current track, balance fuel considerations with weather risk, and modify the deviation only after evaluating both constraints"
+    },
+    "answer": "B",
+    "explanation": "PSD + SA + LTW + WLM. The key is preventing further commitment before integrating fuel vs weather trade-off. Other options either delay integration or allow continued deviation without reassessment."
+  },
+
+  {
+    "question_no": 6,
+    "question": "During climb, the aircraft fails to follow the selected vertical path. Simultaneously, ATC queries climb status and a non-critical system alert appears. What is the most appropriate management strategy?",
+    "options": {
+      "A": "Respond to ATC first to avoid communication breakdown, then troubleshoot vertical path",
+      "B": "Address the system alert quickly since it may relate to climb performance",
+      "C": "Check flight path control first, then sequence communication and system assessment",
+      "D": "Switch automation modes immediately to recover climb performance before further analysis"
+    },
+    "answer": "C",
+    "explanation": "FPM + SA + WLM + PSD + Communication. Flight path is always primary. Other actions risk misprioritization."
+  },
+  {
+    "question_no": 7,
+    "question": "During approach, airspeed begins increasing unexpectedly. The pilot suspects wind effects, but instrument readings remain stable. ATC issues descent clearance. What is the best decision?",
+    "options": {
+      "A": "Comply with descent clearance while monitoring airspeed trend closely",
+      "B": "Delay descent slightly to confirm whether the speed trend stabilizes",
+      "C": "Manage speed first, then reassess descent requirement",
+      "D": "Assume environmental cause and continue normal profile"
+    },
+    "answer": "C",
+    "explanation": "SA + PSD + Knowledge + WLM. Stabilizing parameters before compliance avoids compounding errors."
+  },
+  {
+    "question_no": 8,
+    "question": "Multiple alerts appear with no clear hierarchy, and the pilot cannot immediately identify the most critical one. What is the most effective approach?",
+    "options": {
+      "A": "Address alerts in the order they appeared to maintain structure",
+      "B": "Focus on the most familiar alert first to reduce uncertainty",
+      "C": "Assess overall aircraft state and prioritize based on impact severity",
+      "D": "Silence alerts temporarily to reduce distraction before analysis"
+    },
+    "answer": "C",
+    "explanation": "WLM + SA + PSD + Knowledge. Big-picture assessment prevents incorrect prioritization."
+  },
+  {
+    "question_no": 9,
+    "question": "While manually flying in turbulence, the pilot begins overcorrecting. Simultaneously, navigation deviation develops and ATC calls. What is the most appropriate action?",
+    "options": {
+      "A": "Engage automation to stabilize flight and then address navigation and communication",
+      "B": "Reduce control inputs to stabilize aircraft before addressing other tasks",
+      "C": "Correct navigation deviation immediately to maintain compliance",
+      "D": "Respond to ATC quickly to prevent further complications"
+    },
+    "answer": "B",
+    "explanation": "Manual FPM + WLM + SA. Stabilizing control prevents escalation. Automation engagement may not be immediate solution."
+  },
+  {
+    "question_no": 10,
+    "question": "ATC issues a complex reroute while the pilot is resolving a minor system issue. The first officer reads back incorrectly, but the error is subtle. What is the best response?",
+    "options": {
+      "A": "Continue the current task, monitor execution closely, and verify routing accuracy once workload reduces",
+      "B": "Acknowledge the clearance, maintain current task flow, and cross-check routing during implementation",
+      "C": "Pause ongoing task briefly, confirm clearance accuracy explicitly, and realign task distribution before proceeding",
+      "D": "Allow the first officer to continue handling communication, while maintaining oversight and correcting if deviation becomes evident"
+    },
+    "answer": "C",
+    "explanation": "Communication + LTW + WLM + SA + PSD. Subtle readback errors require immediate correction before execution. Other options delay correction or rely on passive detection."
+   },
+  {
+    "question_no": 11,
+    "question": "During descent, the aircraft levels off earlier than expected due to an unnoticed mode change. Airspeed begins to increase. What is the most accurate assessment?",
+    "options":{
+      "A": "An inconsistency in descent planning interacting with energy state management during automation transition",
+      "B": "A temporary variation in automated control response with localized impact on speed profile",
+      "C": "An unnoticed change in control mode influencing both vertical path behavior and energy distribution",
+      "D": "A speed-related deviation developing independently of vertical path control conditions"
+    },
+    "answer": "C",
+    "explanation": "The behavior reflects a linked change in control logic affecting both path and energy, not isolated deviations."
+  },
+
+  {
+    "question_no": 12,
+    "question": "During an engine anomaly, the captain focuses on diagnosis while the aircraft slowly deviates from the intended path. The first officer notices but hesitates to intervene. What best explains this situation?",
+    "options": {
+      "A": "A procedural prioritization issue during abnormal operations",
+      "B": "A breakdown in shared SA due to fixation and weak crew coordination",
+      "C": "A normal delay in response due to complex system analysis",
+      "D": "An acceptable trade-off between diagnosis and flight path control"
+    },
+    "answer": "B",
+    "explanation": "SA + LTW + Communication + WLM + PSD. Fixation + lack of assertiveness leads to compounded failure."
+  },
+  {
+    "question_no": 13,
+    "question": "The pilot systematically addresses multiple minor alerts using checklists, but a critical parameter slowly trends toward unsafe limits unnoticed. What is the underlying issue?",
+    "options": {
+      "A": "Over-reliance on procedural structure at the expense of SA",
+      "B": "Insufficient technical knowledge to identify critical parameters",
+      "C": "Incorrect checklist execution sequence",
+      "D": "Delayed communication between crew members"
+    },
+    "answer": "A",
+    "explanation": "SA + WLM + Procedures + PSD. Tunnel vision on procedures reduces big-picture awareness."
+  },
+  {
+    "question_no": 14,
+    "question": "During a go-around, thrust is slightly below required and configuration is not fully correct. The first officer notices but delays speaking due to uncertainty. What is the most accurate interpretation?",
+    "options": {
+      "A": "A localized deviation in thrust and configuration requiring adjustment within normal transition tolerance",
+      "B": "A control execution variation influenced by handling technique during dynamic maneuvering",
+      "C": "A combined effect of delayed input exchange, authority gradient, and evolving aircraft state",
+      "D": "A transient mismatch between expected and actual performance during maneuver phase transition"
+    },
+    "answer": "C",
+    "explanation": "The issue is not isolated to control or configuration, but emerges from interaction between crew dynamics and aircraft state."
+  },
+  {
+    "question_no": 15,
+    "question": "Under high workload, the pilot delays a decision waiting for complete information. Meanwhile, conditions gradually worsen. What is the most critical competency conflict demonstrated?",
+    "options":  {
+      "A": "A trade-off between structured evaluation and maintaining continuity of information flow",
+      "B": "An interaction between system understanding and reliance on automated support mechanisms",
+      "C": "A delay in action formation influenced by increasing task demand and situational interpretation",
+      "D": "A coordination imbalance affecting distribution of roles and collective response timing"
+    },
+    "answer": "C",
+    "explanation": "The delay arises from processing load interfering with timely action, rather than coordination or knowledge gaps."
+  },
+[
+  {
+    "question_no": 16,
+    "question": "During cruise, all parameters appear normal, but the pilot feels the aircraft is 'not behaving as expected' based on experience. No alerts are present. What is the most appropriate response?",
+    "options": {
+      "A": "Maintaining current monitoring strategy while relying on stable parameter indications for validation",
+      "B": "Expanding cross-verification across multiple cues to reconcile perceived and observed behavior",
+      "C": "Introducing controlled input variation to evaluate response consistency under current conditions",
+      "D": "Reducing attention to subjective cues to preserve focus on instrument-driven assessment"
+    },
+    "answer": "B",
+    "explanation":  "The appropriate response is to validate perception by integrating multiple sources, not by acting or dismissing the cue."
+  },
+  {
+    "question_no": 17,
+    "question": "A situation appears stable, but multiple small inconsistencies exist across instruments, none critical individually. What is the best interpretation?",
+    "options": {
+      "A": "Each inconsistency is negligible and can be handled independently",
+      "B": "Inconsistencies indicate a possible systemic issue, check for integrated analysis",
+      "C": "Focus on the most abnormal parameter and ignore the rest temporarily",
+      "D": "Wait for a clear failure indication of the instrument before acting"
+    },
+    "answer": "B",
+    "explanation": "SA + Knowledge + PSD. Multiple small inconsistencies often indicate hidden system-level issues."
+  },
+  {
+    "question_no": 18,
+    "question": "During a low workload phase, the pilot becomes highly focused on optimizing performance parameters, while external monitoring reduces. What risk is most significant?",
+    "options": {
+      "A": "A marginal reduction in optimization efficiency without significant impact on operational awareness",
+      "B": "A gradual shift in attention allocation reducing sensitivity to external environmental changes",
+      "C": "An increased dependence on automated precision affecting manual interpretation accuracy",
+      "D": "A redistribution of communication focus influencing coordination effectiveness over time"
+    },
+    "answer": "B",
+    "explanation": "The primary effect is reduced external awareness due to narrowed attention during low-demand conditions."
+  },
+  {
+    "question_no": 19,
+    "question": "The pilot receives partial information about a developing issue and begins forming a solution before all data is available. What is the primary cognitive risk?",
+    "options": {
+      "A": "Delayed response time",
+      "B": "Confirmation bias influencing decision-making",
+      "C": "Excessive workload due to incomplete data",
+      "D": "Procedural deviation and lack of communication"
+    },
+    "answer": "B",
+    "explanation": "PSD + SA. Early assumptions bias interpretation of further information."
+  },
+  {
+    "question_no": 20,
+    "question": "Two crew members interpret the same situation differently but neither challenges the other explicitly. What is the most critical risk?",
+    "options": {
+      "A": "A temporary divergence in communication clarity without immediate impact on operational alignment",
+      "B": "Parallel interpretation pathways forming independently under shared informational inputs",
+      "C": "A misalignment in internal representations affecting coordinated perception of the situation",
+      "D": "A delay in procedural synchronization between crew members during ongoing task execution"
+      
+  },
+    "answer": "C",
+    "explanation": "The risk lies in differing mental models, not just communication gaps or timing differences."
+  },
+
+  {
+    "question_no": 21,
+    "question": "A task is completed correctly, but the pilot does not verify its outcome due to confidence in execution. What competency failure is most evident?",
+    "options": {
+      "A": "A gap in adherence to structured execution steps despite correct initial task completion",
+      "B": "An absence of outcome verification following task execution within expected parameters",
+      "C": "A prioritization shift affecting allocation of attention across concurrent task demands",
+      "D": "A reduction in communication exchange influencing shared confirmation of task status"
+    },
+    "answer": "B",
+    "explanation": "The issue is incomplete closure of the action loop, where execution is not followed by confirmation."
+  },
+  {
+    "question_no": 22,
+    "question": "During a developing situation, the pilot distributes tasks efficiently but loses awareness of the overall situation. What does this indicate?",
+    "options": {
+      "A": "Effective teamwork with minor situational gaps",
+      "B": "Over-delegation leading to reduced personal situational awareness",
+      "C": "Balanced workload distribution but lack of communication",
+      "D": "Procedural prioritization issue"
+    },
+    "answer": "B",
+    "explanation": "LTW + WLM + SA. Delegation without monitoring leads to loss of big picture."
+  },
+  {
+    "question_no": 23,
+    "question": "The pilot delays a simple corrective action because it might interfere with a longer-term plan. The situation worsens slightly. What is the underlying issue?",
+    "options": {
+      "A": "An emphasis on maintaining longer-term alignment influencing immediate response timing",
+      "B": "A limitation in procedural clarity affecting decision consistency during evolving conditions",
+      "C": "A delay in communication exchange contributing to slower response development",
+      "D": "A constraint in manual control capability influencing corrective action execution"
+    },
+    "answer": "A",
+    "explanation": "The decision prioritizes future alignment over immediate correction, creating short-term vulnerability."
+  },
+  {
+    "question_no": 24,
+    "question": "A system behaves within limits but close to boundaries for an extended period. No immediate action is taken. What is the hidden risk?",
+    "options": {
+      "A": "A progressive system exposure influencing long-term reliability under sustained boundary conditions",
+      "B": "An adaptation to repeated near-limit conditions reducing sensitivity to potential deviations",
+      "C": "An inefficiency in structured response application affecting consistency of system handling",
+      "D": "An increase in communication demand influencing distribution of attention resources"
+    },
+    "answer": "B",
+    "explanation": "Repeated exposure alters perception, making abnormal conditions appear acceptable over time."
+  },
+  {
+    "question_no": 25,
+    "question": "The pilot alternates rapidly between tasks to maintain awareness of all elements but struggles to complete any task fully. What is the main issue?",
+    "options": {
+      "A": "High situational awareness with minor inefficiencies",
+      "B": "Ineffective workload management causing shallow processing",
+      "C": "Excessive communication demand causing the delay",
+      "D": "Procedural overload deviance"
+    },
+    "answer": "B",
+    "explanation": "WLM + PSD + SA. Frequent switching reduces depth of processing and increases error risk."
+  },
+
+  {
+    "question_no": 26,
+    "question": "A previously resolved issue reappears subtly, but the pilot assumes it is unrelated to the earlier event. What cognitive trap is involved?",
+    "options": {
+      "A": "An increased reliance on prior successful outcomes influencing current interpretation of events",
+      "B": "A reduced weighting of recent information affecting integration with current observations",
+      "C": "A disconnect in linking recurring patterns across temporally separated system behaviors",
+      "D": "A tendency to apply structured responses despite variation in contextual conditions"
+    },
+    "answer": "C",
+    "explanation": "The issue lies in failing to recognize continuity between past and present events."
+  },
+  {
+    "question_no": 27,
+    "question": "During a stable phase, the pilot reduces monitoring intensity assuming low risk. An unexpected change occurs and is detected late. What is the key issue?",
+    "options": {
+      "A": "A redistribution of workload reflecting reduced task demand during stable operational phase",
+      "B": "A decrease in sustained monitoring intensity affecting timely recognition of emerging changes",
+      "C": "A delay in structured response application influencing adaptation to new conditions",
+      "D": "A reduction in communication exchange affecting coordination during low-activity periods"
+    },
+    "answer": "B",
+    "explanation": "Lower task demand reduces vigilance, delaying detection of changes."
+  },
+  {
+    "question_no": 28,
+    "question": "The pilot prioritizes completing all checklist items perfectly, even as the situation evolves dynamically. What is the risk?",
+    "options": {
+      "A": "An improvement in procedural consistency supporting structured task execution",
+      "B": "A limitation in adaptive response capability during dynamically changing conditions",
+      "C": "A delay in communication exchange affecting coordination timing across tasks",
+      "D": "A reduction in manual handling flexibility during structured task engagement"
+    },
+    "answer": "B",
+    "explanation": "Strict adherence reduces flexibility when conditions require adaptation."
+  },
+  {
+    "question_no": 29,
+    "question": "A decision is made correctly based on available data, but the situation changes shortly after. The pilot continues with the original plan. What is the main issue?",
+    "options": {
+      "A": "A continuation of initial reasoning supporting consistency in execution under changing inputs",
+      "B": "A lack of adjustment in response to evolving information influencing outcome relevance",
+      "C": "A delay in communication flow affecting integration of updated situational data",
+      "D": "A persistence in structured procedure application despite contextual variation"
+    },
+    "answer": "B",
+    "explanation": "The issue is failure to update decisions as new information becomes available."
+  },
+  {
+    "question_no": 30,
+    "question": "The pilot detects a minor anomaly but delays action since it does not immediately impact safety. Later, it contributes to a larger issue. What is the core lesson?",
+    "options": {
+      "A": "A tendency to deprioritize low-impact deviations during stable operational conditions",
+      "B": "A delay in response initiation allowing progression of initially minor discrepancies",
+      "C": "A reliance on procedural triggers to determine timing of corrective actions",
+      "D": "A focus on maintaining workload balance influencing response prioritization"
+    },
+    "answer": "B",
+    "explanation": "Delayed response allows small deviations to develop into larger issues."
+  }
+]

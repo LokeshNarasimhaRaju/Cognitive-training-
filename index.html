@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AeroCognition | Elite Performance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="cursor" class="plane-cursor">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#2563EB"><path d="M21 16.5L12 12L3 16.5L12 3L21 16.5Z"/></svg>
+    </div>
+
+    <nav style="display:flex; justify-content:space-between; padding:3rem 5rem;">
+        <h2 style="letter-spacing: 0.2em;">AEROCOGNITION</h2>
+        <div>
+            <button onclick="document.getElementById('dashboard').scrollIntoView({behavior:'smooth'})">Dashboard</button>
+            <button onclick="document.getElementById('simulator').scrollIntoView({behavior:'smooth'})">Training</button>
+        </div>
+    </nav>
+
+    <main style="padding:0 5rem;">
+        <section id="dashboard" class="premium-card" style="margin-bottom: 50px;">
+            <h1>Performance Results</h1>
+            <p>Your competency radar will appear here once you complete a module.</p>
+        </section>
+
+        <section id="simulator" class="premium-card">
+            <h1>Cognitive Mission Hub</h1>
+            <div id="simulation-hub" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px;"></div>
+            <iframe id="game-frame" style="width:100%; height:600px; border-radius:16px; border:1px solid #E2E8F0;"></iframe>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

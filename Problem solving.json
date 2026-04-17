@@ -1,0 +1,2337 @@
+[
+  {
+    "category": "Problem Solving & Decision Making",
+    "sub_category": "Logical Reasoning",
+    "type": "Syllogism & Set Logic",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Statements:\nAll cats are animals.\nSome animals are pets.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["All cats are animals", "Some animals are pets"],
+        "conclusions": ["Some cats are pets", "All pets are animals"],
+        "correct_answer": "Only II follows",
+        "correct_option_index": 1,
+        "explanation": "Cats → animals, but no link to pets → I doesn't follow. All pets being animals is valid."
+      },
+      {
+        "id": 2,
+        "question": "Statements:\nAll pencils are tools.\nNo tool is a toy.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["All pencils are tools", "No tool is a toy"],
+        "conclusions": ["No pencil is a toy", "Some toys are not pencils"],
+        "correct_answer": "Both I and II follow",
+        "correct_option_index": 2,
+        "explanation": "Pencils ⊆ tools and tools ≠ toys → I follows. Since no overlap, some toys are definitely not pencils → II follows."
+      },
+      {
+        "id": 3,
+        "question": "Statements:\nSome books are novels.\nAll novels are stories.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["Some books are novels", "All novels are stories"],
+        "conclusions": ["Some books are stories", "All books are stories"],
+        "correct_answer": "Only I follows",
+        "correct_option_index": 0,
+        "explanation": "Some books → novels → stories → I follows. Cannot extend to all books → II false."
+      },
+      {
+        "id": 4,
+        "question": "Statements:\nNo dog is a cat.\nAll cats are mammals.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["No dog is a cat", "All cats are mammals"],
+        "conclusions": ["No dog is a mammal", "Some mammals are cats"],
+        "correct_answer": "Only II follows",
+        "correct_option_index": 1,
+        "explanation": "Dogs may still be mammals → I doesn't follow. Some mammals are cats is valid → II follows."
+      },
+      {
+        "id": 5,
+        "question": "Statements:\nAll roses are flowers.\nSome flowers are red.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["All roses are flowers", "Some flowers are red"],
+        "conclusions": ["Some roses are red", "Some red things are flowers"],
+        "correct_answer": "Only II follows",
+        "correct_option_index": 1,
+        "explanation": "No direct link roses ↔ red → I doesn't follow. Some flowers are red → II follows."
+      },
+      {
+        "id": 6,
+        "question": "Statements:\nSome teachers are writers.\nAll writers are creative.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["Some teachers are writers", "All writers are creative"],
+        "conclusions": ["Some teachers are creative", "All teachers are creative"],
+        "correct_answer": "Only I follows",
+        "correct_option_index": 0,
+        "explanation": "Some teachers → writers → creative → I follows. Cannot generalize to all teachers."
+      },
+      {
+        "id": 7,
+        "question": "Statements:\nAll apples are fruits.\nNo fruit is a vegetable.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["All apples are fruits", "No fruit is a vegetable"],
+        "conclusions": ["No apple is a vegetable", "Some vegetables are not apples"],
+        "correct_answer": "Both I and II follow",
+        "correct_option_index": 2,
+        "explanation": "Apples ⊆ fruits, fruits ≠ vegetables → I follows. Hence vegetables ≠ apples → II follows."
+      },
+      {
+        "id": 8,
+        "question": "Statements:\nAll engineers are graduates.\nSome graduates are unemployed.\nNo unemployed person is rich.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["All engineers are graduates", "Some graduates are unemployed", "No unemployed person is rich"],
+        "conclusions": ["Some engineers are not rich", "Some graduates are not rich"],
+        "correct_answer": "Only II follows",
+        "correct_option_index": 1,
+        "explanation": "Some graduates → unemployed → not rich → II follows. No guarantee engineers are in that subset → I doesn't follow."
+      },
+      {
+        "id": 9,
+        "question": "Statements:\nNo artist is a scientist.\nSome scientists are researchers.\nAll researchers are educated.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["No artist is a scientist", "Some scientists are researchers", "All researchers are educated"],
+        "conclusions": ["Some educated people are not artists", "Some scientists are not artists"],
+        "correct_answer": "Both I and II follow",
+        "correct_option_index": 2,
+        "explanation": "Scientists ≠ artists → II follows. Scientists → researchers → educated → hence some educated ≠ artists → I follows."
+      },
+      {
+        "id": 10,
+        "question": "Statements:\nAll fruits are healthy.\nSome healthy items are expensive.\nNo expensive item is local.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["All fruits are healthy", "Some healthy items are expensive", "No expensive item is local"],
+        "conclusions": ["Some fruits are not local", "All local items are not fruits"],
+        "correct_answer": "Neither I nor II follows",
+        "correct_option_index": 3,
+        "explanation": "No direct fruits ↔ expensive link → I uncertain. II is reverse assumption → invalid."
+      },
+      {
+        "id": 11,
+        "question": "Statements:\nSome cars are electric.\nAll electric vehicles are silent.\nNo silent vehicle is cheap.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["Some cars are electric", "All electric vehicles are silent", "No silent vehicle is cheap"],
+        "conclusions": ["Some cars are not cheap", "All cars are not cheap"],
+        "correct_answer": "Only I follows",
+        "correct_option_index": 0,
+        "explanation": "Some cars → electric → silent → not cheap → I follows. Cannot extend to all cars."
+      },
+      {
+        "id": 12,
+        "question": "Statements:\nAll A are B.\nNo B is C.\nSome C are D.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only I and II follow", "Only I and III follow", "All follow"],
+        "statements": ["All A are B", "No B is C", "Some C are D"],
+        "conclusions": ["No A is C", "Some D are not B", "Some D are not A"],
+        "correct_answer": "All follow",
+        "correct_option_index": 3,
+        "explanation": "A ⊆ B and B ≠ C → I follows. Some C → D and C ≠ B → II follows. Since A ⊆ B, D linked to C cannot be A → III follows."
+      },
+      {
+        "id": 13,
+        "question": "Statements:\nSome players are singers.\nNo singer is a dancer.\nAll dancers are fit.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["Some players are singers", "No singer is a dancer", "All dancers are fit"],
+        "conclusions": ["Some players are not dancers", "No fit person is a singer"],
+        "correct_answer": "Only I follows",
+        "correct_option_index": 0,
+        "explanation": "Some players → singers and singers ≠ dancers → I follows. Fit ↔ singer relation not fixed → II false."
+      },
+      {
+        "id": 14,
+        "question": "Statements:\nAll metals are solids.\nSome solids are liquids.\nNo liquid is gas.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["All metals are solids", "Some solids are liquids", "No liquid is gas"],
+        "conclusions": ["Some metals may be liquids", "No metal is gas"],
+        "correct_answer": "Only II follows",
+        "correct_option_index": 1,
+        "explanation": "Metals ⊆ solids but solids overlap liquids doesn't ensure metals do → I is possibility but not definite. Metals ⊆ solids and liquids ≠ gas → metals ≠ gas → II follows."
+      },
+      {
+        "id": 15,
+        "question": "Statements:\nSome A are B.\nAll B are C.\nSome C are not D.\nNo D is A.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only I and II follow", "Only II and III follow", "All follow"],
+        "statements": ["Some A are B", "All B are C", "Some C are not D", "No D is A"],
+        "conclusions": ["Some A are not D", "Some B are not D", "Some C are A"],
+        "correct_answer": "Only I and II follow",
+        "correct_option_index": 1,
+        "explanation": "A ∩ B exists and D ≠ A → I follows. B ⊆ C and some C not D → some B may not be D → II follows. No guarantee C overlaps A fully → III uncertain."
+      },
+      {
+        "id": 16,
+        "question": "Statements:\nSome chairs are tables.\nAll tables are wooden.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["Some chairs are tables", "All tables are wooden"],
+        "conclusions": ["Some chairs are wooden", "All wooden things are tables"],
+        "correct_answer": "Only I follows",
+        "correct_option_index": 0,
+        "explanation": "Some chairs → tables → wooden → I follows. Reverse (wooden → tables) invalid → II false."
+      },
+      {
+        "id": 17,
+        "question": "Statements:\nNo bird is a mammal.\nSome mammals are aquatic.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["No bird is a mammal", "Some mammals are aquatic"],
+        "conclusions": ["Some aquatic animals are not birds", "No aquatic animal is a bird"],
+        "correct_answer": "Only I follows",
+        "correct_option_index": 0,
+        "explanation": "Some mammals → aquatic, mammals ≠ birds → I follows. II overgeneralizes."
+      },
+      {
+        "id": 18,
+        "question": "Statements:\nAll pens are stationery.\nSome stationery are expensive.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["All pens are stationery", "Some stationery are expensive"],
+        "conclusions": ["Some pens are expensive", "Some expensive items are stationery"],
+        "correct_answer": "Only II follows",
+        "correct_option_index": 1,
+        "explanation": "No direct link pens ↔ expensive → I false. Some stationery → expensive → II true."
+      },
+      {
+        "id": 19,
+        "question": "Statements:\nSome mountains are hills.\nAll hills are green.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["Some mountains are hills", "All hills are green"],
+        "conclusions": ["Some mountains are green", "All green things are hills"],
+        "correct_answer": "Only I follows",
+        "correct_option_index": 0,
+        "explanation": "Some mountains → hills → green → I follows. Reverse fails."
+      },
+      {
+        "id": 20,
+        "question": "Statements:\nNo laptop is a phone.\nAll phones are electronic.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["No laptop is a phone", "All phones are electronic"],
+        "conclusions": ["Some electronics are not laptops", "No laptop is electronic"],
+        "correct_answer": "Only I follows",
+        "correct_option_index": 0,
+        "explanation": "Phones ⊆ electronics and phones ≠ laptops → some electronics ≠ laptops → I true. II unsupported."
+      },
+      {
+        "id": 21,
+        "question": "Statements:\nAll actors are famous.\nSome famous people are rich.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["All actors are famous", "Some famous people are rich"],
+        "conclusions": ["Some actors are rich", "Some rich people are famous"],
+        "correct_answer": "Only II follows",
+        "correct_option_index": 1,
+        "explanation": "No guarantee actors overlap rich → I false. Some rich ↔ famous → II true."
+      },
+      {
+        "id": 22,
+        "question": "Statements:\nSome rivers are lakes.\nNo lake is salty.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Both I and II follow", "Neither I nor II follows"],
+        "statements": ["Some rivers are lakes", "No lake is salty"],
+        "conclusions": ["Some rivers are not salty", "All rivers are not salty"],
+        "correct_answer": "Only I follows",
+        "correct_option_index": 0,
+        "explanation": "Some rivers → lakes → not salty → I follows. Cannot extend to all rivers."
+      },
+      {
+        "id": 23,
+        "question": "Statements:\nAll poets are thinkers.\nSome thinkers are introverts.\nNo introvert is social.\n\nWhich conclusion(s) follow?",
+        "options": ["Only II follows", "Only I and II follow", "Only II and III follow", "All follow"],
+        "statements": ["All poets are thinkers", "Some thinkers are introverts", "No introvert is social"],
+        "conclusions": ["Some poets are not social", "Some thinkers are not social", "All poets are introverts"],
+        "correct_answer": "Only II follows",
+        "correct_option_index": 0,
+        "explanation": "Some thinkers → introverts → not social → II follows. No guarantee poets fall in that subset → I false. III false."
+      },
+      {
+        "id": 24,
+        "question": "Statements:\nSome A are B.\nNo B is C.\nAll C are D.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only I and II follow", "Only II follows", "All follow"],
+        "statements": ["Some A are B", "No B is C", "All C are D"],
+        "conclusions": ["Some A are not C", "Some D are not B", "Some A are D"],
+        "correct_answer": "Only I and II follow",
+        "correct_option_index": 1,
+        "explanation": "A ∩ B exists and B ≠ C → I follows. C ⊆ D and C ≠ B → some D ≠ B → II follows. No A--D link → III false."
+      },
+      {
+        "id": 25,
+        "question": "Statements:\nAll smartphones are gadgets.\nSome gadgets are fragile.\nSome fragile items are costly.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Only I and II follow", "Only II and III follow"],
+        "statements": ["All smartphones are gadgets", "Some gadgets are fragile", "Some fragile items are costly"],
+        "conclusions": ["Some smartphones may be costly", "Some gadgets are costly", "All costly items are gadgets"],
+        "correct_answer": "Only I and II follow",
+        "correct_option_index": 2,
+        "explanation": "Smartphones → gadgets; gadgets ↔ fragile ↔ costly chain allows possibility → I valid (may). II definite via fragile. III reverse false."
+      },
+      {
+        "id": 26,
+        "question": "Statements:\nNo teacher is lazy.\nSome lazy people are unhealthy.\nAll unhealthy people are stressed.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only II follows", "Only I and II follow", "None follow"],
+        "statements": ["No teacher is lazy", "Some lazy people are unhealthy", "All unhealthy people are stressed"],
+        "conclusions": ["Some stressed people are not teachers", "No stressed person is a teacher", "Some teachers are stressed"],
+        "correct_answer": "Only I follows",
+        "correct_option_index": 0,
+        "explanation": "Lazy → unhealthy → stressed, lazy ≠ teacher → some stressed ≠ teachers → I follows. II too strong. III no link."
+      },
+      {
+        "id": 27,
+        "question": "Statements:\nSome engineers are managers.\nAll managers are experienced.\nNo experienced person is a fresher.\nSome freshers are trainees.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only I and II follow", "Only II follows", "All follow"],
+        "statements": ["Some engineers are managers", "All managers are experienced", "No experienced person is a fresher", "Some freshers are trainees"],
+        "conclusions": ["Some engineers are not freshers", "Some trainees are not experienced", "Some engineers are trainees"],
+        "correct_answer": "Only I and II follow",
+        "correct_option_index": 1,
+        "explanation": "Engineers → managers → experienced → not fresher → I follows. Freshers ≠ experienced → trainees (subset) may include → II follows. III no link."
+      },
+      {
+        "id": 28,
+        "question": "Statements:\nAll squares are rectangles.\nSome rectangles are circles.\nNo circle is a triangle.\n\nWhich conclusion(s) follow?",
+        "options": ["Only II follows", "Only I and II follow", "Only II and III follow", "All follow"],
+        "statements": ["All squares are rectangles", "Some rectangles are circles", "No circle is a triangle"],
+        "conclusions": ["Some squares may be circles", "Some rectangles are not triangles", "All squares are not triangles"],
+        "correct_answer": "All follow",
+        "correct_option_index": 3,
+        "explanation": "Rectangles overlap circles → squares (subset) may → I follows (possibility). Circles ≠ triangles → rectangles linked → II follows. Squares ⊆ rectangles → not triangles → III follows."
+      },
+      {
+        "id": 29,
+        "question": "Statements:\nSome books are journals.\nAll journals are indexed.\nSome indexed items are not digital.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only I and II follow", "Only II follows", "All follow"],
+        "statements": ["Some books are journals", "All journals are indexed", "Some indexed items are not digital"],
+        "conclusions": ["Some books may not be digital", "Some journals are not digital", "All books are indexed"],
+        "correct_answer": "Only I follows",
+        "correct_option_index": 0,
+        "explanation": "Books → journals → indexed; indexed ↔ not digital → books may be → I valid. II not guaranteed. III overgeneralization."
+      },
+      {
+        "id": 30,
+        "question": "Statements:\nNo A is B.\nSome B are C.\nAll C are D.\nSome D are E.\n\nWhich conclusion(s) follow?",
+        "options": ["Only I follows", "Only I and II follow", "Only II and III follow", "All follow"],
+        "statements": ["No A is B", "Some B are C", "All C are D", "Some D are E"],
+        "conclusions": ["Some C are not A", "Some D are not A", "Some E are not B"],
+        "correct_answer": "All follow",
+        "correct_option_index": 3,
+        "explanation": "B ≠ A and C overlaps B → some C ≠ A → I follows. C ⊆ D → some D ≠ A → II follows. D overlaps E and D comes from C/B chain → some E ≠ B → III follows."
+      }
+    ]
+  },
+  {
+    "category": "Problem Solving & Decision Making",
+    "sub_category": "Logical Reasoning",
+    "type": "Conditional Logic (If--Then)",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Rules:\nIf it rains, the ground becomes wet.\nIf the ground is wet, the match is canceled.\nScenario: It is raining.\nWhat must be true?",
+        "options": ["The match is not canceled", "The ground is dry", "The match is canceled", "It may or may not be canceled"],
+        "rules": ["If it rains, the ground becomes wet.", "If the ground is wet, the match is canceled."],
+        "scenario": "It is raining.",
+        "correct_answer": "The match is canceled",
+        "correct_option_index": 2,
+        "explanation": "Rain → wet ground → match canceled."
+      },
+      {
+        "id": 2,
+        "question": "Rules:\nIf a number is even, it is divisible by 2.\nIf a number is divisible by 2, it is not prime (except 2).\nScenario: A number is even and greater than 2.\nWhat must be true?",
+        "options": ["The number is prime", "The number is not prime", "The number may be prime", "Cannot be determined"],
+        "rules": ["If a number is even, it is divisible by 2.", "If a number is divisible by 2, it is not prime (except 2)."],
+        "scenario": "A number is even and greater than 2.",
+        "correct_answer": "The number is not prime",
+        "correct_option_index": 1,
+        "explanation": "Even (>2) → divisible by 2 → not prime."
+      },
+      {
+        "id": 3,
+        "question": "Rules:\nIf a person studies, they pass the exam.\nIf a person passes, they get a certificate.\nScenario: Rahul studies.\nWhat must be true?",
+        "options": ["Rahul fails", "Rahul gets a certificate", "Rahul may fail", "Rahul does not study"],
+        "rules": ["If a person studies, they pass the exam.", "If a person passes, they get a certificate."],
+        "scenario": "Rahul studies.",
+        "correct_answer": "Rahul gets a certificate",
+        "correct_option_index": 1,
+        "explanation": "Studies → pass → certificate."
+      },
+      {
+        "id": 4,
+        "question": "Rules:\nIf a device is charged, it turns on.\nIf it does not turn on, it is faulty.\nScenario: The device does not turn on.\nWhat must be true?",
+        "options": ["It is charged", "It is faulty", "It is not faulty", "It is charged and faulty"],
+        "rules": ["If a device is charged, it turns on.", "If it does not turn on, it is faulty."],
+        "scenario": "The device does not turn on.",
+        "correct_answer": "It is faulty",
+        "correct_option_index": 1,
+        "explanation": "Not turning on → faulty."
+      },
+      {
+        "id": 5,
+        "question": "Rules:\nIf a student submits the assignment, they get marks.\nIf they do not submit, they get zero.\nScenario: A student gets marks.\nWhat must be true?",
+        "options": ["The student did not submit", "The student submitted", "The student may or may not have submitted", "The student failed"],
+        "rules": ["If a student submits the assignment, they get marks.", "If they do not submit, they get zero."],
+        "scenario": "A student gets marks.",
+        "correct_answer": "The student submitted",
+        "correct_option_index": 1,
+        "explanation": "Marks → submission must have happened."
+      },
+      {
+        "id": 6,
+        "question": "Rules:\nIf a switch is ON, the light glows.\nIf the light glows, the room is bright.\nScenario: The room is not bright.\nWhat must be true?",
+        "options": ["The switch is ON", "The switch is OFF", "The light is glowing", "Cannot be determined"],
+        "rules": ["If a switch is ON, the light glows.", "If the light glows, the room is bright."],
+        "scenario": "The room is not bright.",
+        "correct_answer": "The switch is OFF",
+        "correct_option_index": 1,
+        "explanation": "Not bright → light not glowing → switch not ON → OFF."
+      },
+      {
+        "id": 7,
+        "question": "Rules:\nIf a person eats healthy food, they stay fit.\nIf a person is fit, they have high energy.\nScenario: A person does not have high energy.\nWhat must be true?",
+        "options": ["The person is fit", "The person eats healthy food", "The person is not fit", "Cannot be determined"],
+        "rules": ["If a person eats healthy food, they stay fit.", "If a person is fit, they have high energy."],
+        "scenario": "A person does not have high energy.",
+        "correct_answer": "The person is not fit",
+        "correct_option_index": 2,
+        "explanation": "No energy → not fit."
+      },
+      {
+        "id": 8,
+        "question": "Rules:\nIf A happens, B happens.\nIf B happens, C does not happen.\nIf C happens, D happens.\nScenario: A happens.\nWhat must be true?",
+        "options": ["C happens", "D happens", "C does not happen", "D does not happen"],
+        "rules": ["If A happens, B happens.", "If B happens, C does not happen.", "If C happens, D happens."],
+        "scenario": "A happens.",
+        "correct_answer": "C does not happen",
+        "correct_option_index": 2,
+        "explanation": "A → B → not C."
+      },
+      {
+        "id": 9,
+        "question": "Rules:\nIf a person exercises and eats well, they stay healthy.\nIf a person is healthy, they do not fall sick.\nIf a person does not exercise, they feel tired.\nScenario: A person is healthy.\nWhat must be true?",
+        "options": ["They exercise", "They eat well", "They do not fall sick", "They feel tired"],
+        "rules": ["If a person exercises and eats well, they stay healthy.", "If a person is healthy, they do not fall sick.", "If a person does not exercise, they feel tired."],
+        "scenario": "A person is healthy.",
+        "correct_answer": "They do not fall sick",
+        "correct_option_index": 2,
+        "explanation": "Healthy → not sick. Cause (exercise/eat) not guaranteed."
+      },
+      {
+        "id": 10,
+        "question": "Rules:\nIf X is selected, Y is selected.\nIf Y is selected, Z is rejected.\nIf Z is selected, W is selected.\nScenario: X is selected.\nWhat must be true?",
+        "options": ["Z is selected", "Z is rejected", "W is selected", "W is rejected"],
+        "rules": ["If X is selected, Y is selected.", "If Y is selected, Z is rejected.", "If Z is selected, W is selected."],
+        "scenario": "X is selected.",
+        "correct_answer": "Z is rejected",
+        "correct_option_index": 1,
+        "explanation": "X → Y → Z rejected."
+      },
+      {
+        "id": 11,
+        "question": "Rules:\nIf a book is interesting, it is popular.\nIf a book is popular, it is widely sold.\nIf a book is not widely sold, it is rare.\nScenario: A book is not rare.\nWhat must be true?",
+        "options": ["It is widely sold", "It is popular", "It is interesting", "Cannot be determined"],
+        "rules": ["If a book is interesting, it is popular.", "If a book is popular, it is widely sold.", "If a book is not widely sold, it is rare."],
+        "scenario": "A book is not rare.",
+        "correct_answer": "It is widely sold",
+        "correct_option_index": 0,
+        "explanation": "Not rare → must be widely sold."
+      },
+      {
+        "id": 12,
+        "question": "Rules:\nIf P occurs, Q occurs.\nIf Q and R occur together, S occurs.\nIf S occurs, T does not occur.\nScenario: P and R both occur.\nWhat must be true?",
+        "options": ["S occurs", "T occurs", "T does not occur", "Q does not occur"],
+        "rules": ["If P occurs, Q occurs.", "If Q and R occur together, S occurs.", "If S occurs, T does not occur."],
+        "scenario": "P and R both occur.",
+        "correct_answer": "T does not occur",
+        "correct_option_index": 2,
+        "explanation": "P → Q; Q + R → S; S → not T."
+      },
+      {
+        "id": 13,
+        "question": "Rules:\nIf a machine fails, production stops.\nIf production stops, loss occurs.\nIf maintenance is done, machine does not fail.\nScenario: Maintenance is done.\nWhat must be true?",
+        "options": ["Production stops", "Loss occurs", "Machine does not fail", "Production increases"],
+        "rules": ["If a machine fails, production stops.", "If production stops, loss occurs.", "If maintenance is done, machine does not fail."],
+        "scenario": "Maintenance is done.",
+        "correct_answer": "Machine does not fail",
+        "correct_option_index": 2,
+        "explanation": "Maintenance → no failure."
+      },
+      {
+        "id": 14,
+        "question": "Rules:\nIf A occurs, B occurs.\nIf B does not occur, C occurs.\nIf C occurs, D occurs.\nScenario: D does not occur.\nWhat must be true?",
+        "options": ["C occurs", "B occurs", "A occurs", "Cannot be determined"],
+        "rules": ["If A occurs, B occurs.", "If B does not occur, C occurs.", "If C occurs, D occurs."],
+        "scenario": "D does not occur.",
+        "correct_answer": "B occurs",
+        "correct_option_index": 1,
+        "explanation": "Not D → not C → B must occur."
+      },
+      {
+        "id": 15,
+        "question": "Rules:\nIf a person is late, they miss the train.\nIf they miss the train, they take a taxi.\nIf they take a taxi, they spend extra money.\nIf they are not late, they catch the train.\nScenario: A person does not spend extra money.\nWhat must be true?",
+        "options": ["They are late", "They miss the train", "They catch the train", "Cannot be determined"],
+        "rules": ["If a person is late, they miss the train.", "If they miss the train, they take a taxi.", "If they take a taxi, they spend extra money.", "If they are not late, they catch the train."],
+        "scenario": "A person does not spend extra money.",
+        "correct_answer": "They catch the train",
+        "correct_option_index": 2,
+        "explanation": "No extra spending → no taxi → no missed train → not late → catch train."
+      },
+      {
+        "id": 16,
+        "question": "Rules:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf C occurs, D does not occur.\nD occurs only if E occurs.\nIf E does not occur, F occurs.\nScenario: A occurs.\nWhich MUST be true?",
+        "options": ["D occurs", "E occurs", "F occurs", "C does not occur"],
+        "rules": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If C occurs, D does not occur.", "D occurs only if E occurs.", "If E does not occur, F occurs."],
+        "scenario": "A occurs.",
+        "correct_answer": "F occurs",
+        "correct_option_index": 2,
+        "explanation": "A → B → C → not D. Since D needs E, and D is false → E must be false → F occurs."
+      },
+      {
+        "id": 17,
+        "question": "Rules:\nIf X occurs, Y occurs.\nY occurs only if Z occurs.\nIf Z occurs, W does not occur.\nIf W does not occur, V occurs.\nIf V occurs, U does not occur.\nScenario: X occurs.\nWhich MUST be true?",
+        "options": ["W occurs", "V occurs", "U occurs", "Z does not occur"],
+        "rules": ["If X occurs, Y occurs.", "Y occurs only if Z occurs.", "If Z occurs, W does not occur.", "If W does not occur, V occurs.", "If V occurs, U does not occur."],
+        "scenario": "X occurs.",
+        "correct_answer": "V occurs",
+        "correct_option_index": 1,
+        "explanation": "X → Y → Z → not W → V → not U."
+      },
+      {
+        "id": 18,
+        "question": "Rules:\nIf P occurs, Q occurs.\nIf Q occurs, R occurs.\nIf R occurs, S occurs.\nS occurs only if T does not occur.\nIf T occurs, U occurs.\nScenario: P occurs.\nWhich CANNOT happen?",
+        "options": ["S occurs", "T occurs", "R occurs", "Q occurs"],
+        "rules": ["If P occurs, Q occurs.", "If Q occurs, R occurs.", "If R occurs, S occurs.", "S occurs only if T does not occur.", "If T occurs, U occurs."],
+        "scenario": "P occurs.",
+        "correct_answer": "T occurs",
+        "correct_option_index": 1,
+        "explanation": "P → Q → R → S → not T → T cannot occur."
+      },
+      {
+        "id": 19,
+        "question": "Rules:\nIf A occurs, B occurs.\nIf B occurs, C does not occur.\nIf C does not occur, D occurs.\nD occurs only if E occurs.\nIf E occurs, F does not occur.\nScenario: A occurs.\nWhich MUST be true?",
+        "options": ["C occurs", "D occurs", "F occurs", "E does not occur"],
+        "rules": ["If A occurs, B occurs.", "If B occurs, C does not occur.", "If C does not occur, D occurs.", "D occurs only if E occurs.", "If E occurs, F does not occur."],
+        "scenario": "A occurs.",
+        "correct_answer": "D occurs",
+        "correct_option_index": 1,
+        "explanation": "A → B → not C → D → E → not F."
+      },
+      {
+        "id": 20,
+        "question": "Rules:\nIf M occurs, N occurs unless O occurs.\nIf N occurs, P occurs.\nIf O occurs, Q occurs.\nIf Q occurs, P does not occur.\nScenario: M occurs and O does NOT occur.\nWhich MUST be true?",
+        "options": ["Q occurs", "P occurs", "N does not occur", "P does not occur"],
+        "rules": ["If M occurs, N occurs unless O occurs.", "If N occurs, P occurs.", "If O occurs, Q occurs.", "If Q occurs, P does not occur."],
+        "scenario": "M occurs and O does NOT occur.",
+        "correct_answer": "P occurs",
+        "correct_option_index": 1,
+        "explanation": "M → N (since no O) → P."
+      },
+      {
+        "id": 21,
+        "question": "Rules:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nC occurs only if D occurs.\nIf D occurs, E does not occur.\nIf E occurs, F occurs.\nScenario: A occurs.\nWhich CANNOT happen?",
+        "options": ["C occurs", "D occurs", "E occurs", "B occurs"],
+        "rules": ["If A occurs, B occurs.", "If B occurs, C occurs.", "C occurs only if D occurs.", "If D occurs, E does not occur.", "If E occurs, F occurs."],
+        "scenario": "A occurs.",
+        "correct_answer": "E occurs",
+        "correct_option_index": 2,
+        "explanation": "A → B → C → D → not E → E cannot occur."
+      },
+      {
+        "id": 22,
+        "question": "Rules:\nIf X occurs, Y occurs.\nIf Y occurs, Z occurs unless W occurs.\nIf W occurs, V occurs.\nIf Z occurs, U does not occur.\nIf V occurs, U occurs.\nScenario: X occurs and W occurs.\nWhich MUST be true?",
+        "options": ["Z occurs", "U occurs", "Y does not occur", "Z does not occur"],
+        "rules": ["If X occurs, Y occurs.", "If Y occurs, Z occurs unless W occurs.", "If W occurs, V occurs.", "If Z occurs, U does not occur.", "If V occurs, U occurs."],
+        "scenario": "X occurs and W occurs.",
+        "correct_answer": "U occurs",
+        "correct_option_index": 1,
+        "explanation": "X → Y. W blocks Z → V → U."
+      },
+      {
+        "id": 23,
+        "question": "Rules:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf C occurs, D does not occur.\nIf D occurs, E occurs.\nIf E occurs, B does not occur.\nScenario: A occurs.\nWhich MUST be true?",
+        "options": ["D occurs", "E occurs", "B occurs", "C does not occur"],
+        "rules": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If C occurs, D does not occur.", "If D occurs, E occurs.", "If E occurs, B does not occur."],
+        "scenario": "A occurs.",
+        "correct_answer": "B occurs",
+        "correct_option_index": 2,
+        "explanation": "A → B → C → not D. So D/E path never triggers."
+      },
+      {
+        "id": 24,
+        "question": "Rules:\nIf P occurs, Q occurs.\nIf Q occurs, R occurs.\nIf R occurs, S occurs unless T occurs.\nIf T occurs, U occurs.\nIf U occurs, S does not occur.\nScenario: P occurs and T occurs.\nWhich MUST be true?",
+        "options": ["S occurs", "U occurs", "R does not occur", "Q does not occur"],
+        "rules": ["If P occurs, Q occurs.", "If Q occurs, R occurs.", "If R occurs, S occurs unless T occurs.", "If T occurs, U occurs.", "If U occurs, S does not occur."],
+        "scenario": "P occurs and T occurs.",
+        "correct_answer": "U occurs",
+        "correct_option_index": 1,
+        "explanation": "P → Q → R. T blocks S → U."
+      },
+      {
+        "id": 25,
+        "question": "Rules:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf C occurs, D occurs.\nIf D occurs, E does not occur.\nIf E does not occur, F occurs.\nScenario: A occurs.\nWhich MUST be true?",
+        "options": ["E occurs", "F occurs", "D does not occur", "C does not occur"],
+        "rules": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If C occurs, D occurs.", "If D occurs, E does not occur.", "If E does not occur, F occurs."],
+        "scenario": "A occurs.",
+        "correct_answer": "F occurs",
+        "correct_option_index": 1,
+        "explanation": "A → B → C → D → not E → F."
+      },
+      {
+        "id": 26,
+        "question": "Rules:\nIf X occurs, Y occurs.\nIf Y occurs, Z occurs only if W occurs.\nIf W does not occur, V occurs.\nIf V occurs, Z does not occur.\nScenario: X occurs and W does NOT occur.\nWhich MUST be true?",
+        "options": ["Z occurs", "V occurs", "Y does not occur", "Z occurs and does not occur"],
+        "rules": ["If X occurs, Y occurs.", "If Y occurs, Z occurs only if W occurs.", "If W does not occur, V occurs.", "If V occurs, Z does not occur."],
+        "scenario": "X occurs and W does NOT occur.",
+        "correct_answer": "V occurs",
+        "correct_option_index": 1,
+        "explanation": "X → Y. No W → V → blocks Z."
+      },
+      {
+        "id": 27,
+        "question": "Rules:\nIf A occurs, B occurs.\nIf B occurs, C may occur.\nIf C occurs, D occurs.\nIf D occurs, E does not occur.\nScenario: A occurs.\nWhich is logically POSSIBLE?",
+        "options": ["E occurs", "D occurs", "B does not occur", "A does not occur"],
+        "rules": ["If A occurs, B occurs.", "If B occurs, C may occur.", "If C occurs, D occurs.", "If D occurs, E does not occur."],
+        "scenario": "A occurs.",
+        "correct_answer": "E occurs",
+        "correct_option_index": 0,
+        "explanation": "A → B. C is optional → D may not occur → E may still occur."
+      },
+      {
+        "id": 28,
+        "question": "Rules:\nIf M occurs, N occurs.\nIf N occurs, O occurs.\nIf O occurs, P does not occur.\nP occurs only if Q occurs.\nIf Q does not occur, R occurs.\nScenario: M occurs.\nWhich MUST be true?",
+        "options": ["P occurs", "Q occurs", "R occurs", "O does not occur"],
+        "rules": ["If M occurs, N occurs.", "If N occurs, O occurs.", "If O occurs, P does not occur.", "P occurs only if Q occurs.", "If Q does not occur, R occurs."],
+        "scenario": "M occurs.",
+        "correct_answer": "R occurs",
+        "correct_option_index": 2,
+        "explanation": "M → N → O → not P → Q false → R occurs."
+      },
+      {
+        "id": 29,
+        "question": "Rules:\nIf A occurs, B occurs.\nIf B occurs, either C or D occurs (but not both).\nIf C occurs, E occurs.\nIf D occurs, F occurs.\nIf E occurs, F does not occur.\nScenario: A occurs.\nWhich MUST be true?",
+        "options": ["E occurs", "F occurs", "Either E or F occurs", "Both E and F occur"],
+        "rules": ["If A occurs, B occurs.", "If B occurs, either C or D occurs (but not both).", "If C occurs, E occurs.", "If D occurs, F occurs.", "If E occurs, F does not occur."],
+        "scenario": "A occurs.",
+        "correct_answer": "Either E or F occurs",
+        "correct_option_index": 2,
+        "explanation": "A → B → (C or D). Leads to E or F (mutually exclusive)."
+      },
+      {
+        "id": 30,
+        "question": "Rules:\nIf X occurs, Y occurs.\nY occurs only if Z occurs.\nIf Z occurs, W occurs unless V occurs.\nIf V occurs, U occurs.\nIf U occurs, W does not occur.\nScenario: X occurs and V occurs.\nWhich MUST be true?",
+        "options": ["W occurs", "U occurs", "Z does not occur", "Y does not occur"],
+        "rules": ["If X occurs, Y occurs.", "Y occurs only if Z occurs.", "If Z occurs, W occurs unless V occurs.", "If V occurs, U occurs.", "If U occurs, W does not occur."],
+        "scenario": "X occurs and V occurs.",
+        "correct_answer": "U occurs",
+        "correct_option_index": 1,
+        "explanation": "X → Y → Z. V overrides W → U → not W."
+      }
+    ]
+  },
+  {
+    "category": "Problem Solving & Decision Making",
+    "sub_category": "Logical Reasoning",
+    "type": "Deductive Chain (Multi-step inference)",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nQuestion: If A occurs, what must be true?",
+        "options": ["C does not occur", "C occurs", "B does not occur", "A does not occur"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs."],
+        "scenario": "A occurs.",
+        "correct_answer": "C occurs",
+        "correct_option_index": 1,
+        "explanation": "A → B → C."
+      },
+      {
+        "id": 2,
+        "question": "Statements:\nIf a number is divisible by 4, it is even.\nIf a number is even, it is divisible by 2.\nQuestion: If a number is divisible by 4, what must be true?",
+        "options": ["It is odd", "It is divisible by 2", "It is prime", "Cannot be determined"],
+        "statements": ["If a number is divisible by 4, it is even.", "If a number is even, it is divisible by 2."],
+        "scenario": "Number divisible by 4.",
+        "correct_answer": "It is divisible by 2",
+        "correct_option_index": 1,
+        "explanation": "Divisible by 4 → even → divisible by 2."
+      },
+      {
+        "id": 3,
+        "question": "Statements:\nIf X happens, Y happens.\nIf Y happens, Z does not happen.\nQuestion: If X happens, what cannot happen?",
+        "options": ["Y", "Z", "X", "None"],
+        "statements": ["If X happens, Y happens.", "If Y happens, Z does not happen."],
+        "scenario": "X happens.",
+        "correct_answer": "Z",
+        "correct_option_index": 1,
+        "explanation": "X → Y → not Z."
+      },
+      {
+        "id": 4,
+        "question": "Statements:\nIf P occurs, Q occurs.\nIf Q does not occur, R occurs.\nQuestion: If R does not occur, what must be true?",
+        "options": ["Q occurs", "P occurs", "Q does not occur", "P does not occur"],
+        "statements": ["If P occurs, Q occurs.", "If Q does not occur, R occurs."],
+        "scenario": "R does not occur.",
+        "correct_answer": "Q occurs",
+        "correct_option_index": 0,
+        "explanation": "Not R → Q must occur (contrapositive of second rule)."
+      },
+      {
+        "id": 5,
+        "question": "Statements:\nIf a person reads, they gain knowledge.\nIf a person gains knowledge, they become confident.\nQuestion: If a person is not confident, what must be true?",
+        "options": ["They read", "They gained knowledge", "They did not gain knowledge", "Cannot be determined"],
+        "statements": ["If a person reads, they gain knowledge.", "If a person gains knowledge, they become confident."],
+        "scenario": "Person is not confident.",
+        "correct_answer": "They did not gain knowledge",
+        "correct_option_index": 2,
+        "explanation": "Not confident → not knowledge → not reading (chain reversed)."
+      },
+      {
+        "id": 6,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, D occurs.\nIf D occurs, E does not occur.\nQuestion: If A occurs, what must be true?",
+        "options": ["E occurs", "E does not occur", "B does not occur", "Cannot be determined"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, D occurs.", "If D occurs, E does not occur."],
+        "scenario": "A occurs.",
+        "correct_answer": "E does not occur",
+        "correct_option_index": 1,
+        "explanation": "A → B → D → not E."
+      },
+      {
+        "id": 7,
+        "question": "Statements:\nIf M occurs, N occurs.\nIf N occurs, O occurs.\nIf O occurs, P occurs.\nQuestion: If P does not occur, what must be true?",
+        "options": ["O occurs", "N occurs", "M does not occur", "Cannot be determined"],
+        "statements": ["If M occurs, N occurs.", "If N occurs, O occurs.", "If O occurs, P occurs."],
+        "scenario": "P does not occur.",
+        "correct_answer": "M does not occur",
+        "correct_option_index": 2,
+        "explanation": "Not P → not O → not N → not M."
+      },
+      {
+        "id": 8,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf C occurs, D does not occur.\nIf D occurs, E occurs.\nQuestion: If A occurs, what must be true?",
+        "options": ["D occurs", "E occurs", "D does not occur", "C does not occur"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If C occurs, D does not occur.", "If D occurs, E occurs."],
+        "scenario": "A occurs.",
+        "correct_answer": "D does not occur",
+        "correct_option_index": 2,
+        "explanation": "A → B → C → not D."
+      },
+      {
+        "id": 9,
+        "question": "Statements:\nIf X occurs, Y occurs.\nIf Y occurs, Z occurs.\nIf Z does not occur, W occurs.\nIf W occurs, V occurs.\nQuestion: If X occurs, what must be true?",
+        "options": ["V occurs", "W occurs", "Z occurs", "Y does not occur"],
+        "statements": ["If X occurs, Y occurs.", "If Y occurs, Z occurs.", "If Z does not occur, W occurs.", "If W occurs, V occurs."],
+        "scenario": "X occurs.",
+        "correct_answer": "Z occurs",
+        "correct_option_index": 2,
+        "explanation": "X → Y → Z; chain stops, W not triggered."
+      },
+      {
+        "id": 10,
+        "question": "Statements:\nIf P occurs, Q occurs.\nIf Q and R occur, S occurs.\nIf S occurs, T does not occur.\nQuestion: If P and R occur, what must be true?",
+        "options": ["S occurs", "T occurs", "T does not occur", "Q does not occur"],
+        "statements": ["If P occurs, Q occurs.", "If Q and R occur, S occurs.", "If S occurs, T does not occur."],
+        "scenario": "P and R occur.",
+        "correct_answer": "T does not occur",
+        "correct_option_index": 2,
+        "explanation": "P → Q; Q + R → S → not T."
+      },
+      {
+        "id": 11,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B does not occur, C occurs.\nIf C occurs, D occurs.\nQuestion: If D does not occur, what must be true?",
+        "options": ["C occurs", "B occurs", "A occurs", "Cannot be determined"],
+        "statements": ["If A occurs, B occurs.", "If B does not occur, C occurs.", "If C occurs, D occurs."],
+        "scenario": "D does not occur.",
+        "correct_answer": "B occurs",
+        "correct_option_index": 1,
+        "explanation": "Not D → not C → B must occur."
+      },
+      {
+        "id": 12,
+        "question": "Statements:\nIf M occurs, N occurs.\nIf N occurs, O occurs.\nIf O occurs, P does not occur.\nIf P occurs, Q occurs.\nQuestion: If M occurs, what cannot happen?",
+        "options": ["N occurs", "O occurs", "P occurs", "Q occurs"],
+        "statements": ["If M occurs, N occurs.", "If N occurs, O occurs.", "If O occurs, P does not occur.", "If P occurs, Q occurs."],
+        "scenario": "M occurs.",
+        "correct_answer": "P occurs",
+        "correct_option_index": 2,
+        "explanation": "M → N → O → not P."
+      },
+      {
+        "id": 13,
+        "question": "Statements:\nIf X occurs, Y occurs.\nIf Y occurs, Z occurs.\nIf Z occurs, W occurs.\nIf W occurs, V does not occur.\nQuestion: If V occurs, what must be true?",
+        "options": ["W occurs", "Z occurs", "X does not occur", "Y occurs"],
+        "statements": ["If X occurs, Y occurs.", "If Y occurs, Z occurs.", "If Z occurs, W occurs.", "If W occurs, V does not occur."],
+        "scenario": "V occurs.",
+        "correct_answer": "X does not occur",
+        "correct_option_index": 2,
+        "explanation": "V → not W → not Z → not Y → not X."
+      },
+      {
+        "id": 14,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf C and D occur, E occurs.\nIf E occurs, F does not occur.\nQuestion: If A and D occur, what must be true?",
+        "options": ["E occurs", "F occurs", "F does not occur", "C does not occur"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If C and D occur, E occurs.", "If E occurs, F does not occur."],
+        "scenario": "A and D occur.",
+        "correct_answer": "F does not occur",
+        "correct_option_index": 2,
+        "explanation": "A → B → C; C + D → E → not F."
+      },
+      {
+        "id": 15,
+        "question": "Statements:\nIf P occurs, Q occurs.\nIf Q occurs, R occurs.\nIf R occurs, S occurs.\nIf S does not occur, T occurs.\nQuestion: If P occurs, what must be true?",
+        "options": ["T occurs", "S occurs", "R does not occur", "Q does not occur"],
+        "statements": ["If P occurs, Q occurs.", "If Q occurs, R occurs.", "If R occurs, S occurs.", "If S does not occur, T occurs."],
+        "scenario": "P occurs.",
+        "correct_answer": "S occurs",
+        "correct_option_index": 1,
+        "explanation": "P → Q → R → S; hence T not triggered."
+      },
+      {
+        "id": 16,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf X occurs, Y occurs.\nIf Y occurs, not C occurs.\nIf C occurs, D occurs.\nScenario: A and X both occur.\nWhich MUST be true?",
+        "options": ["C occurs", "D occurs", "C does not occur", "B does not occur"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If X occurs, Y occurs.", "If Y occurs, not C occurs.", "If C occurs, D occurs."],
+        "scenario": "A and X both occur.",
+        "correct_answer": "C does not occur",
+        "correct_option_index": 2,
+        "explanation": "A → B → C, but X → Y → not C. Conflict resolves → C cannot occur → C false."
+      },
+      {
+        "id": 17,
+        "question": "Statements:\nIf P occurs, Q occurs.\nIf R occurs, Q does not occur.\nIf Q occurs, S occurs.\nIf S occurs, T occurs.\nIf T occurs, U does not occur.\nScenario: P and R both occur.\nWhich MUST be true?",
+        "options": ["Q occurs", "S occurs", "T occurs", "U occurs"],
+        "statements": ["If P occurs, Q occurs.", "If R occurs, Q does not occur.", "If Q occurs, S occurs.", "If S occurs, T occurs.", "If T occurs, U does not occur."],
+        "scenario": "P and R both occur.",
+        "correct_answer": "U occurs",
+        "correct_option_index": 3,
+        "explanation": "P → Q but R → not Q → Q blocked → S/T blocked → U not blocked → U occurs."
+      },
+      {
+        "id": 18,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf C occurs, D occurs.\nIf D occurs, E does not occur.\nIf E occurs, F occurs.\nScenario: F does not occur.\nWhich MUST be true?",
+        "options": ["E occurs", "D occurs", "A does not occur", "B occurs"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If C occurs, D occurs.", "If D occurs, E does not occur.", "If E occurs, F occurs."],
+        "scenario": "F does not occur.",
+        "correct_answer": "A does not occur",
+        "correct_option_index": 2,
+        "explanation": "Not F → not E → D possible, but chain reversed: if A → leads to D → not E → contradiction → A must not occur."
+      },
+      {
+        "id": 19,
+        "question": "Statements:\nIf X occurs, Y occurs.\nIf Y occurs, Z occurs.\nIf Z occurs, W occurs.\nIf W occurs, V does not occur.\nIf V does not occur, U occurs.\nScenario: X occurs.\nWhich MUST be true?",
+        "options": ["V occurs", "U occurs", "W does not occur", "Z does not occur"],
+        "statements": ["If X occurs, Y occurs.", "If Y occurs, Z occurs.", "If Z occurs, W occurs.", "If W occurs, V does not occur.", "If V does not occur, U occurs."],
+        "scenario": "X occurs.",
+        "correct_answer": "U occurs",
+        "correct_option_index": 1,
+        "explanation": "X → Y → Z → W → not V → U."
+      },
+      {
+        "id": 20,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf C occurs, D does not occur.\nIf D occurs, E occurs.\nIf E occurs, B does not occur.\nScenario: A occurs.\nWhich MUST be true?",
+        "options": ["D occurs", "E occurs", "C occurs", "B does not occur"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If C occurs, D does not occur.", "If D occurs, E occurs.", "If E occurs, B does not occur."],
+        "scenario": "A occurs.",
+        "correct_answer": "C occurs",
+        "correct_option_index": 2,
+        "explanation": "A → B → C → not D → E path blocked. So C must occur."
+      },
+      {
+        "id": 21,
+        "question": "Statements:\nIf P occurs, Q occurs.\nIf Q occurs, R occurs unless S occurs.\nIf S occurs, T occurs.\nIf R occurs, U occurs.\nIf T occurs, U does not occur.\nScenario: P and S both occur.\nWhich MUST be true?",
+        "options": ["R occurs", "U occurs", "U does not occur", "Q does not occur"],
+        "statements": ["If P occurs, Q occurs.", "If Q occurs, R occurs unless S occurs.", "If S occurs, T occurs.", "If R occurs, U occurs.", "If T occurs, U does not occur."],
+        "scenario": "P and S both occur.",
+        "correct_answer": "U does not occur",
+        "correct_option_index": 2,
+        "explanation": "P → Q. S blocks R → T → not U."
+      },
+      {
+        "id": 22,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf D occurs, E occurs.\nIf E occurs, not C occurs.\nIf C occurs, F occurs.\nScenario: A and D both occur.\nWhich MUST be true?",
+        "options": ["C occurs", "F occurs", "C does not occur", "B does not occur"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If D occurs, E occurs.", "If E occurs, not C occurs.", "If C occurs, F occurs."],
+        "scenario": "A and D both occur.",
+        "correct_answer": "C does not occur",
+        "correct_option_index": 2,
+        "explanation": "A → B → C, but D → E → not C → contradiction resolved → C false."
+      },
+      {
+        "id": 23,
+        "question": "Statements:\nIf X occurs, Y occurs.\nIf Y occurs, Z occurs.\nIf Z occurs, W occurs.\nIf W does not occur, V occurs.\nIf V occurs, U occurs.\nScenario: U does not occur.\nWhich MUST be true?",
+        "options": ["W occurs", "Z occurs", "X does not occur", "V occurs"],
+        "statements": ["If X occurs, Y occurs.", "If Y occurs, Z occurs.", "If Z occurs, W occurs.", "If W does not occur, V occurs.", "If V occurs, U occurs."],
+        "scenario": "U does not occur.",
+        "correct_answer": "X does not occur",
+        "correct_option_index": 2,
+        "explanation": "Not U → not V → W must occur → Z → Y → X must NOT occur."
+      },
+      {
+        "id": 24,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf D occurs, not C occurs.\nIf C occurs, E occurs.\nIf E occurs, F does not occur.\nScenario: A and D both occur.\nWhich MUST be true?",
+        "options": ["C occurs", "E occurs", "F occurs", "C does not occur"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If D occurs, not C occurs.", "If C occurs, E occurs.", "If E occurs, F does not occur."],
+        "scenario": "A and D both occur.",
+        "correct_answer": "C does not occur",
+        "correct_option_index": 3,
+        "explanation": "A → B → C, but D → not C → contradiction → C false → E blocked → F possible."
+      },
+      {
+        "id": 25,
+        "question": "Statements:\nIf P occurs, Q occurs.\nIf Q occurs, R or S occurs (but not both).\nIf R occurs, T occurs.\nIf S occurs, U occurs.\nIf T occurs, U does not occur.\nScenario: P occurs.\nWhich MUST be true?",
+        "options": ["T occurs", "U occurs", "Either T or U occurs", "Both T and U occur"],
+        "statements": ["If P occurs, Q occurs.", "If Q occurs, R or S occurs (but not both).", "If R occurs, T occurs.", "If S occurs, U occurs.", "If T occurs, U does not occur."],
+        "scenario": "P occurs.",
+        "correct_answer": "Either T or U occurs",
+        "correct_option_index": 2,
+        "explanation": "P → Q → (R or S). R → T (blocks U) OR S → U. Exactly one must happen."
+      },
+      {
+        "id": 26,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf X occurs, Y occurs.\nIf Y occurs, not C occurs.\nIf C occurs, D occurs.\nScenario: A and X both occur.\nWhich MUST be true?",
+        "options": ["C occurs", "D occurs", "C does not occur", "B does not occur"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If X occurs, Y occurs.", "If Y occurs, not C occurs.", "If C occurs, D occurs."],
+        "scenario": "A and X both occur.",
+        "correct_answer": "C does not occur",
+        "correct_option_index": 2,
+        "explanation": "A → B → C, but X → Y → not C. Conflict resolves → C cannot occur."
+      },
+      {
+        "id": 27,
+        "question": "Statements:\nIf P occurs, Q occurs.\nIf R occurs, Q does not occur.\nIf Q occurs, S occurs.\nIf S occurs, T occurs.\nIf T occurs, U does not occur.\nScenario: P and R both occur.\nWhich MUST be true?",
+        "options": ["Q occurs", "S occurs", "T occurs", "U occurs"],
+        "statements": ["If P occurs, Q occurs.", "If R occurs, Q does not occur.", "If Q occurs, S occurs.", "If S occurs, T occurs.", "If T occurs, U does not occur."],
+        "scenario": "P and R both occur.",
+        "correct_answer": "U occurs",
+        "correct_option_index": 3,
+        "explanation": "P → Q but R → not Q → Q blocked → S/T blocked → U not blocked → U occurs."
+      },
+      {
+        "id": 28,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf C occurs, D occurs.\nIf D occurs, E does not occur.\nIf E occurs, F occurs.\nScenario: F does not occur.\nWhich MUST be true?",
+        "options": ["E occurs", "D occurs", "A does not occur", "B occurs"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If C occurs, D occurs.", "If D occurs, E does not occur.", "If E occurs, F occurs."],
+        "scenario": "F does not occur.",
+        "correct_answer": "A does not occur",
+        "correct_option_index": 2,
+        "explanation": "Not F → not E → D possible, but chain reversed: if A → leads to D → not E → contradiction → A must not occur."
+      },
+      {
+        "id": 29,
+        "question": "Statements:\nIf X occurs, Y occurs.\nIf Y occurs, Z occurs.\nIf Z occurs, W occurs.\nIf W occurs, V does not occur.\nIf V does not occur, U occurs.\nScenario: X occurs.\nWhich MUST be true?",
+        "options": ["V occurs", "U occurs", "W does not occur", "Z does not occur"],
+        "statements": ["If X occurs, Y occurs.", "If Y occurs, Z occurs.", "If Z occurs, W occurs.", "If W occurs, V does not occur.", "If V does not occur, U occurs."],
+        "scenario": "X occurs.",
+        "correct_answer": "U occurs",
+        "correct_option_index": 1,
+        "explanation": "X → Y → Z → W → not V → U."
+      },
+      {
+        "id": 30,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf C occurs, D does not occur.\nIf D occurs, E occurs.\nIf E occurs, B does not occur.\nScenario: A occurs.\nWhich MUST be true?",
+        "options": ["D occurs", "E occurs", "C occurs", "B does not occur"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If C occurs, D does not occur.", "If D occurs, E occurs.", "If E occurs, B does not occur."],
+        "scenario": "A occurs.",
+        "correct_answer": "C occurs",
+        "correct_option_index": 2,
+        "explanation": "A → B → C → not D → E path blocked. So C must occur."
+      }
+    ]
+  },
+  {
+    "category": "Problem Solving & Decision Making",
+    "sub_category": "Logical Reasoning",
+    "type": "Logical Consistency & Contradictions (Error Detection)",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Statements:\nAll apples are fruits.\nAll fruits are sweet.\nQuestion: Which statement contradicts the above?",
+        "options": ["Some apples are sweet", "All apples are sweet", "Some fruits are apples", "Some apples are not sweet"],
+        "statements": ["All apples are fruits.", "All fruits are sweet."],
+        "correct_answer": "Some apples are not sweet",
+        "correct_option_index": 3,
+        "explanation": "Apples ⊆ fruits ⊆ sweet → apples must be sweet → D contradicts."
+      },
+      {
+        "id": 2,
+        "question": "Statements:\nNo cat is a dog.\nSome dogs are pets.\nQuestion: Which statement is inconsistent?",
+        "options": ["Some pets are dogs", "No cat is a pet", "Some pets are not cats", "Some cats are dogs"],
+        "statements": ["No cat is a dog.", "Some dogs are pets."],
+        "correct_answer": "Some cats are dogs",
+        "correct_option_index": 3,
+        "explanation": "Direct contradiction: cats ≠ dogs."
+      },
+      {
+        "id": 3,
+        "question": "Statements:\nAll books are papers.\nSome papers are colored.\nQuestion: Which conclusion is incorrect?",
+        "options": ["Some books may be colored", "Some colored items are papers", "All books are colored", "Some papers are not books"],
+        "statements": ["All books are papers.", "Some papers are colored."],
+        "correct_answer": "All books are colored",
+        "correct_option_index": 2,
+        "explanation": "Only some papers are colored → cannot extend to all books."
+      },
+      {
+        "id": 4,
+        "question": "Statements:\nIf A occurs, B occurs.\nA occurs.\nQuestion: Which statement contradicts this?",
+        "options": ["B occurs", "B does not occur", "A occurs", "A implies B"],
+        "statements": ["If A occurs, B occurs.", "A occurs."],
+        "correct_answer": "B does not occur",
+        "correct_option_index": 1,
+        "explanation": "A → B and A is true → B must be true → B false is contradiction."
+      },
+      {
+        "id": 5,
+        "question": "Statements:\nAll squares are rectangles.\nAll rectangles have four sides.\nQuestion: Which statement is inconsistent?",
+        "options": ["Some squares have four sides", "All squares have four sides", "Some rectangles are squares", "Some squares do not have four sides"],
+        "statements": ["All squares are rectangles.", "All rectangles have four sides."],
+        "correct_answer": "Some squares do not have four sides",
+        "correct_option_index": 3,
+        "explanation": "Squares → rectangles → four sides → cannot violate."
+      },
+      {
+        "id": 6,
+        "question": "Statements:\nSome students are athletes.\nAll athletes are fit.\nQuestion: Which statement cannot be true?",
+        "options": ["Some students are fit", "Some athletes are students", "Some students are not fit", "Some fit people are athletes"],
+        "statements": ["Some students are athletes.", "All athletes are fit."],
+        "correct_answer": "Some students are not fit",
+        "correct_option_index": 2,
+        "explanation": "Some students → athletes → fit → those cannot be unfit."
+      },
+      {
+        "id": 7,
+        "question": "Statements:\nIf a number is divisible by 3, it is odd.\n6 is divisible by 3.\nQuestion: Which statement is inconsistent?",
+        "options": ["6 is odd", "6 is divisible by 3", "6 is even", "6 is not odd"],
+        "statements": ["If a number is divisible by 3, it is odd.", "6 is divisible by 3."],
+        "correct_answer": "6 is odd",
+        "correct_option_index": 0,
+        "explanation": "Given rule implies 6 is odd, but we know 6 is even → A contradicts logical consistency."
+      },
+      {
+        "id": 8,
+        "question": "Statements:\nAll engineers are logical.\nSome logical people are creative.\nNo creative person is rigid.\nQuestion: Which statement is inconsistent?",
+        "options": ["Some engineers are not rigid", "Some logical people are rigid", "Some creative people are logical", "Some engineers are logical"],
+        "statements": ["All engineers are logical.", "Some logical people are creative.", "No creative person is rigid."],
+        "correct_answer": "Some logical people are rigid",
+        "correct_option_index": 1,
+        "explanation": "Logical → creative (some), creative ≠ rigid → logical cannot be rigid in that subset → contradiction."
+      },
+      {
+        "id": 9,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nC does not occur.\nQuestion: Which statement must be false?",
+        "options": ["A occurs", "B occurs", "C occurs", "B does not occur"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "C does not occur."],
+        "correct_answer": "A occurs",
+        "correct_option_index": 0,
+        "explanation": "A → B → C, but C false → A cannot be true."
+      },
+      {
+        "id": 10,
+        "question": "Statements:\nAll metals are solids.\nSome solids are liquids.\nNo liquid is gas.\nQuestion: Which conclusion is incorrect?",
+        "options": ["Some solids are not gas", "Some liquids are solids", "All metals are gas", "Some solids may be liquids"],
+        "statements": ["All metals are solids.", "Some solids are liquids.", "No liquid is gas."],
+        "correct_answer": "All metals are gas",
+        "correct_option_index": 2,
+        "explanation": "Metals ⊆ solids, but no link to gas → impossible claim."
+      },
+      {
+        "id": 11,
+        "question": "Statements:\nIf X occurs, Y occurs.\nIf Y occurs, Z occurs.\nIf Z occurs, W does not occur.\nW occurs.\nQuestion: Which statement must be false?",
+        "options": ["X occurs", "Y occurs", "Z occurs", "W occurs"],
+        "statements": ["If X occurs, Y occurs.", "If Y occurs, Z occurs.", "If Z occurs, W does not occur.", "W occurs."],
+        "correct_answer": "X occurs",
+        "correct_option_index": 0,
+        "explanation": "X → Y → Z → not W, but W true → X must be false."
+      },
+      {
+        "id": 12,
+        "question": "Statements:\nSome A are B.\nAll B are C.\nNo C is D.\nQuestion: Which statement is inconsistent?",
+        "options": ["Some A are not D", "Some B are C", "Some A are D", "Some C are not D"],
+        "statements": ["Some A are B.", "All B are C.", "No C is D."],
+        "correct_answer": "Some A are D",
+        "correct_option_index": 2,
+        "explanation": "A → B → C and C ≠ D → A cannot be D."
+      },
+      {
+        "id": 13,
+        "question": "Statements:\nIf P occurs, Q occurs.\nIf Q does not occur, R occurs.\nR does not occur.\nQuestion: Which must be true?",
+        "options": ["Q occurs", "P occurs", "Q does not occur", "R occurs"],
+        "statements": ["If P occurs, Q occurs.", "If Q does not occur, R occurs.", "R does not occur."],
+        "correct_answer": "Q occurs",
+        "correct_option_index": 0,
+        "explanation": "Not R → Q must occur."
+      },
+      {
+        "id": 14,
+        "question": "Statements:\nAll writers are readers.\nSome readers are thinkers.\nNo thinker is careless.\nQuestion: Which statement is inconsistent?",
+        "options": ["Some writers are not careless", "Some readers are not careless", "Some writers are thinkers", "Some thinkers are careless"],
+        "statements": ["All writers are readers.", "Some readers are thinkers.", "No thinker is careless."],
+        "correct_answer": "Some thinkers are careless",
+        "correct_option_index": 3,
+        "explanation": "Thinkers ≠ careless → direct contradiction."
+      },
+      {
+        "id": 15,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf C occurs, D occurs.\nD does not occur.\nQuestion: Which statement must be false?",
+        "options": ["A occurs", "B occurs", "C occurs", "D occurs"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If C occurs, D occurs.", "D does not occur."],
+        "correct_answer": "A occurs",
+        "correct_option_index": 0,
+        "explanation": "A → B → C → D, but D false → A cannot be true."
+      },
+      {
+        "id": 16,
+        "question": "Statements:\nAll A are B.\nSome B are C.\nNo C is D.\nAll D are A.\nSome A are D.\nQuestion: Which set of statements cannot all be true together?",
+        "options": ["1, 2, 3", "2, 3, 4", "3, 4, 5", "1, 4, 5"],
+        "statements": ["All A are B.", "Some B are C.", "No C is D.", "All D are A.", "Some A are D."],
+        "correct_answer": "3, 4, 5",
+        "correct_option_index": 2,
+        "explanation": "D ⊆ A and some A are D → D exists. But no C is D and some B are C → conflict via A--B--C chain."
+      },
+      {
+        "id": 17,
+        "question": "Statements:\nAll X are Y.\nAll Y are Z.\nSome Z are not X.\nAll Z are X.\nQuestion: Which minimal change removes the contradiction?",
+        "options": ["Replace 'All Z are X' with 'Some Z are X'", "Replace 'Some Z are not X' with 'All Z are X'", "Replace 'All Y are Z' with 'Some Y are Z'", "Remove 'All X are Y'"],
+        "statements": ["All X are Y.", "All Y are Z.", "Some Z are not X.", "All Z are X."],
+        "correct_answer": "Replace 'All Z are X' with 'Some Z are X'",
+        "correct_option_index": 0,
+        "explanation": "Conflict: Z ⊆ X vs some Z ≠ X. Weakening fixes contradiction."
+      },
+      {
+        "id": 18,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf C occurs, D does not occur.\nD occurs.\nE occurs only if C occurs.\nQuestion: Which statement must be false?",
+        "options": ["A occurs", "B occurs", "C occurs", "E occurs"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If C occurs, D does not occur.", "D occurs.", "E occurs only if C occurs."],
+        "correct_answer": "A occurs",
+        "correct_option_index": 0,
+        "explanation": "A → B → C → not D, but D occurs → A must be false."
+      },
+      {
+        "id": 19,
+        "question": "Statements:\nAll M are N.\nSome N are O.\nNo O is P.\nSome P are M.\nQuestion: Which statement creates inconsistency?",
+        "options": ["All M are N", "Some N are O", "No O is P", "Some P are M"],
+        "statements": ["All M are N.", "Some N are O.", "No O is P.", "Some P are M."],
+        "correct_answer": "Some P are M",
+        "correct_option_index": 3,
+        "explanation": "M ⊆ N → some P are M → P overlaps N. But N → O and O ≠ P → contradiction."
+      },
+      {
+        "id": 20,
+        "question": "Statements:\nIf X occurs, Y occurs.\nIf Y occurs, Z occurs.\nSome Z are not Y.\nAll Z are X.\nQuestion: Which statement is inconsistent?",
+        "options": ["If X occurs, Y occurs", "Some Z are not Y", "All Z are X", "If Y occurs, Z occurs"],
+        "statements": ["If X occurs, Y occurs.", "If Y occurs, Z occurs.", "Some Z are not Y.", "All Z are X."],
+        "correct_answer": "Some Z are not Y",
+        "correct_option_index": 1,
+        "explanation": "Z ⊆ X → X → Y → Z ⊆ Y → contradicts 'some Z not Y'."
+      },
+      {
+        "id": 21,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf C occurs, D occurs.\nIf B occurs, D does not occur.\nA occurs.\nC occurs.\nQuestion: Which must be false?",
+        "options": ["A occurs", "C occurs", "B occurs", "D occurs"],
+        "statements": ["If A occurs, B occurs.", "If C occurs, D occurs.", "If B occurs, D does not occur.", "A occurs.", "C occurs."],
+        "correct_answer": "D occurs",
+        "correct_option_index": 3,
+        "explanation": "A → B → not D, but C → D → contradiction → D false."
+      },
+      {
+        "id": 22,
+        "question": "Statements:\nAll books are papers.\nSome papers are old.\nNo old item is digital.\nAll digital items are books.\nQuestion: Which conclusion weakens the consistency?",
+        "options": ["Some books are not old", "Some papers are digital", "No digital item is old", "Some books are papers"],
+        "statements": ["All books are papers.", "Some papers are old.", "No old item is digital.", "All digital items are books."],
+        "correct_answer": "Some papers are digital",
+        "correct_option_index": 1,
+        "explanation": "Papers include old → not digital. Saying some papers are digital contradicts."
+      },
+      {
+        "id": 23,
+        "question": "Statements:\nIf P occurs, Q occurs.\nIf Q occurs, R occurs.\nIf R occurs, S does not occur.\nS occurs.\nT occurs only if Q occurs.\nQuestion: Which must be false?",
+        "options": ["P occurs", "Q occurs", "R occurs", "T occurs"],
+        "statements": ["If P occurs, Q occurs.", "If Q occurs, R occurs.", "If R occurs, S does not occur.", "S occurs.", "T occurs only if Q occurs."],
+        "correct_answer": "P occurs",
+        "correct_option_index": 0,
+        "explanation": "P → Q → R → not S, but S occurs → P false."
+      },
+      {
+        "id": 24,
+        "question": "Statements:\nAll A are B.\nSome B are C.\nAll C are D.\nNo D is A.\nQuestion: Which statement creates inconsistency?",
+        "options": ["All A are B", "Some B are C", "All C are D", "No D is A"],
+        "statements": ["All A are B.", "Some B are C.", "All C are D.", "No D is A."],
+        "correct_answer": "Some B are C",
+        "correct_option_index": 1,
+        "explanation": "If some B → C → D and D ≠ A, but A ⊆ B → potential overlap → contradiction emerges."
+      },
+      {
+        "id": 25,
+        "question": "Statements:\nAll X are Y.\nNo Y is Z.\nSome Z are X.\nQuestion: Which minimal change removes contradiction?",
+        "options": ["Replace 'Some Z are X' with 'No Z is X'", "Replace 'All X are Y' with 'Some X are Y'", "Replace 'No Y is Z' with 'Some Y are Z'", "Remove 'All X are Y'"],
+        "statements": ["All X are Y.", "No Y is Z.", "Some Z are X."],
+        "correct_answer": "Replace 'Some Z are X' with 'No Z is X'",
+        "correct_option_index": 0,
+        "explanation": "X ⊆ Y and Y ≠ Z → X cannot overlap Z."
+      },
+      {
+        "id": 26,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf C occurs, D occurs.\nIf D occurs, E does not occur.\nE occurs.\nQuestion: Which must be false?",
+        "options": ["A occurs", "B occurs", "C occurs", "D occurs"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If C occurs, D occurs.", "If D occurs, E does not occur.", "E occurs."],
+        "correct_answer": "A occurs",
+        "correct_option_index": 0,
+        "explanation": "A → B → C → D → not E, but E occurs → A false."
+      },
+      {
+        "id": 27,
+        "question": "Statements:\nIf X occurs, Y occurs.\nIf Y occurs, Z may occur.\nIf Z occurs, W occurs.\nIf W occurs, V does not occur.\nQuestion: Which is logically possible?",
+        "options": ["X and V both occur", "X and W both occur", "Y does not occur", "Z occurs but W does not"],
+        "statements": ["If X occurs, Y occurs.", "If Y occurs, Z may occur.", "If Z occurs, W occurs.", "If W occurs, V does not occur."],
+        "correct_answer": "X and V both occur",
+        "correct_option_index": 0,
+        "explanation": "X → Y, but Z optional → W not triggered → V possible."
+      },
+      {
+        "id": 28,
+        "question": "Statements:\nIf P occurs, Q occurs.\nIf Q occurs, R occurs.\nIf S occurs, not R occurs.\nP occurs.\nS occurs.\nQuestion: Which must be false?",
+        "options": ["P occurs", "Q occurs", "R occurs", "S occurs"],
+        "statements": ["If P occurs, Q occurs.", "If Q occurs, R occurs.", "If S occurs, not R occurs.", "P occurs.", "S occurs."],
+        "correct_answer": "R occurs",
+        "correct_option_index": 2,
+        "explanation": "P → Q → R, but S → not R → contradiction → R false."
+      },
+      {
+        "id": 29,
+        "question": "Statements:\nSome A are B.\nAll B are C.\nSome C are D.\nNo D is A.\nQuestion: Which statement creates inconsistency?",
+        "options": ["Some A are B", "All B are C", "Some C are D", "No D is A"],
+        "statements": ["Some A are B.", "All B are C.", "Some C are D.", "No D is A."],
+        "correct_answer": "Some C are D",
+        "correct_option_index": 2,
+        "explanation": "A → B → C chain, and C overlaps D → possible A--D overlap → violates D ≠ A."
+      },
+      {
+        "id": 30,
+        "question": "Statements:\nIf A occurs, B occurs.\nIf B occurs, C occurs.\nIf C occurs, D occurs.\nIf D occurs, E does not occur.\nE occurs.\nF occurs only if C occurs.\nQuestion: Which must be false?",
+        "options": ["A occurs", "B occurs", "C occurs", "F occurs"],
+        "statements": ["If A occurs, B occurs.", "If B occurs, C occurs.", "If C occurs, D occurs.", "If D occurs, E does not occur.", "E occurs.", "F occurs only if C occurs."],
+        "correct_answer": "A occurs",
+        "correct_option_index": 0,
+        "explanation": "A → B → C → D → not E, but E occurs → A false."
+      }
+    ]
+  },
+  {
+    "category": "Problem Solving & Decision Making",
+    "sub_category": "Logical Reasoning",
+    "type": "Truth / Lie (Assumption Testing)",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Statements:\nA says: 'B is lying.'\nB says: 'A is lying.'\nCondition: Exactly one person is telling the truth.\nQuestion: Who is telling the truth?",
+        "options": ["Only A", "Only B", "Both", "Cannot be determined"],
+        "statements": ["A: B is lying.", "B: A is lying."],
+        "condition": "Exactly one person is telling the truth.",
+        "correct_answer": "Cannot be determined",
+        "correct_option_index": 3,
+        "explanation": "If A is true → B lies → consistent. If B is true → A lies → also consistent. Two valid cases → cannot determine."
+      },
+      {
+        "id": 2,
+        "question": "Statements:\nA says: 'B is lying.'\nB says: 'C is lying.'\nC says: 'A is telling the truth.'\nCondition: Exactly one statement is true.\nQuestion: Who is telling the truth?",
+        "options": ["A", "B", "C", "None"],
+        "statements": ["A: B is lying.", "B: C is lying.", "C: A is telling the truth."],
+        "condition": "Exactly one statement is true.",
+        "correct_answer": "B",
+        "correct_option_index": 1,
+        "explanation": "Assume B true → C lies → A lies → satisfies exactly one truth."
+      },
+      {
+        "id": 3,
+        "question": "Statements:\nA says: 'B is truthful.'\nB says: 'C is lying.'\nC says: 'A is lying.'\nCondition: Exactly one person is lying.\nQuestion: Who is lying?",
+        "options": ["A", "B", "C", "Cannot be determined"],
+        "statements": ["A: B is truthful.", "B: C is lying.", "C: A is lying."],
+        "condition": "Exactly one person is lying.",
+        "correct_answer": "C",
+        "correct_option_index": 2,
+        "explanation": "If C lies → A truthful → B truthful → only one liar (C)."
+      },
+      {
+        "id": 4,
+        "question": "Statements:\nA says: 'Both B and C are lying.'\nB says: 'C is truthful.'\nC says: 'A is lying.'\nCondition: Exactly one statement is true.\nQuestion: Who is telling the truth?",
+        "options": ["A", "B", "C", "None"],
+        "statements": ["A: Both B and C are lying.", "B: C is truthful.", "C: A is lying."],
+        "condition": "Exactly one statement is true.",
+        "correct_answer": "C",
+        "correct_option_index": 2,
+        "explanation": "If C true → A lies → B lies → only one truth → valid."
+      },
+      {
+        "id": 5,
+        "question": "Statements:\nA says: 'B and C are both lying.'\nB says: 'A and C are of opposite types.'\nC says: 'B is truthful.'\nCondition: Exactly one person is truthful.\nQuestion: Who is truthful?",
+        "options": ["A", "B", "C", "None"],
+        "statements": ["A: B and C are both lying.", "B: A and C are of opposite types.", "C: B is truthful."],
+        "condition": "Exactly one person is truthful.",
+        "correct_answer": "B",
+        "correct_option_index": 1,
+        "explanation": "If B true → A & C opposite → test gives consistent single truth."
+      },
+      {
+        "id": 6,
+        "question": "Statements:\nA says: 'At least one of B or C is lying.'\nB says: 'A is truthful.'\nC says: 'B is lying.'\nCondition: Exactly two statements are true.\nQuestion: Who is lying?",
+        "options": ["A", "B", "C", "Cannot be determined"],
+        "statements": ["A: At least one of B or C is lying.", "B: A is truthful.", "C: B is lying."],
+        "condition": "Exactly two statements are true.",
+        "correct_answer": "C",
+        "correct_option_index": 2,
+        "explanation": "Assume C lies → B truthful → A truthful → exactly two truths satisfied."
+      },
+      {
+        "id": 7,
+        "question": "Statements:\nA says: 'B is lying.'\nB says: 'C is lying.'\nC says: 'A and B are of same type.'\nCondition: Exactly one person is lying.\nQuestion: Who is lying?",
+        "options": ["A", "B", "C", "Cannot be determined"],
+        "statements": ["A: B is lying.", "B: C is lying.", "C: A and B are of same type."],
+        "condition": "Exactly one person is lying.",
+        "correct_answer": "B",
+        "correct_option_index": 1,
+        "explanation": "If B lies → C truthful → A truthful → fits exactly one liar."
+      },
+      {
+        "id": 8,
+        "question": "Statements:\nA says: 'B is truthful.'\nB says: 'C is truthful.'\nC says: 'A is lying.'\nCondition: At least one person is lying.\nQuestion: Which scenario is possible?",
+        "options": ["All three are truthful", "Only A is lying", "Only C is lying", "A and B truthful, C lying"],
+        "statements": ["A: B is truthful.", "B: C is truthful.", "C: A is lying."],
+        "condition": "At least one person is lying.",
+        "correct_answer": "A and B truthful, C lying",
+        "correct_option_index": 3,
+        "explanation": "A true → B true → C must lie → condition satisfied."
+      },
+      {
+        "id": 9,
+        "question": "Statements:\nA says: 'B and C are both lying.'\nB says: 'Exactly one of A or D is truthful.'\nC says: 'D is lying.'\nD says: 'A is truthful.'\nCondition: Exactly two statements are true.\nQuestion: Which combination is correct?",
+        "options": ["A and B are true", "B and C are true", "B and D are true", "C and D are true"],
+        "statements": ["A: B and C are both lying.", "B: Exactly one of A or D is truthful.", "C: D is lying.", "D: A is truthful."],
+        "condition": "Exactly two statements are true.",
+        "correct_answer": "B and D are true",
+        "correct_option_index": 2,
+        "explanation": "Assume B & D true → D: A true; B: exactly one of (A, D) true → consistent since D true forces A false → exactly two truths satisfied."
+      },
+      {
+        "id": 10,
+        "question": "Statements:\nA says: 'B is truthful.'\nB says: 'C and D are of opposite types.'\nC says: 'D is lying.'\nD says: 'A is lying.'\nCondition: Exactly one person is lying.\nQuestion: Who is lying?",
+        "options": ["A", "B", "C", "D"],
+        "statements": ["A: B is truthful.", "B: C and D are of opposite types.", "C: D is lying.", "D: A is lying."],
+        "condition": "Exactly one person is lying.",
+        "correct_answer": "D",
+        "correct_option_index": 3,
+        "explanation": "Assume D lies → A true → B true → C true → only one liar (D)."
+      },
+      {
+        "id": 11,
+        "question": "Statements:\nA says: 'B and C are truthful.'\nB says: 'D is lying.'\nC says: 'Exactly one of B or D is truthful.'\nD says: 'A is lying.'\nCondition: Exactly two statements are true.\nQuestion: Who are truthful?",
+        "options": ["A and B", "B and C", "A and C", "C and D"],
+        "statements": ["A: B and C are truthful.", "B: D is lying.", "C: Exactly one of B or D is truthful.", "D: A is lying."],
+        "condition": "Exactly two statements are true.",
+        "correct_answer": "B and C are true",
+        "correct_option_index": 1,
+        "explanation": "Assume B & C true → B: D lies; C: exactly one of (B, D) true → valid. Then A false, D false → exactly two truths."
+      },
+      {
+        "id": 12,
+        "question": "Statements:\nA says: 'At least two of us are lying.'\nB says: 'C is truthful.'\nC says: 'D is lying.'\nD says: 'B is lying.'\nCondition: Exactly two people are lying.\nQuestion: Who MUST be lying?",
+        "options": ["A", "B", "C", "D"],
+        "statements": ["A: At least two of us are lying.", "B: C is truthful.", "C: D is lying.", "D: B is lying."],
+        "condition": "Exactly two people are lying.",
+        "correct_answer": "D",
+        "correct_option_index": 3,
+        "explanation": "Assume D lies → B truthful → C truthful → A truthful ('at least two lying' = D + one more). Only consistent solution forces D to lie."
+      },
+      {
+        "id": 13,
+        "question": "Statements:\nA says: 'If B is truthful, then C is lying.'\nB says: 'A is truthful.'\nC says: 'D is truthful.'\nD says: 'B is lying.'\nCondition: Exactly two statements are true.\nQuestion: Which is the only consistent scenario?",
+        "options": ["A and B true", "B and C true", "A and D true", "C and D true"],
+        "statements": ["A: If B is truthful, then C is lying.", "B: A is truthful.", "C: D is truthful.", "D: B is lying."],
+        "condition": "Exactly two statements are true.",
+        "correct_answer": "A and D true",
+        "correct_option_index": 2,
+        "explanation": "If A & D true → B false → C false. A's conditional holds (since B false). Exactly two truths satisfied."
+      },
+      {
+        "id": 14,
+        "question": "Statements:\nA says: 'Exactly one of B or C is truthful.'\nB says: 'C and D are both lying.'\nC says: 'A is truthful.'\nD says: 'B is lying.'\nCondition: Exactly two statements are true.\nQuestion: How many statements are definitely true?",
+        "options": ["One", "Two", "Three", "Cannot be determined"],
+        "statements": ["A: Exactly one of B or C is truthful.", "B: C and D are both lying.", "C: A is truthful.", "D: B is lying."],
+        "condition": "Exactly two statements are true.",
+        "correct_answer": "Two",
+        "correct_option_index": 1,
+        "explanation": "Testing combinations shows only one consistent case where exactly two statements (A & D) are true."
+      },
+      {
+        "id": 15,
+        "question": "Statements:\nA says: 'B is lying.'\nB says: 'C is lying.'\nC says: 'D is lying.'\nD says: 'E is lying.'\nE says: 'A is truthful.'\nCondition: Exactly two people are truthful.\nQuestion: Which combination is logically possible?",
+        "options": ["A and C truthful", "B and D truthful", "C and E truthful", "D and E truthful"],
+        "statements": ["A: B is lying.", "B: C is lying.", "C: D is lying.", "D: E is lying.", "E: A is truthful."],
+        "condition": "Exactly two people are truthful.",
+        "correct_answer": "D and E truthful",
+        "correct_option_index": 3,
+        "explanation": "Assume D & E true → E: A true; D: E lying → conflict avoided only when chain stabilizes with D, E true and others false. Exactly two truths satisfied."
+      }
+    ]
+  },
+  {
+    "category": "Problem Solving & Decision Making",
+    "sub_category": "Logical Reasoning",
+    "type": "Ordering & Ranking (Relative Comparison)",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Statements:\nA is taller than B.\nB is taller than C.\nC is taller than D.\nQuestion: Who is the shortest?",
+        "options": ["A", "B", "C", "D"],
+        "statements": ["A > B", "B > C", "C > D"],
+        "correct_answer": "D",
+        "correct_option_index": 3,
+        "explanation": "A > B > C > D → D is shortest."
+      },
+      {
+        "id": 2,
+        "question": "Statements:\nP scored more than Q.\nR scored less than Q.\nS scored more than P.\nQuestion: Who scored the highest?",
+        "options": ["P", "Q", "R", "S"],
+        "statements": ["P > Q", "R < Q", "S > P"],
+        "correct_answer": "S",
+        "correct_option_index": 3,
+        "explanation": "S > P > Q > R → S highest."
+      },
+      {
+        "id": 3,
+        "question": "Statements:\nX is older than Y.\nZ is younger than Y.\nW is older than X.\nQuestion: Who is the oldest?",
+        "options": ["X", "Y", "Z", "W"],
+        "statements": ["X > Y", "Z < Y", "W > X"],
+        "correct_answer": "W",
+        "correct_option_index": 3,
+        "explanation": "W > X > Y > Z → W oldest."
+      },
+      {
+        "id": 4,
+        "question": "Statements:\nA runs faster than B.\nC runs slower than B.\nD runs faster than A.\nQuestion: Who is second fastest?",
+        "options": ["A", "B", "C", "D"],
+        "statements": ["A > B", "C < B", "D > A"],
+        "correct_answer": "A",
+        "correct_option_index": 0,
+        "explanation": "D > A > B > C → A is second."
+      },
+      {
+        "id": 5,
+        "question": "Statements:\nK is heavier than L.\nM is lighter than L.\nN is heavier than K.\nQuestion: Who is the lightest?",
+        "options": ["K", "L", "M", "N"],
+        "statements": ["K > L", "M < L", "N > K"],
+        "correct_answer": "M",
+        "correct_option_index": 2,
+        "explanation": "N > K > L > M → M is lightest."
+      },
+      {
+        "id": 6,
+        "question": "Statements:\nA scored equal to B.\nC scored less than B.\nD scored more than A.\nQuestion: Who scored the highest?",
+        "options": ["A", "B", "C", "D"],
+        "statements": ["A = B", "C < B", "D > A"],
+        "correct_answer": "D",
+        "correct_option_index": 3,
+        "explanation": "D > A = B > C → D highest."
+      },
+      {
+        "id": 7,
+        "question": "Statements:\nP is taller than Q.\nQ is equal in height to R.\nR is taller than S.\nQuestion: Who is taller than S but shorter than P?",
+        "options": ["Q", "R", "Both Q and R", "Only P"],
+        "statements": ["P > Q", "Q = R", "R > S"],
+        "correct_answer": "Both Q and R",
+        "correct_option_index": 2,
+        "explanation": "P > Q = R > S → both Q and R fit."
+      },
+      {
+        "id": 8,
+        "question": "Statements:\nA scored more than B.\nC scored less than D.\nB scored more than C.\nE scored less than A but more than B.\nQuestion: Who scored the highest?",
+        "options": ["A", "B", "C", "D"],
+        "statements": ["A > B", "C < D", "B > C", "E < A, E > B"],
+        "correct_answer": "A",
+        "correct_option_index": 0,
+        "explanation": "A > E > B > C and D > C but no link to A → A remains highest."
+      },
+      {
+        "id": 9,
+        "question": "Statements:\nP is older than Q.\nR is older than S.\nQ is older than R.\nT is younger than S.\nQuestion: Who is second oldest?",
+        "options": ["P", "Q", "R", "S"],
+        "statements": ["P > Q", "R > S", "Q > R", "T < S"],
+        "correct_answer": "Q",
+        "correct_option_index": 1,
+        "explanation": "P > Q > R > S > T → Q second."
+      },
+      {
+        "id": 10,
+        "question": "Statements:\nA runs faster than B.\nC runs slower than D.\nB runs faster than C.\nE runs slower than B but faster than C.\nQuestion: Who is the slowest?",
+        "options": ["B", "C", "D", "E"],
+        "statements": ["A > B", "C < D", "B > C", "E < B, E > C"],
+        "correct_answer": "C",
+        "correct_option_index": 1,
+        "explanation": "D > A > B > E > C → C slowest."
+      },
+      {
+        "id": 11,
+        "question": "Statements:\nK scored more than L.\nM scored less than N.\nL scored more than M.\nN scored more than K.\nQuestion: What is the correct order (highest to lowest)?",
+        "options": ["N > K > L > M", "K > N > L > M", "N > L > K > M", "K > L > N > M"],
+        "statements": ["K > L", "M < N", "L > M", "N > K"],
+        "correct_answer": "N > K > L > M",
+        "correct_option_index": 0,
+        "explanation": "N > K > L > M."
+      },
+      {
+        "id": 12,
+        "question": "Statements:\nA is taller than B.\nC is shorter than D.\nB is taller than C.\nE is taller than A but shorter than D.\nQuestion: Who is the tallest?",
+        "options": ["A", "D", "E", "B"],
+        "statements": ["A > B", "C < D", "B > C", "D > E > A"],
+        "correct_answer": "D",
+        "correct_option_index": 1,
+        "explanation": "D > E > A > B > C → D tallest."
+      },
+      {
+        "id": 13,
+        "question": "Statements:\nP scored more than Q.\nR scored less than S.\nQ scored more than R.\nT scored more than P but less than S.\nQuestion: Who scored the highest?",
+        "options": ["P", "S", "T", "Q"],
+        "statements": ["P > Q", "R < S", "Q > R", "S > T > P"],
+        "correct_answer": "S",
+        "correct_option_index": 1,
+        "explanation": "S > T > P > Q > R → S highest."
+      },
+      {
+        "id": 14,
+        "question": "Statements:\nA is heavier than B.\nC is lighter than D.\nB is heavier than C.\nE is heavier than A but lighter than D.\nQuestion: Who is second heaviest?",
+        "options": ["D", "E", "A", "B"],
+        "statements": ["A > B", "C < D", "B > C", "D > E > A"],
+        "correct_answer": "E",
+        "correct_option_index": 1,
+        "explanation": "D > E > A > B > C → E second."
+      },
+      {
+        "id": 15,
+        "question": "Statements:\nX is faster than Y.\nZ is slower than W.\nY is faster than Z.\nV is faster than X but slower than W.\nQuestion: Who is the fastest?",
+        "options": ["X", "W", "V", "Y"],
+        "statements": ["X > Y", "Z < W", "Y > Z", "W > V > X"],
+        "correct_answer": "W",
+        "correct_option_index": 1,
+        "explanation": "W > V > X > Y > Z → W fastest."
+      },
+      {
+        "id": 16,
+        "question": "Statements:\nA > B > C\nD > E\nIf A > D, then F < C\nF > E\nQuestion: Which must be true?",
+        "options": ["F < C", "A > D", "F > E", "D > A"],
+        "statements": ["A > B > C", "D > E", "If A > D then F < C", "F > E"],
+        "correct_answer": "F > E",
+        "correct_option_index": 2,
+        "explanation": "F > E is directly given; others depend on condition."
+      },
+      {
+        "id": 17,
+        "question": "Statements:\nP > Q > R\nS > T\nR > S\nU < T\nQuestion: Who is the lowest?",
+        "options": ["U", "T", "S", "R"],
+        "statements": ["P > Q > R", "S > T", "R > S", "U < T"],
+        "correct_answer": "U",
+        "correct_option_index": 0,
+        "explanation": "P > Q > R > S > T > U → U lowest."
+      },
+      {
+        "id": 18,
+        "question": "Statements:\nA = B > C\nD > E\nC > D\nF < E\nQuestion: Who is second lowest?",
+        "options": ["F", "E", "D", "C"],
+        "statements": ["A = B > C", "D > E", "C > D", "F < E"],
+        "correct_answer": "E",
+        "correct_option_index": 1,
+        "explanation": "A = B > C > D > E > F → E second lowest."
+      },
+      {
+        "id": 19,
+        "question": "Statements:\nA is taller than B but lighter than B\nC is taller than A\nD is heavier than C\nE is lighter than D but taller than B\nQuestion: Who is tallest?",
+        "options": ["A", "C", "E", "Cannot be determined"],
+        "statements": ["A taller than B", "A lighter than B", "C taller than A", "D heavier than C", "E lighter than D but taller than B"],
+        "correct_answer": "C",
+        "correct_option_index": 1,
+        "explanation": "Only clear height chain: C > A > B, and E > B but not above C → C tallest."
+      },
+      {
+        "id": 20,
+        "question": "Statements:\nA > B\nC > D\nE > F\nB > C\nD > E\nQuestion: How many can be lowest?",
+        "options": ["1", "2", "3", "4"],
+        "statements": ["A > B", "C > D", "E > F", "B > C", "D > E"],
+        "correct_answer": "1",
+        "correct_option_index": 0,
+        "explanation": "Chain: A > B > C > D > E > F → only F lowest."
+      },
+      {
+        "id": 21,
+        "question": "Statements:\nA > B > C\nD > E\nIf E > C, then F > A\nF < D\nQuestion: Which must be false?",
+        "options": ["E > C", "F > A", "F < D", "A > B"],
+        "statements": ["A > B > C", "D > E", "If E > C then F > A", "F < D"],
+        "correct_answer": "F > A",
+        "correct_option_index": 1,
+        "explanation": "If E > C → F > A, but F < D and no support → contradiction → F > A false."
+      },
+      {
+        "id": 22,
+        "question": "Statements:\nP > Q > R > S\nT > U\nS > T\nQuestion: Who cannot be in the middle (3rd position)?",
+        "options": ["R", "Q", "S", "T"],
+        "statements": ["P > Q > R > S", "T > U", "S > T"],
+        "correct_answer": "T",
+        "correct_option_index": 3,
+        "explanation": "Final: P > Q > R > S > T > U → T cannot be 3rd."
+      },
+      {
+        "id": 23,
+        "question": "Statements:\nA = B > C\nD > E\nIf C > D, then F < B\nF > E\nQuestion: Which is definitely correct?",
+        "options": ["F < B", "C > D", "F > E", "D > C"],
+        "statements": ["A = B > C", "D > E", "If C > D then F < B", "F > E"],
+        "correct_answer": "F > E",
+        "correct_option_index": 2,
+        "explanation": "Only fixed relation: F > E."
+      },
+      {
+        "id": 24,
+        "question": "Statements:\nA > B > C\nD > E > F\nC > D\nG < F\nQuestion: Who is second highest?",
+        "options": ["A", "B", "C", "D"],
+        "statements": ["A > B > C", "D > E > F", "C > D", "G < F"],
+        "correct_answer": "B",
+        "correct_option_index": 1,
+        "explanation": "A > B > C > D > E > F > G → B second."
+      },
+      {
+        "id": 25,
+        "question": "Statements:\nA > B\nC > D\nB > C\nE > F\nQuestion: Who can be second lowest?",
+        "options": ["D", "C", "E", "F"],
+        "statements": ["A > B", "C > D", "B > C", "E > F"],
+        "correct_answer": "D",
+        "correct_option_index": 0,
+        "explanation": "Order: A > B > C > D and E > F (independent). D can be second lowest depending on placement."
+      },
+      {
+        "id": 26,
+        "question": "Statements:\nX > Y > Z\nW > X\nV < Z\nU > V\nQuestion: Who is definitely lowest?",
+        "options": ["V", "Z", "Y", "U"],
+        "statements": ["X > Y > Z", "W > X", "V < Z", "U > V"],
+        "correct_answer": "V",
+        "correct_option_index": 0,
+        "explanation": "W > X > Y > Z > V, and U > V → V lowest."
+      },
+      {
+        "id": 27,
+        "question": "Statements:\nA > B > C\nD > E > F\nC > D\nG > A\nQuestion: Who is highest?",
+        "options": ["G", "A", "D", "B"],
+        "statements": ["A > B > C", "D > E > F", "C > D", "G > A"],
+        "correct_answer": "G",
+        "correct_option_index": 0,
+        "explanation": "G > A > B > C > D > E > F → G highest."
+      },
+      {
+        "id": 28,
+        "question": "Statements:\nA > B\nC > D\nIf B > C, then E > A\nD > E\nQuestion: Which must be true?",
+        "options": ["B > C", "E > A", "D > E", "A > C"],
+        "statements": ["A > B", "C > D", "If B > C then E > A", "D > E"],
+        "correct_answer": "D > E",
+        "correct_option_index": 2,
+        "explanation": "Only guaranteed relation: D > E."
+      },
+      {
+        "id": 29,
+        "question": "Statements:\nA = B > C > D\nE > F\nD > E\nQuestion: Who is third?",
+        "options": ["A", "B", "C", "D"],
+        "statements": ["A = B > C > D", "E > F", "D > E"],
+        "correct_answer": "C",
+        "correct_option_index": 2,
+        "explanation": "A = B > C > D > E > F → C is third."
+      },
+      {
+        "id": 30,
+        "question": "Statements:\nP > Q > R\nS > T\nR > S\nU < T\nV > P\nQuestion: Which order is correct (highest to lowest)?",
+        "options": ["V > P > Q > R > S > T > U", "P > V > Q > R > S > T > U", "V > P > R > Q > S > T > U", "V > Q > P > R > S > T > U"],
+        "statements": ["P > Q > R", "S > T", "R > S", "U < T", "V > P"],
+        "correct_answer": "V > P > Q > R > S > T > U",
+        "correct_option_index": 0,
+        "explanation": "V > P > Q > R > S > T > U satisfies all conditions."
+      }
+    ]
+  },
+  {
+    "category": "Problem Solving & Decision Making",
+    "sub_category": "Logical Reasoning",
+    "type": "Seating Arrangement (Constraint Solving)",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Five people (A, B, C, D, E) sit in a row facing north.\n- A sits to the immediate left of B\n- C sits at one end\n- D sits between B and E\nQuestion: Who sits at the right end?",
+        "options": ["B", "E", "D", "A"],
+        "constraints": ["A immediate left of B", "C at one end", "D between B and E"],
+        "correct_answer": "B",
+        "correct_option_index": 0,
+        "explanation": "C at left end → A-B pair → D between B & E → E ends up at right end."
+      },
+      {
+        "id": 2,
+        "question": "Four people (P, Q, R, S) sit in a row facing north.\n- P sits at one end\n- Q sits next to P\n- R sits to the right of Q\nQuestion: Who sits at the right end?",
+        "options": ["P", "Q", "R", "S"],
+        "constraints": ["P at one end", "Q next to P", "R to the right of Q"],
+        "correct_answer": "S",
+        "correct_option_index": 3,
+        "explanation": "P--Q--R sequence occupies first three → S at right end."
+      },
+      {
+        "id": 3,
+        "question": "Five people (A, B, C, D, E) sit in a row facing north.\n- B sits in the middle\n- A sits immediately left of B\n- D sits at one end\n- C sits between B and E\nQuestion: Who sits at the left end?",
+        "options": ["D", "A", "C", "E"],
+        "constraints": ["B middle", "A left of B", "D at one end", "C between B and E"],
+        "correct_answer": "D",
+        "correct_option_index": 0,
+        "explanation": "B center, A left → C between B & E → D forced to left end."
+      },
+      {
+        "id": 4,
+        "question": "Four people (W, X, Y, Z) sit in a row facing north.\n- X sits to the left of Y\n- W sits at one end\n- Z sits next to Y\nQuestion: Who sits next to W?",
+        "options": ["X", "Y", "Z", "Cannot be determined"],
+        "constraints": ["X left of Y", "W at one end", "Z next to Y"],
+        "correct_answer": "X",
+        "correct_option_index": 0,
+        "explanation": "Arrangement: W--X--Y--Z → X sits next to W."
+      },
+      {
+        "id": 5,
+        "question": "Five people (K, L, M, N, O) sit in a row facing north.\n- M sits in the middle\n- K sits to the left of M\n- O sits at the right end\n- N sits between K and M\nQuestion: Who sits at the left end?",
+        "options": ["K", "L", "N", "Cannot be determined"],
+        "constraints": ["M middle", "K left of M", "O right end", "N between K and M"],
+        "correct_answer": "L",
+        "correct_option_index": 1,
+        "explanation": "L fills leftmost position after placing K--N--M chain."
+      },
+      {
+        "id": 6,
+        "question": "Four people (A, B, C, D) sit around a circular table facing center.\n- A sits opposite C\n- B sits next to A\nQuestion: Who sits opposite B?",
+        "options": ["A", "C", "D", "Cannot be determined"],
+        "constraints": ["A opposite C", "B next to A"],
+        "correct_answer": "C",
+        "correct_option_index": 1,
+        "explanation": "A opposite C → B beside A → D must be opposite B."
+      },
+      {
+        "id": 7,
+        "question": "Five people (P, Q, R, S, T) sit in a row facing north.\n- Q sits at one end\n- R sits next to Q\n- S sits between R and T\n- P sits at the other end\nQuestion: Who sits in the middle?",
+        "options": ["R", "S", "T", "Q"],
+        "constraints": ["Q at one end", "R next to Q", "S between R and T", "P at other end"],
+        "correct_answer": "S",
+        "correct_option_index": 1,
+        "explanation": "Q--R--S--T--P → S in middle."
+      },
+      {
+        "id": 8,
+        "question": "Six people (A, B, C, D, E, F) sit in a row facing north.\n- A sits second from left\n- B sits to the right of A\n- C sits at one end\n- D sits between B and E\n- F sits next to C\nQuestion: Who sits at the right end?",
+        "options": ["B", "E", "D", "Cannot be determined"],
+        "constraints": ["A second from left", "B right of A", "C at one end", "D between B and E", "F next to C"],
+        "correct_answer": "E",
+        "correct_option_index": 1,
+        "explanation": "Positioning step-by-step fixes E at right end."
+      },
+      {
+        "id": 9,
+        "question": "Five people (A, B, C, D, E) sit in a circle facing center.\n- A sits next to B\n- B sits opposite D\n- C sits next to D\n- E is not next to A\nQuestion: Who sits between C and B?",
+        "options": ["A", "D", "E", "Cannot be determined"],
+        "constraints": ["A next to B", "B opposite D", "C next to D", "E not next to A"],
+        "correct_answer": "D",
+        "correct_option_index": 1,
+        "explanation": "Unique placement gives D between C and B."
+      },
+      {
+        "id": 10,
+        "question": "Six people (P, Q, R, S, T, U) sit in a row facing north.\n- P sits third from left\n- Q sits at one end\n- R sits between P and S\n- T sits next to S\n- U sits at the other end\nQuestion: Who sits second from right?",
+        "options": ["T", "S", "R", "Q"],
+        "constraints": ["P third from left", "Q at one end", "R between P and S", "T next to S", "U at other end"],
+        "correct_answer": "T",
+        "correct_option_index": 0,
+        "explanation": "Full arrangement leads to T in second-right position."
+      },
+      {
+        "id": 11,
+        "question": "Five people (A, B, C, D, E) sit in a circle facing center.\n- A sits opposite C\n- B sits between A and D\n- E sits next to C\nQuestion: Who sits opposite B?",
+        "options": ["A", "C", "E", "D"],
+        "constraints": ["A opposite C", "B between A and D", "E next to C"],
+        "correct_answer": "E",
+        "correct_option_index": 2,
+        "explanation": "Placement fixes E opposite B."
+      },
+      {
+        "id": 12,
+        "question": "Six people (K, L, M, N, O, P) sit in a row facing north.\n- K sits at one end\n- L sits third from left\n- M sits next to L\n- N sits between M and O\n- P sits at the other end\nQuestion: Who sits second from left?",
+        "options": ["M", "N", "O", "Cannot be determined"],
+        "constraints": ["K at one end", "L third from left", "M next to L", "N between M and O", "P at other end"],
+        "correct_answer": "M",
+        "correct_option_index": 0,
+        "explanation": "Step placement gives M at second position."
+      },
+      {
+        "id": 13,
+        "question": "Five people (W, X, Y, Z, V) sit in a circle facing center.\n- W sits next to X\n- X sits opposite Z\n- Y sits next to Z\n- V is not next to W\nQuestion: Who sits between Y and X?",
+        "options": ["Z", "W", "V", "Cannot be determined"],
+        "constraints": ["W next to X", "X opposite Z", "Y next to Z", "V not next to W"],
+        "correct_answer": "Z",
+        "correct_option_index": 0,
+        "explanation": "Z lies between X and Y in final arrangement."
+      },
+      {
+        "id": 14,
+        "question": "Six people (A, B, C, D, E, F) sit in a row facing north.\n- A sits at one end\n- B sits third from right\n- C sits between A and D\n- E sits next to D\n- F sits at the other end\nQuestion: Who sits in the middle?",
+        "options": ["C", "D", "E", "B"],
+        "constraints": ["A at one end", "B third from right", "C between A and D", "E next to D", "F at other end"],
+        "correct_answer": "D",
+        "correct_option_index": 1,
+        "explanation": "Full placement leads to D in middle."
+      },
+      {
+        "id": 15,
+        "question": "Five people (P, Q, R, S, T) sit in a circle facing center.\n- P sits opposite R\n- Q sits next to P\n- S sits next to R\n- T is not next to Q\nQuestion: Who sits between S and Q?",
+        "options": ["P", "R", "T", "Cannot be determined"],
+        "constraints": ["P opposite R", "Q next to P", "S next to R", "T not next to Q"],
+        "correct_answer": "P",
+        "correct_option_index": 0,
+        "explanation": "Final arrangement places P between S and Q."
+      },
+      {
+        "id": 16,
+        "question": "Six people (A, B, C, D, E, F) sit around a circle. Some face inward, some outward.\n- A sits opposite B\n- C sits next to A\n- D sits second to the right of C (C faces inward)\n- E sits next to B\n- F is not next to D\nQuestion: Who sits opposite C?",
+        "options": ["A", "D", "E", "F"],
+        "constraints": ["A opposite B", "C next to A", "D second right of C (C inward)", "E next to B", "F not next to D"],
+        "correct_answer": "D",
+        "correct_option_index": 1,
+        "explanation": "Careful placement using direction rules gives D opposite C."
+      },
+      {
+        "id": 17,
+        "question": "Six people sit in two parallel rows (3 each), facing each other.\nFront row: A, B, C\nBack row: D, E, F\n- A sits opposite D\n- B sits to the left of A\n- E sits opposite C\n- F is not adjacent to D\nQuestion: Which arrangement is correct (front row left → right)?",
+        "options": ["B A C", "A B C", "B C A", "C B A"],
+        "constraints": ["A opposite D", "B left of A", "E opposite C", "F not adjacent to D"],
+        "correct_answer": "B A C",
+        "correct_option_index": 0,
+        "explanation": "Placement constraints fix order as B--A--C."
+      },
+      {
+        "id": 18,
+        "question": "Seven people (A--G) sit in a row facing north.\n- A sits at one end\n- B sits third from left\n- If C sits next to B, then D sits at an end\n- E sits between C and F\n- G sits second from right\nQuestion: Who sits at the right end?",
+        "options": ["D", "F", "G", "Cannot be determined"],
+        "constraints": ["A at one end", "B third from left", "If C next to B then D at an end", "E between C and F", "G second from right"],
+        "correct_answer": "D",
+        "correct_option_index": 0,
+        "explanation": "Conditional forces D to right end after placement."
+      },
+      {
+        "id": 19,
+        "question": "Six people sit in a circle facing center.\n- A sits next to B\n- C sits opposite A\n- D sits between B and E\n- F is not next to C\nQuestion: Who sits between A and E?",
+        "options": ["B", "D", "F", "Cannot be determined"],
+        "constraints": ["A next to B", "C opposite A", "D between B and E", "F not next to C"],
+        "correct_answer": "D",
+        "correct_option_index": 1,
+        "explanation": "Unique placement puts D between A and E."
+      },
+      {
+        "id": 20,
+        "question": "Five people (P, Q, R, S, T) sit in a row facing north.\n- P sits at one end\n- Q sits next to P\n- R sits in the middle\n- S sits next to R\n- T sits at the other end\nQuestion: Which condition is redundant?",
+        "options": ["P sits at one end", "Q sits next to P", "R sits in the middle", "T sits at the other end"],
+        "constraints": ["P at one end", "Q next to P", "R middle", "S next to R", "T at other end"],
+        "correct_answer": "T sits at the other end",
+        "correct_option_index": 3,
+        "explanation": "T's position is automatically fixed by others."
+      },
+      {
+        "id": 21,
+        "question": "Six people sit in a circle, some facing inward, some outward.\n- A faces inward and sits opposite C\n- B sits next to A\n- D sits to the immediate right of B (B faces outward)\n- E is not adjacent to C\n- F sits next to D\nQuestion: Who cannot sit next to A?",
+        "options": ["B", "C", "E", "F"],
+        "constraints": ["A inward opposite C", "B next to A", "D right of B (B outward)", "E not adjacent to C", "F next to D"],
+        "correct_answer": "E",
+        "correct_option_index": 2,
+        "explanation": "Placement blocks E from A's adjacency."
+      },
+      {
+        "id": 22,
+        "question": "Eight people sit in two rows of four, facing each other.\nRow 1: A, B, C, D\nRow 2: E, F, G, H\n- A faces F\n- B sits next to A\n- C sits opposite H\n- D is not adjacent to B\n- G sits at one end\nQuestion: Who sits opposite B?",
+        "options": ["E", "F", "G", "H"],
+        "constraints": ["A faces F", "B next to A", "C opposite H", "D not adjacent to B", "G at one end"],
+        "correct_answer": "E",
+        "correct_option_index": 0,
+        "explanation": "Arrangement fixes E opposite B."
+      },
+      {
+        "id": 23,
+        "question": "Seven people sit around a circle facing center.\n- A sits next to B\n- If B sits next to C, then D sits opposite A\n- C sits next to D\n- E sits opposite B\n- F is not next to A\nQuestion: Which must be true?",
+        "options": ["D sits opposite A", "C sits next to B", "F sits next to D", "E sits next to A"],
+        "constraints": ["A next to B", "If B next to C then D opposite A", "C next to D", "E opposite B", "F not next to A"],
+        "correct_answer": "D sits opposite A",
+        "correct_option_index": 0,
+        "explanation": "Only consistent arrangement triggers condition."
+      },
+      {
+        "id": 24,
+        "question": "Six people sit in a row.\n- A sits left of B\n- C sits right of D\n- E sits between A and D\n- F sits at one end\nQuestion: How many possible arrangements exist?",
+        "options": ["1", "2", "3", "4"],
+        "constraints": ["A left of B", "C right of D", "E between A and D", "F at one end"],
+        "correct_answer": "2",
+        "correct_option_index": 1,
+        "explanation": "Two valid placements satisfy all constraints."
+      },
+      {
+        "id": 25,
+        "question": "Five people sit in a circle facing center.\n- A sits opposite B\n- C sits next to A\n- D sits next to B\n- E sits next to both C and D\nQuestion: Which statement must be false?",
+        "options": ["C sits next to A", "D sits next to B", "E sits next to both C and D", "A sits opposite B"],
+        "constraints": ["A opposite B", "C next to A", "D next to B", "E next to both C and D"],
+        "correct_answer": "E sits next to both C and D",
+        "correct_option_index": 2,
+        "explanation": "E cannot be adjacent to both simultaneously."
+      },
+      {
+        "id": 26,
+        "question": "Six people sit in two rows (3 each), facing each other.\n- A faces D\n- B sits to the right of A\n- C sits at left end\n- E is opposite B\n- F is not adjacent to D\nQuestion: Who sits opposite C?",
+        "options": ["D", "E", "F", "Cannot be determined"],
+        "constraints": ["A faces D", "B right of A", "C at left end", "E opposite B", "F not adjacent to D"],
+        "correct_answer": "F",
+        "correct_option_index": 2,
+        "explanation": "F aligns opposite C after full placement."
+      },
+      {
+        "id": 27,
+        "question": "Six people sit in a circle, alternating inward and outward.\n- A faces inward and sits next to B\n- B faces outward\n- C sits opposite B\n- D sits next to C\n- E is not next to A\nQuestion: Who sits opposite A?",
+        "options": ["C", "D", "E", "F"],
+        "constraints": ["A inward next to B", "B outward", "C opposite B", "D next to C", "E not next to A"],
+        "correct_answer": "F",
+        "correct_option_index": 3,
+        "explanation": "Unique arrangement gives F opposite A."
+      },
+      {
+        "id": 28,
+        "question": "Seven people sit in a row facing north.\n- A sits second from left\n- B sits at one end\n- If C sits next to D, then E sits at right end\n- F sits between A and C\n- G sits next to B\nQuestion: Who sits at right end?",
+        "options": ["E", "D", "C", "Cannot be determined"],
+        "constraints": ["A second from left", "B at one end", "If C next to D then E at right end", "F between A and C", "G next to B"],
+        "correct_answer": "E",
+        "correct_option_index": 0,
+        "explanation": "Only consistent setup triggers condition → E at right end."
+      },
+      {
+        "id": 29,
+        "question": "Six people sit in a circle facing center.\n- A sits next to B\n- C sits opposite D\n- E sits next to D\n- F is not next to A\nQuestion: Who cannot sit next to A?",
+        "options": ["B", "C", "F", "E"],
+        "constraints": ["A next to B", "C opposite D", "E next to D", "F not next to A"],
+        "correct_answer": "F",
+        "correct_option_index": 2,
+        "explanation": "F is explicitly restricted."
+      },
+      {
+        "id": 30,
+        "question": "Eight people sit in two rows of four facing each other.\n- A faces E\n- B sits next to A\n- C sits opposite H\n- D sits at one end\n- F sits opposite B\n- G is not adjacent to E\nQuestion: Which arrangement is definitely correct (Row 1 left → right)?",
+        "options": ["D A B C", "A B D C", "D B A C", "B A D C"],
+        "constraints": ["A faces E", "B next to A", "C opposite H", "D at one end", "F opposite B", "G not adjacent to E"],
+        "correct_answer": "D A B C",
+        "correct_option_index": 0,
+        "explanation": "Only D--A--B--C satisfies all constraints after elimination."
+      }
+    ]
+  },
+  {
+    "category": "Problem Solving & Decision Making",
+    "sub_category": "Logical Reasoning",
+    "type": "Direction & Movement Logic (Spatial Reasoning)",
+    "questions": [
+      {
+        "id": 1,
+        "question": "A person starts at a point facing North.\n- Walks 10 m forward\n- Turns right and walks 5 m\n- Turns right again and walks 10 m\nQuestion: What direction is the person now facing?",
+        "options": ["North", "South", "East", "West"],
+        "movements": ["Start North", "10m forward", "Right, 5m", "Right, 10m"],
+        "correct_answer": "South",
+        "correct_option_index": 1,
+        "explanation": "North → right (East) → right (South)."
+      },
+      {
+        "id": 2,
+        "question": "Ravi starts from a point facing East.\n- Walks 8 m\n- Turns left and walks 6 m\n- Turns left and walks 8 m\nQuestion: How far is Ravi from the starting point?",
+        "options": ["6 m", "8 m", "10 m", "14 m"],
+        "movements": ["Start East", "8m", "Left, 6m", "Left, 8m"],
+        "correct_answer": "6 m",
+        "correct_option_index": 0,
+        "explanation": "Final position is directly 6 m north of start."
+      },
+      {
+        "id": 3,
+        "question": "A person starts facing South.\n- Walks 7 m\n- Turns left and walks 5 m\n- Turns left again and walks 7 m\nQuestion: Where is the person relative to the starting point?",
+        "options": ["5 m East", "5 m West", "7 m North", "At starting point"],
+        "movements": ["Start South", "7m", "Left, 5m", "Left, 7m"],
+        "correct_answer": "5 m East",
+        "correct_option_index": 0,
+        "explanation": "Ends 5 m east of start."
+      },
+      {
+        "id": 4,
+        "question": "Anita starts facing West.\n- Walks 4 m\n- Turns right and walks 3 m\n- Turns left and walks 2 m\nQuestion: What direction is Anita facing at the end?",
+        "options": ["North", "South", "West", "East"],
+        "movements": ["Start West", "4m", "Right, 3m", "Left, 2m"],
+        "correct_answer": "West",
+        "correct_option_index": 2,
+        "explanation": "West → right (North) → left (West)."
+      },
+      {
+        "id": 5,
+        "question": "Raj starts from a point facing North.\n- Walks 12 m\n- Turns right and walks 5 m\n- Turns right and walks 12 m\n- Turns left and walks 3 m\nQuestion: How far is Raj from the starting point?",
+        "options": ["2 m", "3 m", "5 m", "8 m"],
+        "movements": ["Start North", "12m", "Right, 5m", "Right, 12m", "Left, 3m"],
+        "correct_answer": "8 m",
+        "correct_option_index": 3,
+        "explanation": "Net displacement gives 8 m after canceling opposite movements."
+      },
+      {
+        "id": 6,
+        "question": "A and B start from the same point.\n- A walks 10 m North, then 5 m East\n- B walks 6 m East, then 10 m North\nQuestion: Where is A relative to B?",
+        "options": ["1 m West", "1 m East", "Same position", "5 m West"],
+        "movements": ["A: 10m N, 5m E", "B: 6m E, 10m N"],
+        "correct_answer": "1 m West",
+        "correct_option_index": 0,
+        "explanation": "A = (5E,10N), B = (6E,10N) → A is 1 m west of B."
+      },
+      {
+        "id": 7,
+        "question": "A person starts facing East.\n- Walks 5 m\n- Turns right and walks 4 m\n- Turns left and walks 6 m\n- Turns left and walks 4 m\nQuestion: How far is the person from the starting point?",
+        "options": ["3 m", "5 m", "6 m", "7 m"],
+        "movements": ["Start East", "5m", "Right, 4m", "Left, 6m", "Left, 4m"],
+        "correct_answer": "5 m",
+        "correct_option_index": 1,
+        "explanation": "Net displacement gives 5 m."
+      },
+      {
+        "id": 8,
+        "question": "Sita starts facing North.\n- Walks 6 m\n- Turns right and walks 8 m\n- Turns right and walks 6 m\n- Turns left and walks 4 m\nQuestion: What is her final direction and position relative to start?",
+        "options": ["East, 12 m away", "East, 4 m away", "West, 4 m away", "East, 8 m away"],
+        "movements": ["Start North", "6m", "Right, 8m", "Right, 6m", "Left, 4m"],
+        "correct_answer": "East, 8 m away",
+        "correct_option_index": 3,
+        "explanation": "Final position 8 m east of start, facing east."
+      },
+      {
+        "id": 9,
+        "question": "A and B start from the same point.\n- A walks 10 m North, then 6 m East, then 4 m South, then 2 m West\n- B walks 8 m East, then 10 m North, then 4 m West, then 2 m South\nQuestion: In which direction is A from B?",
+        "options": ["North-East", "North-West", "South-East", "South-West"],
+        "movements": ["A: 10N,6E,4S,2W", "B: 8E,10N,4W,2S"],
+        "correct_answer": "North-West",
+        "correct_option_index": 1,
+        "explanation": "A = (4E,6N), B = (4E,8N) → A is 2 m south of B → relative diagonal simplifies to North-West."
+      },
+      {
+        "id": 10,
+        "question": "A person starts facing North.\n- Walks 12 m\n- Turns right, walks 5 m\n- Turns right, walks 12 m\n- Turns left, walks 3 m\n- Turns left, walks 5 m\n- Turns right, walks 2 m\nQuestion: What is the shortest distance from the starting point?",
+        "options": ["2 m", "3 m", "5 m", "7 m"],
+        "movements": ["Start North", "12m", "Right, 5m", "Right, 12m", "Left, 3m", "Left, 5m", "Right, 2m"],
+        "correct_answer": "7 m",
+        "correct_option_index": 3,
+        "explanation": "Net displacement gives 7 m after canceling opposite movements."
+      },
+      {
+        "id": 11,
+        "question": "A, B, and C start from the same point.\n- A walks 10 m North, 5 m East, 5 m South\n- B walks 8 m East, 6 m North, 3 m West\n- C walks 6 m South, 8 m East, 6 m North\nQuestion: Who is farthest from the starting point?",
+        "options": ["A", "B", "C", "All equal"],
+        "movements": ["A: 10N,5E,5S", "B: 8E,6N,3W", "C: 6S,8E,6N"],
+        "correct_answer": "B",
+        "correct_option_index": 1,
+        "explanation": "A = (5E,5N) → √50; B = (5E,6N) → √61; C = (8E,0) → 8; B farthest."
+      },
+      {
+        "id": 12,
+        "question": "A starts facing North.\n- Walks 8 m\n- Turns right, walks 6 m\n- Turns left, walks 4 m\nB starts from A's final position facing South.\n- Walks 5 m\n- Turns left, walks 3 m\n- Turns right, walks 2 m\nQuestion: In which direction is B from A's starting point?",
+        "options": ["North-East", "South-East", "South-West", "North-West"],
+        "movements": ["A: Start N, 8m, right 6m, left 4m", "B: from A end, face S, 5m, left 3m, right 2m"],
+        "correct_answer": "South-East",
+        "correct_option_index": 1,
+        "explanation": "Final position lies in SE quadrant relative to origin."
+      },
+      {
+        "id": 13,
+        "question": "Three persons walk:\n- A: 10 m North → 10 m South → 5 m East\n- B: 6 m East → 6 m West → 4 m North\n- C: 8 m North → 8 m East → 8 m South → 8 m West\nQuestion: Who is closest to the starting point?",
+        "options": ["A", "B", "C", "A and B"],
+        "movements": ["A: 10N,10S,5E", "B: 6E,6W,4N", "C: 8N,8E,8S,8W"],
+        "correct_answer": "C",
+        "correct_option_index": 2,
+        "explanation": "C returns exactly to origin."
+      },
+      {
+        "id": 14,
+        "question": "A person starts facing East.\n- Walks 6 m\n- Turns left, walks 4 m\n- Turns left, walks 6 m\n- Turns right, walks 3 m\n- Turns right, walks 2 m\n- Turns left, walks 1 m\nQuestion: What direction is the person facing finally?",
+        "options": ["North", "South", "East", "West"],
+        "movements": ["Start East", "6m", "Left, 4m", "Left, 6m", "Right, 3m", "Right, 2m", "Left, 1m"],
+        "correct_answer": "North",
+        "correct_option_index": 0,
+        "explanation": "Track turns carefully → final facing North."
+      },
+      {
+        "id": 15,
+        "question": "A and B start from same point.\n- A: 12 m North → 5 m East → 12 m South → 3 m West\n- B: 10 m East → 6 m North → 5 m West → 6 m South\nQuestion: What is the shortest distance between A and B?",
+        "options": ["2 m", "3 m", "4 m", "5 m"],
+        "movements": ["A: 12N,5E,12S,3W", "B: 10E,6N,5W,6S"],
+        "correct_answer": "3 m",
+        "correct_option_index": 1,
+        "explanation": "A = (2E,0), B = (5E,0) → distance = 3 m."
+      }
+    ]
+  },
+  {
+    "category": "Problem Solving & Decision Making",
+    "sub_category": "Logical Reasoning",
+    "type": "Set-Based / Venn Logic (Overlapping Conditions)",
+    "questions": [
+      {
+        "id": 1,
+        "question": "In a group of 50 people:\n- 30 like tea\n- 20 like coffee\n- 10 like both\nQuestion: How many people like only tea?",
+        "options": ["10", "20", "30", "40"],
+        "data": {"total": 50, "tea": 30, "coffee": 20, "both": 10},
+        "correct_answer": "20",
+        "correct_option_index": 1,
+        "explanation": "Only tea = 30 - 10 = 20."
+      },
+      {
+        "id": 2,
+        "question": "In a class of 40 students:\n- 25 play football\n- 15 play cricket\n- 5 play both\nQuestion: How many students play neither game?",
+        "options": ["5", "10", "15", "20"],
+        "data": {"total": 40, "football": 25, "cricket": 15, "both": 5},
+        "correct_answer": "5",
+        "correct_option_index": 0,
+        "explanation": "At least one = 25+15-5=35 → neither = 40-35=5."
+      },
+      {
+        "id": 3,
+        "question": "In a survey of 60 people:\n- 35 like apples\n- 25 like bananas\n- 15 like both\nQuestion: How many like only bananas?",
+        "options": ["10", "15", "20", "25"],
+        "data": {"total": 60, "apples": 35, "bananas": 25, "both": 15},
+        "correct_answer": "10",
+        "correct_option_index": 0,
+        "explanation": "Only bananas = 25 - 15 = 10."
+      },
+      {
+        "id": 4,
+        "question": "Statements:\n- All painters are artists\n- Some artists are musicians\nQuestion: Which statement must be true?",
+        "options": ["Some painters are musicians", "All artists are painters", "Some artists may not be painters", "No painter is an artist"],
+        "statements": ["All painters are artists", "Some artists are musicians"],
+        "correct_answer": "Some artists may not be painters",
+        "correct_option_index": 2,
+        "explanation": "Painters ⊆ artists → artists can include non-painters."
+      },
+      {
+        "id": 5,
+        "question": "In a group of 80 people:\n- 40 like math\n- 30 like science\n- 20 like both math and science\nQuestion: How many like neither subject?",
+        "options": ["10", "20", "30", "40"],
+        "data": {"total": 80, "math": 40, "science": 30, "both": 20},
+        "correct_answer": "30",
+        "correct_option_index": 2,
+        "explanation": "At least one = 40+30-20=50 → neither = 80-50=30."
+      },
+      {
+        "id": 6,
+        "question": "In a group of 100 people:\n- 60 read books\n- 50 watch movies\n- 30 do both\nQuestion: How many do exactly one of the two?",
+        "options": ["40", "50", "60", "70"],
+        "data": {"total": 100, "books": 60, "movies": 50, "both": 30},
+        "correct_answer": "50",
+        "correct_option_index": 1,
+        "explanation": "Only books = 30, only movies = 20 → total = 50."
+      },
+      {
+        "id": 7,
+        "question": "In a group of 70 students:\n- 30 study math\n- 25 study physics\n- 20 study chemistry\n- 10 study both math and physics\n- 5 study both physics and chemistry\n- 8 study both math and chemistry\n- 3 study all three\nQuestion: How many students study only math?",
+        "options": ["10", "12", "15", "17"],
+        "data": {"total": 70, "math": 30, "physics": 25, "chemistry": 20, "math_physics": 10, "physics_chemistry": 5, "math_chemistry": 8, "all": 3},
+        "correct_answer": "15",
+        "correct_option_index": 2,
+        "explanation": "Only math = 30 - (10+8-3) = 30 - 15 = 15."
+      },
+      {
+        "id": 8,
+        "question": "In a survey of 90 people:\n- 50 like tea\n- 45 like coffee\n- 40 like juice\n- 20 like tea & coffee\n- 15 like coffee & juice\n- 10 like tea & juice\n- 5 like all three\nQuestion: How many people like at least one drink?",
+        "options": ["60", "70", "75", "85"],
+        "data": {"total": 90, "tea": 50, "coffee": 45, "juice": 40, "tea_coffee": 20, "coffee_juice": 15, "tea_juice": 10, "all": 5},
+        "correct_answer": "85",
+        "correct_option_index": 3,
+        "explanation": "Total = 50+45+40 - (20+15+10) + 5 = 85."
+      },
+      {
+        "id": 9,
+        "question": "In a group of 100 people:\n- 60 like A\n- 50 like B\n- 40 like C\nQuestion: What is the minimum number of people who like all three?",
+        "options": ["0", "10", "20", "30"],
+        "data": {"total": 100, "A": 60, "B": 50, "C": 40},
+        "correct_answer": "10",
+        "correct_option_index": 1,
+        "explanation": "To minimize triple overlap, maximum pairwise spread. Minimum = (60+50+40 - 2×100) = 150-200 = -50 → adjust to feasible overlap → minimum forced overlap = 10."
+      },
+      {
+        "id": 10,
+        "question": "In a group of 80 people:\n- 45 like X\n- 40 like Y\n- 35 like Z\nQuestion: What is the maximum number who can like all three?",
+        "options": ["35", "30", "25", "20"],
+        "data": {"total": 80, "X": 45, "Y": 40, "Z": 35},
+        "correct_answer": "35",
+        "correct_option_index": 0,
+        "explanation": "Maximum triple overlap = smallest set = 35."
+      },
+      {
+        "id": 11,
+        "question": "In a group of 120 people:\n- 70 like A\n- 60 like B\n- 50 like C\n- 30 like A & B\n- 25 like B & C\n- 20 like A & C\n- x like all three\nIf 10 people like none, find x.",
+        "options": ["5", "10", "15", "20"],
+        "data": {"total": 120, "A": 70, "B": 60, "C": 50, "A_B": 30, "B_C": 25, "A_C": 20, "none": 10},
+        "correct_answer": "15",
+        "correct_option_index": 2,
+        "explanation": "At least one = 120 - 10 = 110\n110 = 70+60+50 - (30+25+20) + x\n110 = 180 - 75 + x → x = 15."
+      },
+      {
+        "id": 12,
+        "question": "Statements:\n- All A are B\n- Some B are C\n- No C is D\n- Some D are A\nQuestion: Which statement must be false?",
+        "options": ["Some B are C", "No C is D", "Some D are A", "All A are B"],
+        "statements": ["All A are B", "Some B are C", "No C is D", "Some D are A"],
+        "correct_answer": "Some D are A",
+        "correct_option_index": 2,
+        "explanation": "A ⊆ B, and C ≠ D → A cannot overlap D → contradiction."
+      },
+      {
+        "id": 13,
+        "question": "In a group of 90 people:\n- 50 like P\n- 45 like Q\n- 40 like R\nQuestion: What is the minimum number who like at least one?",
+        "options": ["50", "60", "70", "80"],
+        "data": {"total": 90, "P": 50, "Q": 45, "R": 40},
+        "correct_answer": "50",
+        "correct_option_index": 0,
+        "explanation": "Maximum overlap → all groups overlap → at least one = largest set = 50."
+      },
+      {
+        "id": 14,
+        "question": "In a group of 100 people:\n- 60 like A\n- 50 like B\n- 30 like exactly one of A or B\nQuestion: How many like both A and B?",
+        "options": ["20", "30", "40", "50"],
+        "data": {"total": 100, "A": 60, "B": 50, "exactly_one": 30},
+        "correct_answer": "40",
+        "correct_option_index": 2,
+        "explanation": "Only A + Only B = 30\nTotal A+B = 110 → overlap counted twice → actual both = 40."
+      },
+      {
+        "id": 15,
+        "question": "In a group of 120 people:\n- 70 like A\n- 60 like B\n- 50 like C\n- 40 like D\nCondition: Everyone likes at least one set. No one likes all four.\nQuestion: What is the minimum number who like exactly one set?",
+        "options": ["10", "20", "30", "40"],
+        "data": {"total": 120, "A": 70, "B": 60, "C": 50, "D": 40, "none": 0, "all_four": 0},
+        "correct_answer": "30",
+        "correct_option_index": 2,
+        "explanation": "To minimize single-set members, maximize overlaps across sets without all-four overlap → minimum singles = 30."
+      }
+    ]
+  },
+  {
+    "category": "Problem Solving & Decision Making",
+    "sub_category": "Logical Reasoning",
+    "type": "Linear Logic Puzzles with Mixed Constraints",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Four friends (A, B, C, D) each like a different color (Red, Blue, Green, Yellow).\n- A does not like Red\n- B likes Blue\n- C likes Green\n- D does not like Yellow\nQuestion: Who likes Red?",
+        "options": ["A", "B", "C", "D"],
+        "constraints": ["A ≠ Red", "B = Blue", "C = Green", "D ≠ Yellow"],
+        "correct_answer": "D",
+        "correct_option_index": 3,
+        "explanation": "B=Blue, C=Green → remaining colors Red/Yellow for A/D. A≠Red → D=Red."
+      },
+      {
+        "id": 2,
+        "question": "Four people (P, Q, R, S) live in different cities (Delhi, Mumbai, Chennai, Kolkata).\n- P lives in Delhi\n- Q does not live in Mumbai\n- R lives in Chennai\n- S does not live in Kolkata\nQuestion: Who lives in Mumbai?",
+        "options": ["Q", "R", "S", "Cannot be determined"],
+        "constraints": ["P = Delhi", "Q ≠ Mumbai", "R = Chennai", "S ≠ Kolkata"],
+        "correct_answer": "S",
+        "correct_option_index": 2,
+        "explanation": "P=Delhi, R=Chennai → remaining Mumbai/Kolkata for Q/S. Q≠Mumbai → S=Mumbai."
+      },
+      {
+        "id": 3,
+        "question": "Four students (A, B, C, D) scored different marks (60, 70, 80, 90).\n- A scored more than B\n- C scored less than D\n- B scored 70\n- D scored 90\nQuestion: Who scored 80?",
+        "options": ["A", "B", "C", "D"],
+        "constraints": ["A > B", "C < D", "B = 70", "D = 90"],
+        "correct_answer": "A",
+        "correct_option_index": 0,
+        "explanation": "B=70, D=90 → remaining 60/80 for A/C. A>B → A=80."
+      },
+      {
+        "id": 4,
+        "question": "Four people (W, X, Y, Z) sit in a row and like different fruits (Apple, Mango, Orange, Banana).\n- W sits to the left of X\n- Y likes Apple\n- Z does not like Mango\n- X likes Banana\nQuestion: Who likes Mango?",
+        "options": ["W", "X", "Y", "Z"],
+        "constraints": ["W left of X", "Y = Apple", "Z ≠ Mango", "X = Banana"],
+        "correct_answer": "W",
+        "correct_option_index": 0,
+        "explanation": "X=Banana, Y=Apple → Mango/Orange left for W/Z. Z≠Mango → W=Mango."
+      },
+      {
+        "id": 5,
+        "question": "Five people (A, B, C, D, E) sit in a row facing north and like different colors (Red, Blue, Green, Yellow, White).\n- A sits at one end\n- B sits second from left\n- C sits between B and D\n- E sits next to A\n- C likes Green\n- D does not like Red\n- A likes Blue\nQuestion: Who likes Red?",
+        "options": ["B", "D", "E", "Cannot be determined"],
+        "constraints": ["A at end", "B second from left", "C between B and D", "E next to A", "C = Green", "D ≠ Red", "A = Blue"],
+        "correct_answer": "B",
+        "correct_option_index": 0,
+        "explanation": "Arrangement fixes positions → assign remaining colors → B gets Red."
+      },
+      {
+        "id": 6,
+        "question": "Four people (P, Q, R, S) are from different cities (Delhi, Pune, Jaipur, Goa) and have different professions (Doctor, Engineer, Teacher, Artist).\n- P is not from Delhi and is not a Doctor\n- Q is from Pune and is an Engineer\n- R is from Jaipur\n- S is not an Artist\n- The person from Delhi is a Teacher\nQuestion: Who is the Doctor?",
+        "options": ["P", "Q", "R", "S"],
+        "constraints": ["P ≠ Delhi, ≠ Doctor", "Q = Pune, Engineer", "R = Jaipur", "S ≠ Artist", "Delhi = Teacher"],
+        "correct_answer": "R",
+        "correct_option_index": 2,
+        "explanation": "Q=Engineer, Delhi=Teacher → assign remaining → R becomes Doctor."
+      },
+      {
+        "id": 7,
+        "question": "Five students (A, B, C, D, E) scored different marks (10, 20, 30, 40, 50).\n- A scored more than B but less than C\n- D scored less than E\n- B scored 20\n- E scored 50\nQuestion: Who scored 30?",
+        "options": ["A", "C", "D", "Cannot be determined"],
+        "constraints": ["C > A > B", "E > D", "B = 20", "E = 50"],
+        "correct_answer": "A",
+        "correct_option_index": 0,
+        "explanation": "B=20, E=50 → arrange remaining → A fits at 30."
+      },
+      {
+        "id": 8,
+        "question": "Five friends (K, L, M, N, O) each like a different hobby (Reading, Singing, Dancing, Painting, Gaming).\n- K does not like Reading or Gaming\n- L likes Singing\n- M likes Dancing\n- N does not like Painting\n- O does not like Singing\nQuestion: Who likes Painting?",
+        "options": ["K", "N", "O", "Cannot be determined"],
+        "constraints": ["K ≠ Reading, Gaming", "L = Singing", "M = Dancing", "N ≠ Painting", "O ≠ Singing"],
+        "correct_answer": "K",
+        "correct_option_index": 0,
+        "explanation": "L=Singing, M=Dancing → eliminate possibilities → K must take Painting."
+      },
+      {
+        "id": 9,
+        "question": "Five people (A, B, C, D, E) sit in a row (left to right) and each likes a different color (Red, Blue, Green, Yellow, White) and a different fruit (Apple, Mango, Orange, Banana, Grapes).\n- A sits at one end\n- C sits in the middle\n- B sits immediately to the left of D\n- E sits next to A\n- C likes Green and does not like Mango\n- If A likes Red, then B likes Banana\n- D likes Apple\n- E does not like Blue\nQuestion: Which complete arrangement is correct (left → right)?",
+        "options": ["A B C D E", "E A C B D", "A E C B D", "E A C D B"],
+        "constraints": ["A at end", "C middle", "B left of D", "E next to A", "C=Green, ≠Mango", "If A=Red then B=Banana", "D=Apple", "E≠Blue"],
+        "correct_answer": "A E C B D",
+        "correct_option_index": 2,
+        "explanation": "Fix ends → place B-D pair → apply condition and exclusions → only A--E--C--B--D satisfies all."
+      },
+      {
+        "id": 10,
+        "question": "Five people (P, Q, R, S, T) sit in a row and belong to different cities (Delhi, Pune, Jaipur, Goa, Kochi) and have different jobs (Doctor, Engineer, Lawyer, Artist, Teacher).\n- P sits second from left\n- Q sits at one end\n- R sits between P and S\n- T sits next to Q\n- The person from Delhi is a Doctor\n- Q is not from Pune and not a Teacher\n- S is an Engineer\n- T is from Goa\n- R is not a Lawyer\nQuestion: Who is the Doctor?",
+        "options": ["P", "Q", "R", "T"],
+        "constraints": ["P second from left", "Q at one end", "R between P and S", "T next to Q", "Delhi=Doctor", "Q≠Pune, ≠Teacher", "S=Engineer", "T=Goa", "R≠Lawyer"],
+        "correct_answer": "P",
+        "correct_option_index": 0,
+        "explanation": "Positioning + elimination fixes Delhi with P → hence Doctor."
+      },
+      {
+        "id": 11,
+        "question": "Six students (A--F) scored different marks (10, 20, 30, 40, 50, 60) and like different colors.\n- A scored more than B but less than C\n- D scored the highest\n- E scored less than F\n- B scored 20\n- F does not like Red\n- The person scoring 60 likes Blue\n- C does not like Blue\n- A scored 40\nQuestion: Who scored 60?",
+        "options": ["C", "D", "F", "E"],
+        "constraints": ["C > A > B", "D highest", "F > E", "B=20", "F≠Red", "60=Blue", "C≠Blue", "A=40"],
+        "correct_answer": "D",
+        "correct_option_index": 1,
+        "explanation": "D is highest → 60 → matches Blue condition."
+      },
+      {
+        "id": 12,
+        "question": "Five friends (K, L, M, N, O) each like a different sport (Cricket, Football, Tennis, Hockey, Chess) and a different drink.\n- K does not like Cricket or Chess\n- L likes Football\n- M likes Tennis\n- N does not like Hockey\n- O does not like Football\n- If K likes Tennis, then O likes Cricket\n- The one who likes Chess drinks juice\n- L does not drink tea\nQuestion: Who likes Chess?",
+        "options": ["K", "N", "O", "Cannot be determined"],
+        "constraints": ["K≠Cricket,Chess", "L=Football", "M=Tennis", "N≠Hockey", "O≠Football", "If K=Tennis then O=Cricket", "Chess=juice", "L≠tea"],
+        "correct_answer": "N",
+        "correct_option_index": 1,
+        "explanation": "Eliminate fixed sports → Chess forced to N."
+      },
+      {
+        "id": 13,
+        "question": "Five people (A--E) sit in a row and each owns a different pet (Dog, Cat, Fish, Bird, Rabbit) and likes a different color.\n- A sits at left end\n- B sits next to A\n- C sits in the middle\n- D sits next to E\n- E sits at right end\n- A owns Dog\n- C does not own Fish\n- D owns Bird\n- B does not like Red\n- E does not own Cat\nQuestion: Which statement is definitely false?",
+        "options": ["C owns Rabbit", "B owns Cat", "E owns Fish", "D owns Bird"],
+        "constraints": ["A left end", "B next to A", "C middle", "D next to E", "E right end", "A=Dog", "C≠Fish", "D=Bird", "B≠Red", "E≠Cat"],
+        "correct_answer": "B owns Cat",
+        "correct_option_index": 1,
+        "explanation": "Constraints force B ≠ Cat; others remain possible."
+      },
+      {
+        "id": 14,
+        "question": "Six people (P--U) sit in a row and each likes a different fruit and color.\n- P sits at one end\n- Q sits third from left\n- R sits between Q and S\n- T sits next to P\n- U sits at the other end\n- If R likes Mango, then S likes Apple\n- Q does not like Red\n- T likes Banana\n- U does not like Apple\nQuestion: Who cannot like Apple?",
+        "options": ["Q", "R", "T", "U"],
+        "constraints": ["P at one end", "Q third from left", "R between Q and S", "T next to P", "U other end", "If R=Mango then S=Apple", "Q≠Red", "T=Banana", "U≠Apple"],
+        "correct_answer": "U",
+        "correct_option_index": 3,
+        "explanation": "Direct restriction → U ≠ Apple; others possible."
+      },
+      {
+        "id": 15,
+        "question": "Five people (A--E) each have a different car (BMW, Audi, Tesla, Kia, Honda) and live in different cities.\n- A does not drive BMW or Tesla\n- B drives Audi\n- C lives in Delhi\n- D drives Tesla\n- E does not drive Kia\n- The person in Mumbai drives Honda\n- B does not live in Mumbai\n- C does not drive Audi\n- D does not live in Delhi\nQuestion: Which is the only possible configuration?",
+        "options": ["A--Kia, B--Audi, C--BMW, D--Tesla, E--Honda", "A--Honda, B--Audi, C--BMW, D--Tesla, E--Kia", "A--Kia, B--Audi, C--Honda, D--Tesla, E--BMW", "A--BMW, B--Audi, C--Kia, D--Tesla, E--Honda"],
+        "constraints": ["A≠BMW, Tesla", "B=Audi", "C=Delhi", "D=Tesla", "E≠Kia", "Mumbai=Honda", "B≠Mumbai", "C≠Audi", "D≠Delhi"],
+        "correct_answer": "A--Kia, B--Audi, C--BMW, D--Tesla, E--Honda",
+        "correct_option_index": 0,
+        "explanation": "Apply all exclusions + fixed assignments → only option A satisfies all."
+      }
+    ]
+  }
+]

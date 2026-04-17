@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Detection: Visual Awareness</title>
+    <style>
+        /* Modern background with dynamic soft gradient */
+        body { 
+            font-family: 'Inter', -apple-system, sans-serif; 
+            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%); 
+            display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; 
+        }
+
+        /* Centered Card Outline Box (Container) */
+        #game-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.8);
+            text-align: center;
+            width: 380px;
+            position: relative;
+            overflow: hidden; /* For overlay */
+        }
+
+        /* --- SCREEN 1: Instruction Panel Overlay --- */
+        #instruction-panel {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.98);
+            z-index: 10;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 20px; box-sizing: border-box;
+        }
+        .instruction-title { font-size: 20px; font-weight: 700; color: #2d3748; margin-bottom: 10px; }
+        .instruction-text { font-size: 14px; color: #4a5568; line-height: 1.6; text-align: left; margin-bottom: 25px; }
+        
+        /* --- SCREEN 2: Main Game Elements --- */
+        .stats { display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: 700; color: #4a5568; }
+        
+        #scene-area {
+            width: 100%; height: 280px; 
+            background: #f8fafc; border-radius: 16px; 
+            position: relative; overflow: hidden; 
+            border: 1px solid #e2e8f0; margin-bottom: 20px;
+            transition: opacity 0.5s ease; /* For blank screen */
+        }
+        
+        /* Pastel Objects Design */
+        .object { 
+            position: absolute; border-radius: 50%; /* Default to circle */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            cursor: pointer; transition: all 0.3s ease; 
+        }
+        .object.target { cursor: pointer; } /* Make target clickable */
+
+        /* Tap Feedback */
+        .object.correct { box-shadow: 0 0 15px #68d391; border: 3px solid #68d391; }
+        .object.incorrect { box-shadow: 0 0 15px #fc8181; border: 3px solid #fc8181; }
+
+        /* General Button Styling */
+        button { 
+            padding: 12px 30px; font-size: 14px; border: none; border-radius: 10px; 
+            background: #2d3748; color: white; cursor: pointer; transition: 0.2s; font-weight: 600;
+        }
+        button:hover { background: #4a5568; }
+        button:disabled { background: #a0aec0; cursor: not-allowed; }
+
+        /* Game Over / Success screen */
+        #game-over { display: none; }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <div id="instruction-panel">
+        <div class="instruction-title">Change Detection</div>
+        <div class="instruction-text">
+            Observe the scene carefully. After a brief blank, identify what has changed.<br><br>
+            <ul>
+                <li>Level increases complexity.</li>
+                <li>Tap the area that changed.</li>
+                <li>You have limited time to view Scene A.</li>
+            </ul>
+        }
+        </div>
+        <button onclick="startGame()">Start Training</button>
+    </div>
+
+    <div id="game-core">
+        <div class="stats">
+            <div id="level-display">Level 1/5</div>
+            <div id="status-text">Ready</div>
+        </div>
+        <div id="scene-area"></div>
+        <div class="controls">
+            <button id="next-btn" style="display:none" onclick="initLevel()">Next Level</button>
+        </div>
+    </div>
+
+    <div id="game-over">
+        <div class="instruction-title">Training Complete!</div>
+        <div class="instruction-text">
+            Excellent work. You successfully completed 5 levels of change detection training.
+        </div>
+        <button onclick="restartGame()">Restart from Level 1</button>
+    </div>
+</div>
+
+<script>
+    // Cognitive Levels Definition
+    const levels = [
+        { obj: 5, durA: 4000, durBlank: 1000, changeType: 'color' }, // L1: Color
+        { obj: 7, durA: 3500, durBlank: 800, changeType: 'position' }, // L2: Position Shift
+        { obj: 9, durA: 3000, durBlank: 700, changeType: 'addition' }, // L3: Add Object
+        { obj: 11, durA: 2500, durBlank: 600, changeType: 'size' },   // L4: Size Shift
+        { obj: 13, durA: 2000, durBlank: 500, changeType: 'shade' }   // L5: Subtle Shade
+    ];
+
+    // Control Variables
+    let lvlIdx = 0, objects = [], targetId = -1, gameState = 'idle', canInput = false;
+    
+    // Smooth Pastel Color Palette
+    const pastelColors = ['#A8D5BA', '#FFD1DC', '#C7CEEA', '#FFF2CC', '#E2F0CB', '#BEE3F8'];
+    const shadeColors = ['#f8f9fa', '#e2e8f0', '#cbd5e0', '#a0aec0']; // L5 shades
+
+    const sceneArea = document.getElementById('scene-area');
+    const statusText = document.getElementById('status-text');
+    const levelText = document.getElementById('level-display');
+    const nextBtn = document.getElementById('next-btn');
+    const instructionPanel = document.getElementById('instruction-panel');
+    const gameCore = document.getElementById('game-core');
+    const gameOverScreen = document.getElementById('game-over');
+
+    // Start Game from Instructions
+    function startGame() {
+        instructionPanel.style.display = 'none';
+        gameCore.style.display = 'block';
+        initLevel();
+    }
+
+    // Main Level Initialization
+    async function initLevel() {
+        nextBtn.style.display = 'none';
+        sceneArea.innerHTML = ''; objects = []; canInput = false;
+        
+        const cfg = levels[lvlIdx];
+        levelText.innerText = `Level ${lvlIdx + 1}/5`;
+        statusText.innerText = 'Memorize Scene A';
+        
+        // --- PHASE 1: Show Scene A (Original) ---
+        createScene(cfg.obj, cfg.changeType);
+        
+        await new Promise(r => setTimeout(r, cfg.durA)); // Viewing time A
+
+        // --- PHASE 2: Blank Transition ---
+        sceneArea.style.opacity = '0'; // Fast smooth fade out
+        statusText.innerText = '... (Quick Blank) ...';
+        
+        await new Promise(r => setTimeout(r, cfg.durBlank)); 
+
+        // --- PHASE 3: Show Scene B (Modified) ---
+        modifyScene(cfg.changeType); // Apply the change
+        sceneArea.style.opacity = '1'; // Fast smooth fade in
+        statusText.innerText = 'What changed? Tap it!';
+        canInput = true; // Allow selection
+    }
+
+    // Helper: Build the initial structured scene
+    function createScene(num, type) {
+        for(let i=0; i<num; i++) {
+            const el = document.createElement('div');
+            el.className = 'object';
+            const size = 35 + Math.random() * 15; // Structured size variation
+            el.style.width = size + 'px';
+            el.style.height = size + 'px';
+            
+            // Layout Structure (Avoid edge grouping)
+            el.style.left = (20 + Math.random() * 320) + 'px'; 
+            el.style.top = (20 + Math.random() * 220) + 'px';
+            
+            // Standard pastel colors (L5 gets shade change instead)
+            el.style.backgroundColor = (type === 'shade') ? shadeColors[0] : pastelColors[i % pastelColors.length];
+            
+            el.dataset.id = i;
+            el.onclick = () => selectObject(el, i); // Handle tap
+            
+            sceneArea.appendChild(el);
+            objects.push({ el, size, x: parseFloat(el.style.left), y: parseFloat(el.style.top), color: el.style.backgroundColor });
+        }
+    }
+
+    // Helper: Apply the single, controlled change to Scene B
+    function modifyScene(type) {
+        targetId = Math.floor(Math.random() * objects.length); // Random target
+        const targetObj = objects[targetId];
+
+        switch(type) {
+            case 'color': // Simple pastel swap
+                targetObj.el.style.backgroundColor = pastelColors[(targetId + 1) % pastelColors.length];
+                break;
+            case 'position': // Slight Shift (15px)
+                targetObj.el.style.left = (targetObj.x + 15) + 'px';
+                targetObj.el.style.top = (targetObj.y + 15) + 'px';
+                break;
+            case 'addition': // Add an new object
+                const add = document.createElement('div');
+                add.className = 'object target'; // Make addition the target
+                add.style.width = '35px'; add.style.height = '35px';
+                add.style.left = '180px'; add.style.top = '130px';
+                add.style.backgroundColor = pastelColors[3];
+                add.dataset.id = 999; // Unique ID
+                add.onclick = () => selectObject(add, 999);
+                sceneArea.appendChild(add);
+                targetId = 999; // Update targetId to the new element
+                break;
+            case 'size': // Subtle reduction (-15px)
+                const newSize = Math.max(20, targetObj.size - 15);
+                targetObj.el.style.width = newSize + 'px';
+                targetObj.el.style.height = newSize + 'px';
+                break;
+            case 'shade': // Subtle shift between clinical grays
+                targetObj.el.style.backgroundColor = shadeColors[1];
+                break;
+        }
+    }
+
+    // Interaction Phase Handling
+    function selectObject(el, id) {
+        if(!canInput) return; // Prevent clicking during playback/blank
+        canInput = false; // Prevent multiple rapid clicks
+
+        if(id === targetId) {
+            el.classList.add('correct'); // Smooth green outline
+            statusText.innerText = 'Correct! Next Level...';
+            
+            if(lvlIdx < levels.length - 1) {
+                lvlIdx++;
+                nextBtn.style.display = 'inline-block';
+            } else {
+                gameCompleted();
+            }
+        } else {
+            el.classList.add('incorrect'); // Soft red outline
+            statusText.innerText = 'Not quite! Retry level...';
+            setTimeout(() => {
+                el.classList.remove('incorrect'); // Reset feedback
+                initLevel(); // Retry same level
+            }, 1000);
+        }
+    }
+
+    // Final Completion State
+    function gameCompleted() {
+        gameCore.style.display = 'none';
+        gameOverScreen.style.display = 'block';
+    }
+
+    // End Screen Reset
+    function restartGame() {
+        lvlIdx = 0;
+        gameOverScreen.style.display = 'none';
+        startGame(); // Re-show instructions
+    }
+</script>
+</body>
+</html>

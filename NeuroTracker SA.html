@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%); display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        
+        /* Main Container */
+        #game-container { background: #ffffff; padding: 30px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; text-align: center; width: 500px; position: relative; }
+        
+        /* Modal Overlay */
+        #overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.95); z-index: 10; border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .bullet-list { text-align: left; margin: 20px 0; padding-left: 20px; }
+        
+        #arena { width: 450px; height: 300px; background: #f8fafc; border-radius: 16px; position: relative; overflow: hidden; border: 1px solid #cbd5e0; margin: 20px auto; }
+        
+        .circle { position: absolute; width: 35px; height: 35px; border-radius: 50%; background: #cbd5e0; cursor: pointer; transition: transform 0.1s; }
+        .circle.target { background: #63b3ed; box-shadow: 0 0 10px #63b3ed; }
+        .circle.selected { border: 3px solid #4a5568; transform: scale(1.1); }
+        .circle.correct { background: #68d391 !important; }
+        .circle.wrong { background: #fc8181 !important; }
+
+        .stats { display: flex; justify-content: space-between; font-weight: 700; color: #4a5568; margin-bottom: 10px; }
+        button { padding: 12px 25px; border-radius: 10px; border: none; cursor: pointer; font-weight: 600; background: #2d3748; color: white; }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <div id="overlay">
+        <h2>How to Play</h2>
+        <ul class="bullet-list">
+            <li><b>Observe:</b> Targets glow for 2 seconds.</li>
+            <li><b>Track:</b> Follow targets while they move.</li>
+            <li><b>Select:</b> Click to pick targets after motion stops.</li>
+            <li><b>Progression:</b> Complete 5 levels of increasing speed.</li>
+        </ul>
+        <button onclick="document.getElementById('overlay').style.display='none'; initLevel();">Start Training</button>
+    </div>
+
+    <div class="stats">
+        <div id="level-display">Level 1/5</div>
+        <div id="status-text">Ready</div>
+    </div>
+    <div id="arena"></div>
+    <button id="replay-btn" style="display:none" onclick="initLevel()">Next Level</button>
+</div>
+
+<script>
+    const levels = [
+        { obj: 4, tgt: 1, speed: 2, dur: 4000 },
+        { obj: 6, tgt: 2, speed: 2.5, dur: 5000 },
+        { obj: 8, tgt: 2, speed: 3.5, dur: 6000 },
+        { obj: 10, tgt: 3, speed: 4.5, dur: 7000 },
+        { obj: 12, tgt: 4, speed: 5.5, dur: 8000 }
+    ];
+    let lvlIdx = 0, circles = [], targets = [], selected = [], gameActive = false, canSelect = false;
+    const arena = document.getElementById('arena');
+
+    function initLevel() {
+        document.getElementById('replay-btn').style.display = 'none';
+        arena.innerHTML = ''; circles = []; selected = [];
+        const cfg = levels[lvlIdx];
+        document.getElementById('level-display').innerText = `Level ${lvlIdx + 1}/5`;
+        
+        for(let i=0; i<cfg.obj; i++) {
+            const el = document.createElement('div');
+            el.className = 'circle';
+            el.style.left = Math.random() * 400 + 'px';
+            el.style.top = Math.random() * 250 + 'px';
+            el.onclick = () => selectCircle(el, i);
+            arena.appendChild(el);
+            circles.push({ el, x: parseFloat(el.style.left), y: parseFloat(el.style.top), vx: (Math.random()-0.5)*cfg.speed, vy: (Math.random()-0.5)*cfg.speed });
+        }
+
+        targets = [...Array(cfg.obj).keys()].sort(() => 0.5 - Math.random()).slice(0, cfg.tgt);
+        document.getElementById('status-text').innerText = "Memorize!";
+        targets.forEach(i => circles[i].el.classList.add('target'));
+        
+        setTimeout(() => {
+            targets.forEach(i => circles[i].el.classList.remove('target'));
+            document.getElementById('status-text').innerText = "Tracking...";
+            gameActive = true; canSelect = false;
+            animate();
+            setTimeout(() => { gameActive = false; canSelect = true; document.getElementById('status-text').innerText = "Select!"; }, cfg.dur);
+        }, 2000);
+    }
+
+    function animate() {
+        if(!gameActive) return;
+        circles.forEach(c => {
+            c.x += c.vx; c.y += c.vy;
+            if(c.x < 0 || c.x > 410) c.vx *= -1;
+            if(c.y < 0 || c.y > 260) c.vy *= -1;
+            c.el.style.left = c.x + 'px';
+            c.el.style.top = c.y + 'px';
+        });
+        requestAnimationFrame(animate);
+    }
+
+    function selectCircle(el, id) {
+        if(!canSelect || selected.includes(id)) return;
+        el.classList.add('selected');
+        selected.push(id);
+        if(selected.length === levels[lvlIdx].tgt) evaluate();
+    }
+
+    function evaluate() {
+        canSelect = false;
+        circles.forEach((c, i) => {
+            if(targets.includes(i)) c.el.classList.add('correct');
+            else if(selected.includes(i)) c.el.classList.add('wrong');
+        });
+        if(lvlIdx < levels.length - 1) { lvlIdx++; document.getElementById('replay-btn').innerText = "Next Level"; }
+        else { document.getElementById('status-text').innerText = "Final Level Complete!"; }
+        document.getElementById('replay-btn').style.display = 'inline-block';
+    }
+</script>
+</body>
+</html>

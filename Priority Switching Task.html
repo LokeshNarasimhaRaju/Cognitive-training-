@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { font-family: 'Inter', system-ui; background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%); display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        
+        #game-container { background: #ffffff; padding: 30px; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); text-align: center; width: 450px; position: relative; }
+        
+        /* Modal Overlay */
+        #modal { position: absolute; top:0; left:0; width:100%; height:100%; background:white; z-index:20; border-radius:24px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 20px; box-sizing: border-box; }
+        
+        #task-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 25px 0; }
+        .card { width: 80px; padding: 15px 0; border-radius: 12px; border: 3px solid #e2e8f0; background: #f8fafc; font-size: 18px; font-weight: 700; color: #2d3748; }
+        .card.high { border-color: #feb2b2; background: #fff5f5; transform: scale(1.05); }
+        .card.low { border-color: #cbd5e0; }
+        
+        .controls { display: flex; gap: 15px; justify-content: center; margin-top: 10px; }
+        button { padding: 12px 30px; border-radius: 10px; border:none; cursor: pointer; background:#2d3748; color:white; font-weight: 600; }
+        
+        #feedback { font-weight: 700; margin-top: 15px; height: 25px; }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <div id="modal">
+        <h2>Priority Switching: Hard Mode</h2>
+        <ul style="text-align:left; font-size: 14px; color: #4a5568; margin-bottom: 20px;">
+            <li><b>Red Border = High Priority.</b></li>
+            <li>Identify if the number inside is Even/Odd.</li>
+            <li>Speed increases drastically with every level.</li>
+        </ul>
+        <button onclick="startGame()">Start Training</button>
+    </div>
+
+    <div class="stats" id="lvl-txt">Level 1/5</div>
+    <div id="task-grid"></div>
+    <div class="controls">
+        <button onclick="handleResponse('even')">Even</button>
+        <button onclick="handleResponse('odd')">Odd</button>
+    </div>
+    <div id="feedback"></div>
+</div>
+
+<script>
+    // Hard Mode Levels: Increasing tasks and decreasing response time
+    const levels = [
+        { tasks: 3, time: 3000 }, { tasks: 4, time: 2500 }, 
+        { tasks: 5, time: 2000 }, { tasks: 5, time: 1500 }, { tasks: 6, time: 1000 }
+    ];
+    let lvlIdx = 0, currentTargetValue = 0, timer;
+
+    function startGame() {
+        document.getElementById('modal').style.display = 'none';
+        runLevel();
+    }
+
+    function runLevel() {
+        if (lvlIdx >= levels.length) {
+            document.getElementById('task-grid').innerHTML = `<h2>Training Complete!</h2><button onclick="location.reload()">Restart</button>`;
+            return;
+        }
+        
+        const grid = document.getElementById('task-grid');
+        grid.innerHTML = '';
+        const cfg = levels[lvlIdx];
+        document.getElementById('lvl-txt').innerText = `Level ${lvlIdx + 1}/5`;
+        
+        let targetIndex = Math.floor(Math.random() * cfg.tasks);
+        for(let i=0; i<cfg.tasks; i++) {
+            const num = Math.floor(Math.random() * 90) + 10;
+            if(i === targetIndex) currentTargetValue = num;
+            
+            const card = document.createElement('div');
+            card.className = `card ${i === targetIndex ? 'high' : 'low'}`;
+            card.innerText = num;
+            grid.appendChild(card);
+        }
+
+        // Automatic failure if too slow (Hard Mode)
+        clearTimeout(timer);
+        timer = setTimeout(() => handleResponse('timeout'), cfg.time);
+    }
+
+    function handleResponse(type) {
+        clearTimeout(timer);
+        const isEven = currentTargetValue % 2 === 0;
+        const correct = (type === 'even' && isEven) || (type === 'odd' && !isEven);
+        
+        const f = document.getElementById('feedback');
+        if(correct) {
+            f.innerText = "Correct!"; f.style.color = "#48bb78";
+            setTimeout(() => { lvlIdx++; runLevel(); }, 500);
+        } else {
+            f.innerText = type === 'timeout' ? "Too Slow!" : "Incorrect!";
+            f.style.color = "#f56565";
+            setTimeout(() => { lvlIdx = 0; runLevel(); }, 1000);
+        }
+    }
+</script>
+</body>
+</html>

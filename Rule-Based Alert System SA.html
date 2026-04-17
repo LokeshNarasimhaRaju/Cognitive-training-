@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        :root { --bg: #f8fafc; --panel: #ffffff; --accent: #3b82f6; --text: #1e293b; }
+        body { font-family: 'Inter', system-ui; background: var(--bg); display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        
+        /* Layout Container */
+        #game-container { width: 600px; background: var(--panel); padding: 40px; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); text-align: center; }
+        .hidden { display: none; }
+        
+        /* Dashboard Elements */
+        .controls { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
+        button { padding: 15px; border-radius: 8px; border: none; background: var(--text); color: white; font-weight: 700; cursor: pointer; transition: 0.2s; }
+        
+        #stimulus { width: 150px; height: 150px; margin: 30px auto; background: var(--accent); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; }
+        .timer-bar { height: 8px; background: #e2e8f0; border-radius: 4px; margin: 20px 0; overflow: hidden; }
+        #timer-fill { height: 100%; background: #ef4444; width: 100%; }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <div id="screen-inst">
+        <h2>System Training: Rule Logic</h2>
+        <ul style="text-align: left; margin: 20px 0;">
+            <li><strong>Objective:</strong> Respond to stimulus based on active rules.</li>
+            <li><strong>Constraint:</strong> Complete each task before the timer expires.</li>
+            <li><strong>Difficulty:</strong> Stimulus types (Numbers, Colors, Symbols) evolve per level.</li>
+        </ul>
+        <button onclick="Game.start()" style="width:100%">INITIALIZE TRAINING</button>
+    </div>
+
+    <div id="screen-game" class="hidden">
+        <h3 id="lvl-display">Level 1</h3>
+        <div class="timer-bar"><div id="timer-fill"></div></div>
+        <div id="stimulus">0</div>
+        <div class="controls">
+            <button onclick="Game.respond('A')">A</button>
+            <button onclick="Game.respond('B')">B</button>
+            <button onclick="Game.respond('C')">C</button>
+            <button onclick="Game.respond('D')">D</button>
+        </div>
+    </div>
+
+    <div id="screen-end" class="hidden">
+        <h2>Mission Debrief</h2>
+        <p id="final-stats"></p>
+        <button onclick="location.reload()" style="width:100%">RESTART MISSION</button>
+    </div>
+</div>
+
+<script>
+const Game = {
+    lvl: 1, score: 0, timer: null,
+    
+    start() {
+        document.getElementById('screen-inst').classList.add('hidden');
+        document.getElementById('screen-game').classList.remove('hidden');
+        this.runLevel();
+    },
+
+    runLevel() {
+        document.getElementById('lvl-display').innerText = `Level ${this.lvl}: ${this.getModality()}`;
+        this.startTimer();
+    },
+
+    getModality() {
+        return ['Numbers', 'Colors', 'Symbols', 'Hybrid'][this.lvl - 1] || 'Advanced';
+    },
+
+    startTimer() {
+        let width = 100;
+        this.timer = setInterval(() => {
+            width -= (1 / this.lvl); // Harder levels deplete faster
+            document.getElementById('timer-fill').style.width = width + '%';
+            if (width <= 0) this.endGame();
+        }, 50);
+    },
+
+    respond(action) {
+        this.score += 10;
+        this.lvl = Math.min(this.lvl + 0.2, 5); // Progress through 5 levels
+        document.getElementById('timer-fill').style.width = '100%';
+    },
+
+    endGame() {
+        clearInterval(this.timer);
+        document.getElementById('screen-game').classList.add('hidden');
+        document.getElementById('screen-end').classList.remove('hidden');
+        document.getElementById('final-stats').innerText = `Final Score: ${this.score} | Performance Grade: Professional`;
+    }
+};
+</script>
+</body>
+</html>

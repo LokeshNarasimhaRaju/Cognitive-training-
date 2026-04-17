@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        :root { --bg: #f0f4f8; --card: #ffffff; --accent: #3b82f6; --danger: #f87171; --success: #34d399; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; color: #1e293b; }
+        #app { background: var(--card); width: 850px; padding: 30px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        
+        /* Header */
+        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 20px; }
+        .stat-badge { background: #f1f5f9; padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; }
+
+        /* Grid System */
+        #dashboard-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; min-height: 400px; }
+        
+        /* Object Styles */
+        .data-block { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; position: relative; cursor: pointer; transition: 0.2s; }
+        .data-block:hover { border-color: var(--accent); background: #f1f5f9; }
+        .data-label { font-size: 0.7rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; font-weight: 800; }
+        
+        /* Progress Bar Type */
+        .bar-bg { height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; margin-top: 10px; }
+        .bar-fill { height: 100%; background: var(--accent); transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        /* Graph Type */
+        canvas { width: 100%; height: 60px; background: #fff; border-radius: 4px; border: 1px solid #f1f5f9; margin-top: 5px; }
+
+        /* Numeric/Instrument Type */
+        .num-val { font-size: 1.8rem; font-weight: 700; font-family: 'Courier New', monospace; color: #334155; }
+        
+        /* Alerts */
+        .anomaly-flash { border-color: var(--danger) !important; box-shadow: 0 0 15px rgba(248, 113, 113, 0.2); }
+        
+        .screen { display: none; }
+        .active { display: block; }
+        button { background: #1e293b; color: white; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div id="screen-start" class="screen active">
+        <h1 style="margin-top:0">System Monitor v4.0</h1>
+        <p>Monitor real-time instrument data. Identify and clear anomalies before the system destabilizes.</p>
+        <div style="background:#f1f5f9; padding:15px; border-radius:10px; margin:20px 0; font-size:0.9rem;">
+            <b>Anomalies:</b> Rapid spikes, flatlines, or "Out-of-Bounds" fluctuations.<br>
+            <b>Action:</b> Click the data block to recalibrate (clear) the error.
+        </div>
+        <button onclick="Game.start()">INITIALIZE SENSORS</button>
+    </div>
+
+    <div id="screen-game" class="screen">
+        <div class="header">
+            <div><span class="stat-badge">LVL: <span id="ui-lvl">1</span></span></div>
+            <div><span class="stat-badge" style="color:var(--accent)">SCORE: <span id="ui-score">0</span></span></div>
+            <div><span class="stat-badge">SIGNAL: <span id="ui-attempts">0</span>/5</span></div>
+        </div>
+        <div id="dashboard-grid"></div>
+        <p style="font-size:0.8rem; color:#94a3b8; margin-top:20px;">SYSTEM STATUS: <span id="ui-status">NOMINAL</span></p>
+    </div>
+
+    <div id="screen-end" class="screen">
+        <h2>Mission Summary</h2>
+        <div id="final-report" style="margin:20px 0; font-size:1.1rem; line-height:1.6"></div>
+        <button onclick="location.reload()">RESTART SYSTEM</button>
+    </div>
+</div>
+
+<script>
+const Game = {
+    lvl: 0, attempts: 0, score: 0, 
+    blocks: [], loop: null, 
+    themes: ['#3b82f6', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444'],
+
+    start() {
+        this.switchScreen('screen-game');
+        this.initLevel();
+    },
+
+    initLevel() {
+        if(this.lvl >= 5) return this.end();
+        document.getElementById('ui-lvl').innerText = this.lvl + 1;
+        this.attempts = 0;
+        this.renderGrid();
+        if(this.loop) clearInterval(this.loop);
+        this.loop = setInterval(() => this.tick(), 800 - (this.lvl * 100));
+    },
+
+    renderGrid() {
+        const grid = document.getElementById('dashboard-grid');
+        grid.innerHTML = '';
+        this.blocks = [];
+        
+        // As level increases, add more blocks (6 to 12)
+        const count = 6 + (this.lvl * 1);
+        for(let i=0; i<count; i++) {
+            const type = this.lvl < 2 ? 'bar' : (this.lvl < 4 ? 'graph' : 'numeric');
+            const block = this.createBlock(i, type);
+            grid.appendChild(block.el);
+            this.blocks.push(block);
+        }
+    },
+
+    createBlock(id, type) {
+        const div = document.createElement('div');
+        div.className = 'data-block';
+        div.onclick = () => this.handleBlockClick(id);
+        
+        let content = `<div class="data-label">CH-${100+id} ${type.toUpperCase()}</div>`;
+        if(type === 'bar') content += `<div class="bar-bg"><div class="bar-fill" id="fill-${id}" style="width:50%"></div></div>`;
+        if(type === 'graph') content += `<canvas id="canvas-${id}"></canvas>`;
+        if(type === 'numeric') content += `<div class="num-val" id="num-${id}">0.00</div>`;
+
+        div.innerHTML = content;
+        return { id, type, val: 50, history: [50,52,48,50], isAnomaly: false, el: div };
+    },
+
+    tick() {
+        this.blocks.forEach(b => {
+            // Randomly trigger anomaly
+            if(!b.isAnomaly && Math.random() > (0.92 - (this.lvl * 0.02))) {
+                b.isAnomaly = true;
+                b.el.classList.add('anomaly-flash');
+            }
+
+            if(b.isAnomaly) {
+                b.val = Math.random() > 0.5 ? 98 : 2; // Spike or Drop
+            } else {
+                b.val = Math.max(10, Math.min(90, b.val + (Math.random()*10 - 5)));
+            }
+
+            // Update visuals based on type
+            if(b.type === 'bar') document.getElementById(`fill-${b.id}`).style.width = b.val + '%';
+            if(b.type === 'numeric') document.getElementById(`num-${b.id}`).innerText = b.val.toFixed(2);
+            if(b.type === 'graph') this.drawGraph(b);
+        });
+    },
+
+    drawGraph(b) {
+        const canvas = document.getElementById(`canvas-${b.id}`);
+        if(!canvas) return;
+        const ctx = canvas.getContext('2d');
+        b.history.push(b.val);
+        if(b.history.length > 20) b.history.shift();
+        
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.strokeStyle = this.themes[this.lvl];
+        ctx.lineWidth = 2;
+        b.history.forEach((v, i) => {
+            const x = (i / 20) * canvas.width;
+            const y = canvas.height - (v / 100 * canvas.height);
+            if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        });
+        ctx.stroke();
+    },
+
+    handleBlockClick(id) {
+        const b = this.blocks[id];
+        if(b.isAnomaly) {
+            this.score += 150;
+            b.isAnomaly = false;
+            b.val = 50;
+            b.el.classList.remove('anomaly-flash');
+            this.attempts++;
+            document.getElementById('ui-attempts').innerText = this.attempts;
+            document.getElementById('ui-score').innerText = this.score;
+            if(this.attempts >= 5) {
+                this.lvl++;
+                this.initLevel();
+            }
+        } else {
+            this.score -= 50;
+            document.getElementById('ui-score').innerText = this.score;
+        }
+    },
+
+    switchScreen(id) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    },
+
+    end() {
+        clearInterval(this.loop);
+        this.switchScreen('screen-end');
+        const perf = this.score > 3000 ? "EXCEPTIONAL" : "NOMINAL";
+        document.getElementById('final-report').innerHTML = `
+            <b>Status:</b> ${perf}<br>
+            <b>Final Score:</b> ${this.score}<br>
+            <b>Clearance Rate:</b> 100% across 5 Sectors.
+        `;
+    }
+};
+</script>
+</body>
+</html>

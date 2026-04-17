@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f0f4f8; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        #app-wrapper { background: #fff; width: 500px; padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; }
+        
+        .page { display: none; flex-direction: column; align-items: center; gap: 20px; }
+        #canvas { background: #f8fafc; border-radius: 12px; width: 400px; height: 200px; position: relative; border: 1px solid #e2e8f0; overflow: hidden; }
+        
+        .dot { position: absolute; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 24px; z-index: 2; }
+        #target { position: absolute; left: 330px; top: 90px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; z-index: 1; }
+        #target::after { content: '◎'; font-size: 30px; color: #f6ad55; }
+        
+        button { padding: 12px 30px; border-radius: 8px; border: none; background: #2d3748; color: white; cursor: pointer; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<div id="app-wrapper">
+    <div id="p1" class="page" style="display: flex;">
+        <h2>Time-to-Impact</h2>
+        <p>Align the center of the shape with the center of the ◎ marker.</p>
+        <button onclick="startLevel(0)">START TRAINING</button>
+    </div>
+
+    <div id="p2" class="page">
+        <h3 id="lvl-info">Level 1/5</h3>
+        <div id="canvas">
+            <div id="obj" class="dot">●</div>
+            <div id="target"></div>
+        </div>
+        <button onclick="handleLock()">LOCK INTERCEPT</button>
+        <div id="feedback" style="height:20px; font-weight:700;"></div>
+    </div>
+
+    <div id="p3" class="page">
+        <h2>Mission Summary</h2>
+        <p id="stats"></p>
+        <button onclick="location.reload()">RESTART</button>
+    </div>
+</div>
+
+<script>
+    let lvl = 0, isFlying = false, errors = [], animationId = null;
+    const obj = document.getElementById('obj'), shapes = ['●', '■', '▲', '◆', '✚'];
+
+    function startLevel(index) {
+        lvl = index;
+        document.getElementById('p1').style.display = 'none';
+        document.getElementById('p2').style.display = 'flex';
+        document.getElementById('p3').style.display = 'none';
+        document.getElementById('feedback').innerText = "Tracking...";
+        
+        isFlying = true;
+        obj.innerText = shapes[lvl];
+        let t = 0, speed = 0.015 + (lvl * 0.005);
+        
+        function animate() {
+            if(!isFlying) return;
+            t += speed;
+            let x = t * 330;
+            let y = 90 + Math.sin(t * (6 + lvl)) * 50;
+            
+            obj.style.left = (x - 20) + 'px'; 
+            obj.style.top = (y - 20) + 'px';
+            
+            // AUTO-LOCK if object passes the target zone
+            if (t * 330 > 360) { handleLock(); } 
+            else { animationId = requestAnimationFrame(animate); }
+        }
+        animate();
+    }
+
+    function handleLock() {
+        if(!isFlying) return;
+        isFlying = false;
+        cancelAnimationFrame(animationId);
+        
+        let dx = Math.abs((parseFloat(obj.style.left) + 20) - 330);
+        let dy = Math.abs((parseFloat(obj.style.top) + 20) - 90);
+        let error = Math.sqrt(dx*dx + dy*dy);
+        
+        errors.push(error);
+        document.getElementById('feedback').innerText = `Deviation: ${Math.round(error)}px`;
+        
+        setTimeout(() => {
+            if(lvl < 4) {
+                startLevel(lvl + 1);
+            } else {
+                showResults();
+            }
+        }, 1000);
+    }
+
+    function showResults() {
+        document.getElementById('p2').style.display = 'none';
+        document.getElementById('p3').style.display = 'flex';
+        let avg = Math.round(errors.reduce((a,b) => a+b)/5);
+        document.getElementById('stats').innerText = `Average Spatial Deviation: ${avg}px.`;
+    }
+</script>
+</body>
+</html>

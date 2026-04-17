@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #edf2f7; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        
+        /* Unified Outline Box */
+        #game-container { 
+            background: #ffffff; padding: 30px; border-radius: 24px; 
+            border: 1px solid #e2e8f0; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            width: 420px; text-align: center; position: relative;
+        }
+
+        /* Modal Overlay (In-Box) */
+        #modal { position: absolute; top:0; left:0; width:100%; height:100%; background:white; z-index:10; border-radius:24px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+        
+        .stats { display: flex; justify-content: space-between; font-weight: 700; color: #4a5568; margin-bottom: 20px; }
+        #grid { display: grid; gap: 8px; margin: 0 auto; justify-content: center; }
+        .cell { width: 50px; height: 50px; background: #e2e8f0; border-radius: 8px; cursor: pointer; }
+        .cell.active { background: #63b3ed; }
+        .cell.selected { border: 3px solid #4a5568; }
+        
+        #feedback { margin-top: 20px; font-weight: 700; min-height: 24px; }
+        button { padding: 12px 25px; border-radius: 10px; border:none; cursor: pointer; background:#2d3748; color:white; }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <div id="modal">
+        <h2>Extreme Spatial Recall</h2>
+        <p style="font-size: 14px; color: #4a5568; padding: 0 20px;">Recall the pattern under extreme time pressure.</p>
+        <button onclick="startGame()">Start Level 1</button>
+    </div>
+
+    <div class="stats">
+        <div id="lvl-txt">Level 1/5</div>
+        <div id="score">Score: 0</div>
+    </div>
+    
+    <div id="grid"></div>
+    <div id="feedback"></div>
+</div>
+
+<script>
+    const levels = [
+        { size: 3, objs: 4, time: 1500 }, { size: 4, objs: 6, time: 1200 },
+        { size: 4, objs: 8, time: 1000 }, { size: 5, objs: 10, time: 800 }, { size: 5, objs: 12, time: 600 }
+    ];
+    let lvlIdx = 0, score = 0, targetCells = [], selected = [];
+
+    function startGame() { document.getElementById('modal').style.display = 'none'; runLevel(); }
+
+    function runLevel() {
+        if(lvlIdx >= 5) { 
+            document.getElementById('grid').innerHTML = `<h3>Final Score: ${score}</h3><button onclick="location.reload()">Restart</button>`;
+            return; 
+        }
+        
+        const cfg = levels[lvlIdx], grid = document.getElementById('grid');
+        grid.style.gridTemplateColumns = `repeat(${cfg.size}, 50px)`;
+        grid.innerHTML = ''; targetCells = []; selected = [];
+        document.getElementById('lvl-txt').innerText = `Level ${lvlIdx + 1}/5`;
+        
+        for(let i=0; i<cfg.size*cfg.size; i++) {
+            const cell = document.createElement('div');
+            cell.className = 'cell';
+            cell.onclick = () => select(cell, i);
+            grid.appendChild(cell);
+        }
+
+        while(targetCells.length < cfg.objs) {
+            let idx = Math.floor(Math.random() * (cfg.size * cfg.size));
+            if(!targetCells.includes(idx)) targetCells.push(idx);
+        }
+
+        targetCells.forEach(i => grid.children[i].classList.add('active'));
+        setTimeout(() => {
+            targetCells.forEach(i => grid.children[i].classList.remove('active'));
+            document.getElementById('feedback').innerText = "Select original positions!";
+        }, cfg.time);
+    }
+
+    function select(el, i) {
+        if(selected.includes(i)) return;
+        selected.push(i);
+        el.classList.add('selected');
+        
+        if(selected.length === levels[lvlIdx].objs) {
+            if(targetCells.every(t => selected.includes(t))) {
+                score += 100; document.getElementById('score').innerText = `Score: ${score}`;
+                document.getElementById('feedback').innerText = "Perfect!";
+                lvlIdx++; setTimeout(runLevel, 800);
+            } else {
+                document.getElementById('feedback').innerText = "Failed! Restarting Level...";
+                setTimeout(runLevel, 1000);
+            }
+        }
+    }
+</script>
+</body>
+</html>

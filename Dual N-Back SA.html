@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root { --bg: #f8fafc; --panel: #ffffff; --accent: #3b82f6; --text: #1e293b; --success: #22c55e; --danger: #ef4444; }
+        body { font-family: 'Inter', system-ui; background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%); display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        
+        #game-container { background: var(--panel); padding: 40px; border-radius: 30px; box-shadow: 0 25px 50px rgba(0,0,0,0.15); text-align: center; width: 450px; position: relative; }
+        
+        /* INSTRUCTION PANEL */
+        #instruction-panel { position: absolute; top:0; left:0; width:100%; height:100%; background:white; z-index:100; border-radius:30px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 30px; box-sizing: border-box; }
+        .bullet-list { text-align: left; margin: 20px 0; font-size: 15px; color: #4a5568; line-height: 1.8; }
+        
+        /* GRID & STIMULUS */
+        #grid { display: grid; grid-template-columns: repeat(3, 100px); gap: 15px; justify-content: center; margin: 25px 0; }
+        .cell { width: 100px; height: 100px; background: #f1f5f9; border-radius: 16px; transition: 0.1s; border: 2px solid transparent; }
+        .cell.active { background: var(--accent); transform: scale(1.05); box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+        
+        /* CONTROLS */
+        .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .btn { padding: 18px; border-radius: 12px; border: none; font-weight: 700; cursor: pointer; color: white; transition: 0.2s; }
+        .pos-btn { background: #3b82f6; }
+        .snd-btn { background: #8b5cf6; }
+        .start-btn { background: #1e293b; width: 100%; padding: 15px; margin-top: 10px; }
+        
+        .timer-progress { height: 6px; background: #e2e8f0; border-radius: 3px; margin-bottom: 20px; overflow: hidden; }
+        #timer-fill { height: 100%; background: var(--accent); width: 0%; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <div id="instruction-panel">
+        <h2 style="margin-top:0;">Dual N-Back Training</h2>
+        <ul class="bullet-list">
+            <li><b>Visual Monitoring:</b> Match the square position to the one seen <b>N-steps back</b>.</li>
+            <li><b>Auditory Monitoring:</b> Match the spoken alphabet to the one heard <b>N-steps back</b>.</li>
+            <li><b>Real-time Response:</b> Press buttons as soon as you detect a match.</li>
+            <li><b>Keyboard Shortcuts:</b> Use <b>[A]</b> for Position and <b>[L]</b> for Sound.</li>
+        </ul>
+        <button class="btn start-btn" onclick="Game.init()">INITIALIZE TRAINING</button>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600; font-size: 14px; color: #64748b;">
+        <span id="ui-lvl">N = 1 (1-Back)</span>
+        <span id="ui-score">Hits: 0</span>
+    </div>
+    
+    <div class="timer-progress"><div id="timer-fill"></div></div>
+
+    <div id="grid">
+        <div class="cell" id="c0"></div><div class="cell" id="c1"></div><div class="cell" id="c2"></div>
+        <div class="cell" id="c3"></div><div class="cell" id="c4"></div><div class="cell" id="c5"></div>
+        <div class="cell" id="c6"></div><div class="cell" id="c7"></div><div class="cell" id="c8"></div>
+    </div>
+
+    <div class="controls">
+        <button class="btn pos-btn" onclick="Game.recordResponse('pos')">POS MATCH [A]</button>
+        <button class="btn snd-btn" onclick="Game.recordResponse('snd')">SND MATCH [L]</button>
+    </div>
+</div>
+
+<script>
+const Game = {
+    lvl: 1, history: [], hits: 0, trials: 0, 
+    letters: ['C', 'H', 'K', 'L', 'Q', 'R', 'S', 'T'],
+
+    init() {
+        document.getElementById('instruction-panel').classList.add('hidden');
+        this.history = []; this.hits = 0; this.trials = 0;
+        this.nextTrial();
+    },
+
+    nextTrial() {
+        if (this.trials >= 20) { this.showResults(); return; }
+        
+        const pos = Math.floor(Math.random() * 9);
+        const letter = this.letters[Math.floor(Math.random() * this.letters.length)];
+        this.history.push({ pos, letter });
+
+        // Visual Stimulus
+        const cell = document.getElementById(`c${pos}`);
+        cell.classList.add('active');
+        
+        // Alphabet Sound (Speech Synthesis)
+        const msg = new SpeechSynthesisUtterance(letter);
+        window.speechSynthesis.speak(msg);
+
+        this.trials++;
+        this.animateTimer();
+
+        setTimeout(() => {
+            cell.classList.remove('active');
+            setTimeout(() => this.nextTrial(), 600);
+        }, 2000);
+    },
+
+    animateTimer() {
+        const fill = document.getElementById('timer-fill');
+        fill.style.transition = 'none';
+        fill.style.width = '100%';
+        setTimeout(() => {
+            fill.style.transition = 'width 2s linear';
+            fill.style.width = '0%';
+        }, 50);
+    },
+
+    recordResponse(type) {
+        if (this.history.length <= this.lvl) return;
+        const current = this.history[this.history.length - 1];
+        const nBack = this.history[this.history.length - 1 - this.lvl];
+        
+        const match = (type === 'pos') ? (current.pos === nBack.pos) : (current.letter === nBack.letter);
+        if (match) {
+            this.hits++;
+            document.getElementById('ui-score').innerText = `Hits: ${this.hits}`;
+        }
+    },
+
+    showResults() {
+        const panel = document.getElementById('instruction-panel');
+        panel.innerHTML = `<h2>Training Complete</h2><p>Accuracy: ${Math.round((this.hits/20)*100)}%</p>
+                           <button class="btn start-btn" onclick="location.reload()">RESTART</button>`;
+        panel.classList.remove('hidden');
+    }
+};
+
+window.addEventListener('keydown', (e) => {
+    if (e.key.toLowerCase() === 'a') Game.recordResponse('pos');
+    if (e.key.toLowerCase() === 'l') Game.recordResponse('snd');
+});
+</script>
+</body>
+</html>
